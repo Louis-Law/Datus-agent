@@ -7,9 +7,16 @@ from unittest.mock import Mock
 import pytest
 
 from datus.tools.db_tools import BaseSqlConnector
+from datus.tools.db_tools.mixins import CatalogSupportMixin, MaterializedViewSupportMixin, SchemaNamespaceMixin
 from datus.tools.func_tool import DBFuncTool
 from datus.tools.func_tool.base import FuncToolResult
 from datus.utils.constants import SUPPORT_DATABASE_DIALECTS, SUPPORT_SCHEMA_DIALECTS, DBType
+
+
+class _MockConnectorSpec(BaseSqlConnector, CatalogSupportMixin, SchemaNamespaceMixin, MaterializedViewSupportMixin):
+    """Helper class combining mixins so the connector mock exposes optional methods."""
+
+    pass
 
 
 class FakeRecordBatch:
@@ -29,19 +36,50 @@ class FakeRecordBatch:
 @pytest.fixture
 def mock_connector():
     """Create a mock database connector."""
-    connector = Mock(spec=BaseSqlConnector)
+    connector = Mock(spec=_MockConnectorSpec)
     connector.dialect = "postgresql"
     connector.catalog_name = ""
     connector.database_name = "db1"
     connector.schema_name = "schema1"
 
     # Setup mock return values
-    connector.get_catalogs.return_value = ["catalog1", "catalog2"]
     connector.get_databases.return_value = ["db1", "db2"]
     connector.get_schemas.return_value = ["schema1", "schema2"]
     connector.get_tables.return_value = ["users", "orders"]
     connector.get_views.return_value = ["user_view", "order_view"]
-    connector.get_materialized_views.return_value = ["sales_mv"]
+    connector.get_materialized_views = Mock(return_value=["sales_mv"])
+    connector.get_tables_with_ddl.return_value = [
+        {
+            "catalog_name": "",
+            "database_name": "db1",
+            "schema_name": "schema1",
+            "table_name": "users",
+            "definition": "CREATE TABLE users (...);",
+            "table_type": "table",
+        }
+    ]
+    connector.get_views_with_ddl.return_value = [
+        {
+            "catalog_name": "",
+            "database_name": "db1",
+            "schema_name": "schema1",
+            "table_name": "user_view",
+            "definition": "CREATE VIEW user_view AS ...",
+            "table_type": "view",
+        }
+    ]
+    connector.get_materialized_views_with_ddl = Mock(
+        return_value=[
+            {
+                "catalog_name": "",
+                "database_name": "db1",
+                "schema_name": "schema1",
+                "table_name": "sales_mv",
+                "definition": "CREATE MATERIALIZED VIEW sales_mv AS ...",
+                "table_type": "mv",
+            }
+        ]
+    )
     connector.get_schema.return_value = [
         {"column_name": "id", "data_type": "integer", "is_nullable": "NO"},
         {"column_name": "name", "data_type": "varchar", "is_nullable": "YES"},
@@ -225,7 +263,7 @@ class TestDBFuncTool:
 
     def test_list_databases_wildcard_scope_allows_multiple(self):
         """Wildcard scopes should permit every matching database."""
-        connector = Mock(spec=BaseSqlConnector)
+        connector = Mock(spec=_MockConnectorSpec)
         connector.dialect = "postgresql"
         connector.catalog_name = ""
         connector.database_name = "db1"
@@ -241,7 +279,7 @@ class TestDBFuncTool:
 
     def test_list_databases_wildcard_scope_filters_non_matching(self):
         """Wildcard scopes should drop databases that do not match."""
-        connector = Mock(spec=BaseSqlConnector)
+        connector = Mock(spec=_MockConnectorSpec)
         connector.dialect = "postgresql"
         connector.catalog_name = ""
         connector.database_name = "db1"
@@ -257,7 +295,7 @@ class TestDBFuncTool:
 
     def test_list_schemas_wildcard_scope(self):
         """Wildcard scopes should retain every schema for the matched database."""
-        connector = Mock(spec=BaseSqlConnector)
+        connector = Mock(spec=_MockConnectorSpec)
         connector.dialect = "postgresql"
         connector.catalog_name = ""
         connector.database_name = "db1"
@@ -277,7 +315,7 @@ class TestDBFuncTool:
 
     def test_list_schemas_wildcard_scope_filters_non_matching(self):
         """Wildcard scopes should return empty when the database is out of scope."""
-        connector = Mock(spec=BaseSqlConnector)
+        connector = Mock(spec=_MockConnectorSpec)
         connector.dialect = "postgresql"
         connector.catalog_name = ""
         connector.database_name = "db1"
@@ -293,7 +331,7 @@ class TestDBFuncTool:
 
     def test_list_tables_wildcard_scope_filters_by_schema(self):
         """Wildcard scopes should allow matching schemas and exclude others."""
-        connector = Mock(spec=BaseSqlConnector)
+        connector = Mock(spec=_MockConnectorSpec)
         connector.dialect = "postgresql"
         connector.catalog_name = ""
         connector.database_name = "db1"
@@ -334,7 +372,7 @@ class TestDBFuncTool:
 
     def test_list_tables_wildcard_scope_filters_non_matching_database(self):
         """Wildcard scopes should filter out tables from databases outside scope."""
-        connector = Mock(spec=BaseSqlConnector)
+        connector = Mock(spec=_MockConnectorSpec)
         connector.dialect = "postgresql"
         connector.catalog_name = ""
         connector.database_name = "db1"
@@ -403,40 +441,58 @@ class TestDBFuncTool:
 
     def test_describe_table_success(self, db_func_tool, mock_connector):
         """Test successful describe_table execution."""
+        mock_connector.get_tables_with_ddl.return_value = [
+            {
+                "catalog_name": "test_catalog",
+                "database_name": "test_db",
+                "schema_name": "test_schema",
+                "table_name": "users",
+                "definition": "CREATE TABLE users (...);",
+                "table_type": "table",
+            }
+        ]
+
         result = db_func_tool.describe_table(
             table_name="users", catalog="test_catalog", database="test_db", schema_name="test_schema"
         )
 
         assert isinstance(result, FuncToolResult)
         assert result.success == 1
-        assert result.error is None
-        assert isinstance(result.result, dict)
-        assert "columns" in result.result
-        assert "table_info" in result.result
-        assert len(result.result["columns"]) == 2  # Two columns
-        assert result.result["columns"][0]["column_name"] == "id"
-        assert result.result["table_info"] == {}
+        table_info = result.result["table_info"]
+        assert table_info["table_name"] == "users"
+        assert table_info["definition"].startswith("CREATE TABLE")
+        assert result.result["semantic_model"] is None
 
-        mock_connector.get_schema.assert_called_once_with(
-            catalog_name="test_catalog", database_name="test_db", schema_name="test_schema", table_name="users"
+        mock_connector.get_tables_with_ddl.assert_called_once_with(
+            catalog_name="test_catalog", database_name="test_db", schema_name="test_schema", tables=["users"]
         )
 
     def test_describe_table_scope_validation(self, mock_connector):
         """describe_table should block tables outside scoped set."""
         tool = DBFuncTool(mock_connector, scoped_tables={"db1.schema1.orders"})
+        mock_connector.get_tables_with_ddl.return_value = [
+            {
+                "catalog_name": "",
+                "database_name": "",
+                "schema_name": "",
+                "table_name": "orders",
+                "definition": "CREATE TABLE orders (...);",
+                "table_type": "table",
+            }
+        ]
 
         allowed = tool.describe_table(table_name="orders")
         assert allowed.success == 1
-        mock_connector.get_schema.assert_called_once_with(
-            catalog_name="", database_name="", schema_name="", table_name="orders"
+        mock_connector.get_tables_with_ddl.assert_called_once_with(
+            catalog_name="", database_name="", schema_name="", tables=["orders"]
         )
 
-        mock_connector.get_schema.reset_mock()
+        mock_connector.get_tables_with_ddl.reset_mock()
 
         denied = tool.describe_table(table_name="users")
         assert denied.success == 0
         assert "users" in (denied.error or "")
-        mock_connector.get_schema.assert_not_called()
+        mock_connector.get_tables_with_ddl.assert_not_called()
 
     @pytest.mark.parametrize(
         "scoped_entry, kwargs",
@@ -450,37 +506,57 @@ class TestDBFuncTool:
     )
     def test_describe_table_scope_variants_allow(self, mock_connector, scoped_entry, kwargs):
         """Different scoped table formats should still authorize describe_table calls."""
-        mock_connector.get_schema.reset_mock()
+        mock_connector.get_tables_with_ddl.return_value = [
+            {
+                "catalog_name": "",
+                "database_name": "",
+                "schema_name": "",
+                "table_name": "orders",
+                "definition": "CREATE TABLE orders (...);",
+                "table_type": "table",
+            }
+        ]
         tool = DBFuncTool(mock_connector, scoped_tables={scoped_entry})
 
         result = tool.describe_table(table_name="orders", **kwargs)
 
         assert result.success == 1
-        mock_connector.get_schema.assert_called_once()
+        mock_connector.get_tables_with_ddl.assert_called_once()
 
     def test_describe_table_default_params(self, db_func_tool, mock_connector):
         """Test describe_table with default parameters."""
         result = db_func_tool.describe_table(table_name="users")
 
         assert result.success == 1
-        mock_connector.get_schema.assert_called_once_with(
-            catalog_name="", database_name="", schema_name="", table_name="users"
+        mock_connector.get_tables_with_ddl.assert_called_once_with(
+            catalog_name="", database_name="", schema_name="", tables=["users"]
         )
 
     def test_describe_table_failure(self, db_func_tool, mock_connector):
-        """Test describe_table with exception."""
-        mock_connector.get_schema.side_effect = Exception("Schema retrieval failed")
+        """Test describe_table when connector raises."""
+        mock_connector.get_tables_with_ddl.side_effect = Exception("DDL retrieval failed")
 
         result = db_func_tool.describe_table(table_name="nonexistent")
 
         assert result.success == 0
-        assert "Schema retrieval failed" in result.error
+        assert "DDL retrieval failed" in (result.error or "")
 
     def test_describe_table_includes_semantic_details(self, db_func_tool, mock_connector):
         """Semantic model details should enrich describe_table output."""
+        mock_connector.get_tables_with_ddl.return_value = [
+            {
+                "catalog_name": "",
+                "database_name": "",
+                "schema_name": "",
+                "table_name": "orders",
+                "definition": "CREATE TABLE orders (...);",
+                "table_type": "table",
+            }
+        ]
         db_func_tool.has_semantic_models = True
         db_func_tool._get_semantic_model = Mock(
             return_value={
+                "semantic_model_name": "orders_model",
                 "semantic_model_desc": "Orders semantic model",
                 "dimensions": ["customer_id"],
                 "measures": ["total_sales"],
@@ -490,11 +566,42 @@ class TestDBFuncTool:
         result = db_func_tool.describe_table(table_name="orders")
 
         assert result.success == 1
-        table_info = result.result["table_info"]
-        assert table_info["description"] == "Orders semantic model"
-        assert table_info["dimensions"] == ["customer_id"]
-        assert table_info["measures"] == ["total_sales"]
-        mock_connector.get_schema.assert_called_once()
+        assert result.result["semantic_model"] == {
+            "name": "orders_model",
+            "description": "Orders semantic model",
+            "dimensions": ["customer_id"],
+            "measures": ["total_sales"],
+        }
+
+    def test_describe_table_prefers_view_metadata(self, db_func_tool, mock_connector):
+        """When table_type=view, connector view metadata should be used."""
+        mock_connector.get_tables_with_ddl.return_value = []
+        mock_connector.get_views_with_ddl.return_value = [
+            {
+                "catalog_name": "",
+                "database_name": "db1",
+                "schema_name": "schema1",
+                "table_name": "user_view",
+                "definition": "CREATE VIEW user_view AS ...",
+                "table_type": "view",
+            }
+        ]
+
+        result = db_func_tool.describe_table(table_name="user_view", table_type="view")
+
+        assert result.success == 1
+        assert result.result["table_info"]["table_type"] == "view"
+        mock_connector.get_tables_with_ddl.assert_not_called()
+        mock_connector.get_views_with_ddl.assert_called_once_with(catalog_name="", database_name="", schema_name="")
+
+    def test_describe_table_mv_not_supported(self, db_func_tool, mock_connector):
+        """Requesting mv type without connector support should fail."""
+        mock_connector.get_materialized_views_with_ddl = None
+
+        result = db_func_tool.describe_table(table_name="sales_mv", table_type="mv")
+
+        assert result.success == 0
+        assert "does not support" in (result.error or "")
 
     def test_read_query_success(self, db_func_tool, mock_connector):
         """Test successful read_query execution."""
@@ -592,7 +699,7 @@ class TestDBFuncTool:
 
     def test_catalog_scoped_tables_filter_results(self):
         """Catalog-qualified scopes should restrict databases, schemas, and tables."""
-        connector = Mock(spec=BaseSqlConnector)
+        connector = Mock(spec=_MockConnectorSpec)
         connector.dialect = DBType.SNOWFLAKE
         connector.catalog_name = "cat1"
         connector.database_name = "analytics"
@@ -652,8 +759,8 @@ class TestDBFuncTool:
             def get_semantic_model_size(self):
                 return 0
 
-        monkeypatch.setattr("datus.tools.tools.SchemaWithValueRAG", StubSchemaRAG)
-        monkeypatch.setattr("datus.tools.tools.SemanticMetricsRAG", StubSemanticRAG)
+        monkeypatch.setattr("datus.tools.func_tool.database.SchemaWithValueRAG", StubSchemaRAG)
+        monkeypatch.setattr("datus.tools.func_tool.database.SemanticMetricsRAG", StubSemanticRAG)
 
         class DummyAgentConfig:
             def __init__(self):
@@ -669,15 +776,25 @@ class TestDBFuncTool:
 
         tool = DBFuncTool(mock_connector, agent_config=DummyAgentConfig(), sub_agent_name="sales")
 
-        mock_connector.get_schema.reset_mock()
+        mock_connector.get_tables_with_ddl.return_value = [
+            {
+                "catalog_name": "",
+                "database_name": "db1",
+                "schema_name": "schema1",
+                "table_name": "orders",
+                "definition": "CREATE TABLE orders (...);",
+                "table_type": "table",
+            }
+        ]
+
         allowed = tool.describe_table("orders")
         assert allowed.success == 1
-        mock_connector.get_schema.assert_called_once()
+        mock_connector.get_tables_with_ddl.assert_called_once()
 
-        mock_connector.get_schema.reset_mock()
+        mock_connector.get_tables_with_ddl.reset_mock()
         denied = tool.describe_table("users")
         assert denied.success == 0
-        mock_connector.get_schema.assert_not_called()
+        mock_connector.get_tables_with_ddl.assert_not_called()
 
 
 class TestDBFuncToolEdgeCases:
@@ -686,7 +803,6 @@ class TestDBFuncToolEdgeCases:
     def test_empty_results(self, db_func_tool, mock_connector):
         """Test methods with empty results."""
         # Setup empty returns
-        mock_connector.get_catalogs.return_value = []
         mock_connector.get_databases.return_value = []
         mock_connector.get_schemas.return_value = []
         mock_connector.get_tables.return_value = []
@@ -816,6 +932,7 @@ class TestDBFuncToolIntegration:
         db_func_tool.has_semantic_models = True
         db_func_tool._get_semantic_model = Mock(
             return_value={
+                "semantic_model_name": "orders_model",
                 "semantic_model_desc": "Orders summary",
                 "dimensions": ["order_id"],
                 "measures": ["total_amount"],
@@ -823,7 +940,7 @@ class TestDBFuncToolIntegration:
         )
 
         result = db_func_tool.search_table("orders table")
-
+        print("$$$$$", result)
         assert result.success == 1
         metadata = result.result["metadata"]
         assert metadata[0]["description"] == "Orders summary"

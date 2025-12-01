@@ -11,6 +11,7 @@ from agents import Tool
 
 from datus.configuration.agent_config import AgentConfig
 from datus.schemas.agent_models import SubAgentConfig
+from datus.schemas.base import TABLE_TYPE
 from datus.storage.metric.store import SemanticMetricsRAG
 from datus.storage.schema_metadata.store import SchemaWithValueRAG
 from datus.tools.db_tools import BaseSqlConnector
@@ -235,6 +236,30 @@ class DBFuncTool:
             if self._table_matches_scope(coordinate):
                 filtered.append(entry)
         return filtered
+
+    def _resolve_ddl_entry(
+        self,
+        table_name: str,
+        requested_type: TABLE_TYPE,
+        catalog: Optional[str],
+        database: Optional[str],
+        schema_name: Optional[str],
+    ) -> Optional[Dict[str, Any]]:
+        if requested_type == "table":
+            result = self.connector.get_tables_with_ddl(
+                catalog_name=catalog, database_name=database, schema_name=schema_name, tables=[table_name]
+            )
+        elif requested_type == "view":
+            view_fetcher = getattr(self.connector, "get_views_with_ddl", None)
+            if not callable(view_fetcher):
+                raise AttributeError("get_views_with_ddl unavailable")
+            result = view_fetcher(catalog_name=catalog, database_name=database, schema_name=schema_name)
+        else:
+            mv_fetcher = getattr(self.connector, "get_materialized_views_with_ddl", None)
+            if not callable(mv_fetcher):
+                raise AttributeError("get_materialized_views_with_ddl unavailable")
+            result = mv_fetcher(catalog_name=catalog, database_name=database, schema_name=schema_name)
+        return None if not result else result[0]
 
     def _matches_catalog_database(self, pattern: ScopedTablePattern, catalog: str, database: str) -> bool:
         if pattern.catalog and not _pattern_matches(pattern.catalog, catalog):
@@ -511,21 +536,24 @@ class DBFuncTool:
         catalog: Optional[str] = "",
         database: Optional[str] = "",
         schema_name: Optional[str] = "",
+        table_type: Optional[str] = "table",
     ) -> FuncToolResult:
         """
-        Fetch detailed column metadata (and optional semantic model info) for the given table.
-        When semantic models exist for the table, `table_info`
-        includes additional description/dimension/measure fields.
+        Return the connector's DDL definition and semantic model for the requested table.
+        Use this when the agent needs a full CREATE statement (e.g. for semantic modelling or schema verification).
+
 
         Args:
             table_name: Table identifier to describe; can be partially qualified.
             catalog: Optional catalog override. Leave blank to rely on connector defaults.
             database: Optional database override. Leave blank to rely on connector defaults.
             schema_name: Optional schema override. Leave blank to rely on connector defaults.
+            table_type: Optional table_type filter, valid options are table, view,
+                and mv(shortcuts of materialized view). Leave blank to rely on connector defaults.
 
         Returns:
-            FuncToolResult with result={"table_info": {...}, "columns": [...]}. Scope violations or connector errors
-            surface as success=0 with an explanatory message.
+            FuncToolResult with result={"table_info": {...}, "semantic_model": {...}}.
+            Scope violations or connector errors surface as success=0 with an explanatory message.
         """
         try:
             coordinate = self._build_table_coordinate(
@@ -539,18 +567,43 @@ class DBFuncTool:
                     success=0,
                     error=f"Table '{table_name}' is outside the scoped context.",
                 )
-            column_result = self.connector.get_schema(
-                catalog_name=catalog, database_name=database, schema_name=schema_name, table_name=table_name
-            )
-            table_info = {}
+            normalized_type = (table_type or "table").lower()
+            valid_types = {"table", "view", "mv"}
+            if normalized_type not in valid_types:
+                return FuncToolResult(success=0, error=f"Unsupported table_type '{table_type}'.")
+            try:
+                ddl_info = self._resolve_ddl_entry(
+                    table_name=table_name,
+                    requested_type=normalized_type,
+                    catalog=catalog,
+                    database=database,
+                    schema_name=schema_name,
+                )
+            except AttributeError:
+                return FuncToolResult(
+                    success=0, error=f"Connector does not support describe_table for type '{normalized_type}'."
+                )
+            if not ddl_info:
+                return FuncToolResult(success=0, error=f"Table '{table_name}' not found or no DDL available")
+            table_info = {
+                "catalog_name": ddl_info.get("catalog_name", ""),
+                "database_name": ddl_info.get("database_name", ""),
+                "schema_name": ddl_info.get("schema_name", ""),
+                "table_name": ddl_info.get("table_name", ""),
+                "definition": ddl_info.get("definition", ""),
+                "table_type": ddl_info.get("table_type", ""),
+            }
+            semantic_model_info = None
             if self.has_semantic_models:
                 semantic_model = self._get_semantic_model(catalog, database, schema_name, table_name)
                 if semantic_model:
-                    table_info["semantic_model_name"] = semantic_model["semantic_model_name"]
-                    table_info["description"] = semantic_model["semantic_model_desc"]
-                    table_info["dimensions"] = semantic_model["dimensions"]
-                    table_info["measures"] = semantic_model["measures"]
-            return FuncToolResult(result={"table_info": table_info, "columns": column_result})
+                    semantic_model_info = {
+                        "name": semantic_model["semantic_model_name"],
+                        "description": semantic_model["semantic_model_desc"],
+                        "dimensions": semantic_model["dimensions"],
+                        "measures": semantic_model["measures"],
+                    }
+            return FuncToolResult(result={"table_info": table_info, "semantic_model": semantic_model_info})
         except Exception as e:
             return FuncToolResult(success=0, error=str(e))
 
@@ -611,7 +664,6 @@ class DBFuncTool:
                     success=0,
                     error=f"Table '{table_name}' is outside the scoped context.",
                 )
-            # Get tables with DDL
             tables_with_ddl = self.connector.get_tables_with_ddl(
                 catalog_name=catalog, database_name=database, schema_name=schema_name, tables=[table_name]
             )
@@ -619,7 +671,6 @@ class DBFuncTool:
             if not tables_with_ddl:
                 return FuncToolResult(success=0, error=f"Table '{table_name}' not found or no DDL available")
 
-            # Return the first (and only) table's DDL
             table_info = tables_with_ddl[0]
             return FuncToolResult(result=table_info)
 

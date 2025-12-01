@@ -253,12 +253,16 @@ class DBFuncTool:
             view_fetcher = getattr(self.connector, "get_views_with_ddl", None)
             if not callable(view_fetcher):
                 raise AttributeError("get_views_with_ddl unavailable")
-            result = view_fetcher(catalog_name=catalog, database_name=database, schema_name=schema_name)
+            result = view_fetcher(
+                catalog_name=catalog, database_name=database, schema_name=schema_name, tables=[table_name]
+            )
         else:
             mv_fetcher = getattr(self.connector, "get_materialized_views_with_ddl", None)
             if not callable(mv_fetcher):
                 raise AttributeError("get_materialized_views_with_ddl unavailable")
-            result = mv_fetcher(catalog_name=catalog, database_name=database, schema_name=schema_name)
+            result = mv_fetcher(
+                atalog_name=catalog, database_name=database, schema_name=schema_name, tables=[table_name]
+            )
         return None if not result else result[0]
 
     def _matches_catalog_database(self, pattern: ScopedTablePattern, catalog: str, database: str) -> bool:

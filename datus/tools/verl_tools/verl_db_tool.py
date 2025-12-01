@@ -67,7 +67,7 @@ class SchemaTool(BaseVerlDBTool):
     def list_schemas(
         self, catalog: Optional[str] = "", database: Optional[str] = "", include_sys: bool = False
     ) -> FuncToolResult:
-        return self.tool_adapter.list_schemas(catalog, database)
+        return self.tool_adapter.list_schemas(catalog, database, include_sys)
 
 
 class ListTableTool(BaseVerlDBTool):
@@ -88,8 +88,9 @@ class DescTableTool(BaseVerlDBTool):
         catalog: Optional[str] = "",
         database: Optional[str] = "",
         schema_name: Optional[str] = "",
+        table_type: str = "table",
     ) -> FuncToolResult:
-        return self.tool_adapter.describe_table(table_name, catalog, database, schema_name)
+        return self.tool_adapter.describe_table(table_name, catalog, database, schema_name, table_type=table_type)
 
 
 class QueryTool(BaseVerlDBTool):

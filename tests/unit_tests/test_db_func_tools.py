@@ -940,7 +940,6 @@ class TestDBFuncToolIntegration:
         )
 
         result = db_func_tool.search_table("orders table")
-        print("$$$$$", result)
         assert result.success == 1
         metadata = result.result["metadata"]
         assert metadata[0]["description"] == "Orders summary"

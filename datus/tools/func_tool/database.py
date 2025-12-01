@@ -261,7 +261,7 @@ class DBFuncTool:
             if not callable(mv_fetcher):
                 raise AttributeError("get_materialized_views_with_ddl unavailable")
             result = mv_fetcher(
-                atalog_name=catalog, database_name=database, schema_name=schema_name, tables=[table_name]
+                catalog_name=catalog, database_name=database, schema_name=schema_name, tables=[table_name]
             )
         return None if not result else result[0]
 

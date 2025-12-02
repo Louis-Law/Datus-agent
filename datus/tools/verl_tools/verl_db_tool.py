@@ -46,28 +46,29 @@ class BaseVerlDBTool(BaseTool):
         self.agent_config = load_agent_config(config=config.get("config_path"), namespace=config.get("namespace"))
         self.dialect = self.agent_config.db_type
         self.db_manager = db_manager_instance(self.agent_config.namespaces)
-        database_name = config.get("database") or self.agent_config.current_database
-        self.tool_adapter = DBFuncTool(
-            self.db_manager.get_conn(self.agent_config.current_namespace, database_name),
-            self.agent_config,
-        )
 
     def get_openai_tool_schema(self) -> OpenAIFunctionToolSchema:
         return self.tool_schema
+
+    def _tool_adapter(self, database: str) -> DBFuncTool:
+        return DBFuncTool(
+            connector=self.db_manager.get_conn(self.agent_config.current_namespace, database),
+            agent_config=self.agent_config,
+        )
 
 
 class DatabaseTool(BaseVerlDBTool):
     def list_databases(self, catalog: Optional[str] = "", include_sys: Optional[bool] = False) -> FuncToolResult:
         if self.agent_config.db_type == DBType.SQLITE:
             return FuncToolResult(result=[])
-        return self.tool_adapter.list_databases(catalog, include_sys)
+        return self._tool_adapter("").list_databases(catalog, include_sys)
 
 
 class SchemaTool(BaseVerlDBTool):
     def list_schemas(
         self, catalog: Optional[str] = "", database: Optional[str] = "", include_sys: bool = False
     ) -> FuncToolResult:
-        return self.tool_adapter.list_schemas(catalog, database, include_sys)
+        return self._tool_adapter(database).list_schemas(catalog, database, include_sys)
 
 
 class ListTableTool(BaseVerlDBTool):
@@ -78,7 +79,7 @@ class ListTableTool(BaseVerlDBTool):
         schema_name: Optional[str] = "",
         include_views: Optional[bool] = True,
     ) -> FuncToolResult:
-        return self.tool_adapter.list_tables(catalog, database, schema_name, include_views)
+        return self._tool_adapter(database).list_tables(catalog, database, schema_name, include_views)
 
 
 class DescTableTool(BaseVerlDBTool):
@@ -90,9 +91,11 @@ class DescTableTool(BaseVerlDBTool):
         schema_name: Optional[str] = "",
         table_type: str = "table",
     ) -> FuncToolResult:
-        return self.tool_adapter.describe_table(table_name, catalog, database, schema_name, table_type=table_type)
+        return self._tool_adapter(database).describe_table(
+            table_name, catalog, database, schema_name, table_type=table_type
+        )
 
 
 class QueryTool(BaseVerlDBTool):
-    def read_query(self, sql: str) -> FuncToolResult:
-        return self.tool_adapter.read_query(sql)
+    def read_query(self, sql: str, database: Optional[str] = "") -> FuncToolResult:
+        return self._tool_adapter(database).read_query(sql)

@@ -4,16 +4,15 @@
 
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class ConnectionConfig(BaseModel):
     """Base connection configuration for all database connectors."""
 
-    timeout_seconds: int = Field(default=30, description="Connection timeout in seconds")
+    model_config = ConfigDict(extra="forbid")
 
-    class Config:
-        extra = "forbid"  # Reject unknown fields to catch typos
+    timeout_seconds: int = Field(default=30, description="Connection timeout in seconds")
 
 
 class FileConnectionConfig(ConnectionConfig):

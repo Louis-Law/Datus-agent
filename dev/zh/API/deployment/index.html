@@ -2033,6 +2033,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="启动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前台启动（默认）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        后台守护进程模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2047,7 +2075,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         环境变量
@@ -2058,7 +2086,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         配置文件解析优先级
@@ -2069,7 +2097,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         内置端点
@@ -2091,7 +2119,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         生产部署提示
@@ -3169,6 +3197,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="启动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前台启动（默认）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        后台守护进程模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3183,7 +3239,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         环境变量
@@ -3194,7 +3250,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
         配置文件解析优先级
@@ -3205,7 +3261,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
         内置端点
@@ -3227,7 +3283,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
         生产部署提示
@@ -3269,7 +3325,29 @@
 </span></code></pre></div>
 <p><code>datus-api</code> 控制台脚本会自动注册。</p>
 <h2 id="_2">启动<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">前台启动（默认）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>datus-api<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># 或通过 uv 运行</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>uv<span class="w"> </span>run<span class="w"> </span>datus-api<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span>
+</span></code></pre></div>
+<h3 id="_4">后台守护进程模式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>以守护进程方式在后台运行 API 服务：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 后台启动</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>datus-api<span class="w"> </span>--daemon<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 查看状态</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>datus-api<span class="w"> </span>--action<span class="w"> </span>status
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># 停止</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>datus-api<span class="w"> </span>--action<span class="w"> </span>stop
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># 重启</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>datus-api<span class="w"> </span>--action<span class="w"> </span>restart
+</span></code></pre></div>
+<p>所有守护进程命令也支持 <code>uv run</code>，例如 <code>uv run datus-api --daemon --port 8000</code>。</p>
+<p>默认情况下，PID 文件存储在 <code>~/.datus/run/datus-agent-api.pid</code>，守护进程日志写入 <code>logs/datus-agent-api.log</code>。可通过参数覆盖：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>datus-api<span class="w"> </span>--daemon<span class="w"> </span>--pid-file<span class="w"> </span>/var/run/datus-api.pid<span class="w"> </span>--daemon-log-file<span class="w"> </span>/var/log/datus-api.log
 </span></code></pre></div>
 <h2 id="cli">CLI 参数<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h2>
 <table>
@@ -3326,10 +3404,31 @@
 <td>—</td>
 <td>打印版本并退出</td>
 </tr>
+<tr>
+<td><code>--daemon</code></td>
+<td>关闭</td>
+<td>以守护进程方式后台运行</td>
+</tr>
+<tr>
+<td><code>--action</code></td>
+<td><code>start</code></td>
+<td>守护进程操作：<code>start</code>、<code>stop</code>、<code>restart</code>、<code>status</code></td>
+</tr>
+<tr>
+<td><code>--pid-file</code></td>
+<td><code>~/.datus/run/datus-agent-api.pid</code></td>
+<td>PID 文件路径</td>
+</tr>
+<tr>
+<td><code>--daemon-log-file</code></td>
+<td><code>logs/datus-agent-api.log</code></td>
+<td>守护进程日志文件路径</td>
+</tr>
 </tbody>
 </table>
-<p><code>--reload</code> 与 <code>--workers &gt; 1</code> 互斥,服务会发出告警并退回单 worker 模式。</p>
-<h2 id="_3">环境变量<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><code>--reload</code> 与 <code>--workers &gt; 1</code> 互斥，服务会发出告警并退回单 worker 模式。
+<code>--daemon</code> 与 <code>--reload</code> 互斥。</p>
+<h2 id="_5">环境变量<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -3367,7 +3466,7 @@
 </tbody>
 </table>
 <p><code>DATUS_CORS_ORIGINS</code> 非 <code>*</code> 时,CORS 中间件会启用 <code>allow_credentials=true</code>。</p>
-<h2 id="_4">配置文件解析优先级<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_6">配置文件解析优先级<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p><code>datus-api</code> 按以下顺序解析 agent 配置文件:</p>
 <ol>
 <li>显式设置的 <code>--config</code>(或 <code>DATUS_CONFIG</code>)</li>
@@ -3375,7 +3474,7 @@
 <li><code>~/.datus/conf/agent.yml</code></li>
 </ol>
 <p>与 <code>datus</code> CLI 行为一致。使用标准的 <code>~/.datus</code> 安装路径时无需指定 <code>--config</code>。</p>
-<h2 id="_5">内置端点<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_7">内置端点<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>启动后,无论路由是否加载成功,以下端点恒可用:</p>
 <table>
 <thead>
@@ -3404,23 +3503,23 @@
 </tbody>
 </table>
 <h2 id="curl">curl 快速上手<a class="headerlink" href="#curl" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 1. 启动服务</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>datus-api<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="p">&amp;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 2. 健康检查</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>curl<span class="w"> </span>http://127.0.0.1:8000/health
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># 3. 列出 catalog(以用户 alice 身份)</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;X-Datus-User-Id: alice&#39;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="s1">&#39;http://127.0.0.1:8000/api/v1/catalog/list&#39;</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1"># 4. 流式 chat</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>curl<span class="w"> </span>-N<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://127.0.0.1:8000/api/v1/chat/stream<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;X-Datus-User-Id: alice&#39;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;message&quot;: &quot;上周新增用户数是多少?&quot;}&#39;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># 1. 启动服务</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>datus-api<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span><span class="p">&amp;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># 2. 健康检查</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>curl<span class="w"> </span>http://127.0.0.1:8000/health
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># 3. 列出 catalog(以用户 alice 身份)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>curl<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;X-Datus-User-Id: alice&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="s1">&#39;http://127.0.0.1:8000/api/v1/catalog/list&#39;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1"># 4. 流式 chat</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>curl<span class="w"> </span>-N<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://127.0.0.1:8000/api/v1/chat/stream<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;X-Datus-User-Id: alice&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;message&quot;: &quot;上周新增用户数是多少?&quot;}&#39;</span>
 </span></code></pre></div>
-<h2 id="_6">生产部署提示<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_8">生产部署提示<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <ul>
 <li>建议在 nginx/traefik 等反向代理后运行,由代理终止 TLS。</li>
 <li>在反向代理上关闭对 SSE 接口的响应缓冲,确保事件不被延迟下发。</li>

@@ -1473,6 +1473,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#foreground-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foreground (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemon-background-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daemon (background) Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cli-flags" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3495,6 +3517,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#foreground-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foreground (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemon-background-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daemon (background) Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cli-flags" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3874,8 +3918,30 @@
 <li><a href="../feishu/">Feishu (Lark) Setup Guide</a> — Create a self-built app, enable bot capability, configure WebSocket events</li>
 </ul>
 <h2 id="running-the-gateway">Running the Gateway<a class="headerlink" href="#running-the-gateway" title="Permanent link">&para;</a></h2>
-<p>Start the Claw gateway with:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>-m<span class="w"> </span>datus.claw.main<span class="w"> </span>--config<span class="w"> </span>conf/agent.yml
+<h3 id="foreground-default">Foreground (default)<a class="headerlink" href="#foreground-default" title="Permanent link">&para;</a></h3>
+<p>Start the Claw gateway in the foreground:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>datus-claw<span class="w"> </span>--config<span class="w"> </span>conf/agent.yml
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># Or via uv</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>uv<span class="w"> </span>run<span class="w"> </span>datus-claw<span class="w"> </span>--config<span class="w"> </span>conf/agent.yml
+</span></code></pre></div>
+<h3 id="daemon-background-mode">Daemon (background) Mode<a class="headerlink" href="#daemon-background-mode" title="Permanent link">&para;</a></h3>
+<p>Run the gateway as a background daemon:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Start in background</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>datus-claw<span class="w"> </span>--daemon
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Check status</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>datus-claw<span class="w"> </span>--action<span class="w"> </span>status
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Stop</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>datus-claw<span class="w"> </span>--action<span class="w"> </span>stop
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Restart</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>datus-claw<span class="w"> </span>--action<span class="w"> </span>restart
+</span></code></pre></div>
+<p>All daemon commands also work with <code>uv run</code>, e.g. <code>uv run datus-claw --daemon</code>.</p>
+<p>By default, the PID file is stored at <code>~/.datus/run/datus-claw.pid</code> and daemon logs are written to <code>logs/datus-claw.log</code>. You can override these paths:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>datus-claw<span class="w"> </span>--daemon<span class="w"> </span>--pid-file<span class="w"> </span>/var/run/datus-claw.pid<span class="w"> </span>--daemon-log-file<span class="w"> </span>/var/log/datus-claw.log
 </span></code></pre></div>
 <h3 id="cli-flags">CLI Flags<a class="headerlink" href="#cli-flags" title="Permanent link">&para;</a></h3>
 <table>
@@ -3916,6 +3982,26 @@
 <td><code>--log-level</code></td>
 <td><code>INFO</code> (or <code>DATUS_LOG_LEVEL</code> env)</td>
 <td>Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL</td>
+</tr>
+<tr>
+<td><code>--daemon</code></td>
+<td><code>false</code></td>
+<td>Run in background as a daemon</td>
+</tr>
+<tr>
+<td><code>--action</code></td>
+<td><code>start</code></td>
+<td>Daemon action: <code>start</code>, <code>stop</code>, <code>restart</code>, <code>status</code></td>
+</tr>
+<tr>
+<td><code>--pid-file</code></td>
+<td><code>~/.datus/run/datus-claw.pid</code></td>
+<td>PID file path</td>
+</tr>
+<tr>
+<td><code>--daemon-log-file</code></td>
+<td><code>logs/datus-claw.log</code></td>
+<td>Daemon log file path</td>
 </tr>
 </tbody>
 </table>
@@ -3990,10 +4076,10 @@
 </tbody>
 </table>
 <p>Examples:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/verbose           # Show current verbosity level
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/verbose quiet     # Only show thinking and final answer
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>/verbose brief     # Show tool call summaries
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>/verbose detail    # Show full tool call details
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>/verbose           # Show current verbosity level
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>/verbose quiet     # Only show thinking and final answer
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>/verbose brief     # Show tool call summaries
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>/verbose detail    # Show full tool call details
 </span></code></pre></div>
 <h3 id="session-management">Session Management<a class="headerlink" href="#session-management" title="Permanent link">&para;</a></h3>
 <p>Each conversation (group chat, DM, or thread) automatically maps to a persistent session. To start a fresh session, send <code>/new</code>, <code>/reset</code>, or <code>/clear</code>.</p>
@@ -4004,7 +4090,7 @@
 <p>Use the <code>subagent_id</code> field to route messages from a specific channel to a dedicated sub-agent, enabling specialized behavior per channel.</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="sdk-not-installed">SDK Not Installed<a class="headerlink" href="#sdk-not-installed" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ImportError: slack_sdk is required for the Slack adapter. Install it with: pip install slack-sdk[socket_mode]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ImportError: slack_sdk is required for the Slack adapter. Install it with: pip install slack-sdk[socket_mode]
 </span></code></pre></div>
 <p>Install the required SDK package for your platform. See the <a href="#installation">Installation</a> section.</p>
 <h3 id="invalid-credentials">Invalid Credentials<a class="headerlink" href="#invalid-credentials" title="Permanent link">&para;</a></h3>
@@ -4020,10 +4106,10 @@
 </ul>
 <h3 id="debug-logging">Debug Logging<a class="headerlink" href="#debug-logging" title="Permanent link">&para;</a></h3>
 <p>Enable verbose logging to diagnose connection issues:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python<span class="w"> </span>-m<span class="w"> </span>datus.claw.main<span class="w"> </span>--config<span class="w"> </span>conf/agent.yml<span class="w"> </span>--debug
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>datus-claw<span class="w"> </span>--config<span class="w"> </span>conf/agent.yml<span class="w"> </span>--debug
 </span></code></pre></div>
 <p>Or set the environment variable:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DATUS_LOG_LEVEL</span><span class="o">=</span>DEBUG
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DATUS_LOG_LEVEL</span><span class="o">=</span>DEBUG
 </span></code></pre></div>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ul>

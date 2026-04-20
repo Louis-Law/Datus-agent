@@ -1452,17 +1452,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#5-report-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. 问题反馈（Report Issues）
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -3366,17 +3355,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#5-report-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. 问题反馈（Report Issues）
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -3424,10 +3402,10 @@
 <h2 id="_2">快速开始<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">启动网页界面<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p><strong>指定命名空间</strong>：
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>datus<span class="w"> </span>--web<span class="w"> </span>--namespace<span class="w"> </span>&lt;your_namespace&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>datus<span class="w"> </span>--web<span class="w"> </span>--database<span class="w"> </span>&lt;your_namespace&gt;
 </span></code></pre></div></p>
 <p><strong>使用自定义配置</strong>：
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>datus<span class="w"> </span>--web<span class="w"> </span>--config<span class="w"> </span>path/to/agent.yml<span class="w"> </span>--namespace<span class="w"> </span>snowflake
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>datus<span class="w"> </span>--web<span class="w"> </span>--config<span class="w"> </span>path/to/agent.yml<span class="w"> </span>--database<span class="w"> </span>snowflake
 </span></code></pre></div></p>
 <p><strong>自定义端口与主机</strong>：
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>datus<span class="w"> </span>--web<span class="w"> </span>--port<span class="w"> </span><span class="m">8080</span><span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0
@@ -3450,66 +3428,62 @@
 </ol>
 <h3 id="2-subagent">2. Subagent 支持<a class="headerlink" href="#2-subagent" title="Permanent link">&para;</a></h3>
 <p>在网页界面中直接访问面向不同任务的专用 subagent。</p>
-<p><strong>可用 subagent</strong>（在可展开区域中展示）：</p>
+<p><strong>可用 subagent</strong>：</p>
+<p>可用列表来自内置 subagent 以及当前数据库下 <code>agent.agentic_nodes</code> 中定义的自定义条目。常见示例包括：</p>
 <ul>
-<li><code>gen_semantic_model</code>：从数据库表生成语义模型</li>
-<li><code>gen_metrics</code>：将 SQL 查询转换为 MetricFlow 指标</li>
-<li><code>gen_sql_summary</code>：分析与分类 SQL 查询</li>
+<li><code>gen_sql</code></li>
+<li><code>gen_report</code></li>
+<li><code>gen_semantic_model</code></li>
+<li><code>gen_metrics</code></li>
+<li><code>gen_dashboard</code></li>
+<li><code>scheduler</code></li>
 </ul>
 <p><strong>使用方式</strong>：</p>
 <ol>
-<li>在主页点击 "🔧 Access Specialized Subagents"</li>
-<li>选择需要的 subagent</li>
-<li>点击 "🚀 Use [subagent_name]"</li>
+<li>打开主聊天页面</li>
+<li>切换到需要的 subagent</li>
 <li>与专用助手对话</li>
 </ol>
 <p><strong>直达 URL</strong>：</p>
 <p>你可以收藏 subagent 的 URL 便于快速访问：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>http://localhost:8501/?subagent=gen_metrics
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>http://localhost:8501/?subagent=gen_semantic_model
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>http://localhost:8501/?subagent=finance_report
+</span></code></pre></div>
+<p>也可以通过 CLI 直接启动到某个 subagent：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>datus<span class="w"> </span>--web<span class="w"> </span>--database<span class="w"> </span>production<span class="w"> </span>--subagent<span class="w"> </span>finance_report
 </span></code></pre></div>
 <h3 id="3">3. 会话管理<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p><strong>查看会话历史</strong>：</p>
 <p>侧边栏显示最近的会话信息，包括：</p>
 <ul>
-<li>会话 ID（截断显示）</li>
+<li>会话名称</li>
 <li>创建时间</li>
-<li>消息数量</li>
-<li>最新用户消息预览</li>
 </ul>
 <p><strong>加载历史会话</strong>：</p>
 <ol>
 <li>在侧边栏找到目标会话</li>
-<li>点击 "🔗 Load Session"</li>
-<li>以只读方式查看会话内容</li>
+<li>点击对应的会话名称</li>
+<li>即可进入会话详情，查看历史消息或者你可以继续进行对话</li>
 </ol>
 <p><strong>会话分享</strong>：</p>
 <p>每个会话都有唯一可分享的链接：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>http://localhost:8501?session=abc123def456...
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>http://localhost:8501?session=abc123def456...
 </span></code></pre></div>
 <h3 id="4-success-story">4. 成功案例归档（Success Story）<a class="headerlink" href="#4-success-story" title="Permanent link">&para;</a></h3>
 <p><strong>标记有效查询</strong>：</p>
 <p>当 AI 生成的 SQL 工作良好时：</p>
 <ol>
 <li>先审阅生成的 SQL</li>
-<li>点击 "👍 Success" 按钮</li>
+<li>点击 "Save to success story" 按钮</li>
 <li>查询会保存到 <code>~/.datus/benchmark/[subagent]/success_story.csv</code></li>
 </ol>
 <p><img alt="Save Generated SQL" src="../../../assets/geneated_sql_save.png" /></p>
 <p><strong>CSV 格式</strong>：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>session_link,session_id,subagent_name,user_message,sql,timestamp
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>http://localhost:8501?session=...,abc123...,chatbot,&quot;Show revenue by category&quot;,SELECT ...,2025-01-15 10:30:00
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>session_link,session_id,subagent_name,user_message,sql,timestamp
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>http://localhost:8501?session=...,abc123...,chatbot,&quot;Show revenue by category&quot;,SELECT ...,2025-01-15 10:30:00
 </span></code></pre></div>
 <p>这有助于沉淀有效查询用于基准评测与持续改进。</p>
-<h3 id="5-report-issues">5. 问题反馈（Report Issues）<a class="headerlink" href="#5-report-issues" title="Permanent link">&para;</a></h3>
-<p><strong>便捷分享问题</strong>：</p>
-<ol>
-<li>在侧边栏点击 "🐛 Report Issue"</li>
-<li>系统会自动将会话链接复制到剪贴板</li>
-<li>将链接粘贴给开发者即可定位问题</li>
-</ol>
-<p>会话链接包含完整的对话上下文，便于排查与复现。</p>
-<p><img alt="Report Issue" src="../../../assets/report_issue_sessionid_copied.png" width="50%" /></p>
 <h2 id="_5">总结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>Datus Web chatbot 提供：</p>
 <ul>

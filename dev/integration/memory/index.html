@@ -3651,7 +3651,7 @@
 </table>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p>Auto Memory requires <strong>no explicit configuration</strong> -- eligible agents are automatically enabled.</p>
-<p>The memory directory location follows the <code>workspace_root</code> setting:</p>
+<p>The memory directory location follows the resolved workspace root:</p>
 <table>
 <thead>
 <tr>
@@ -3666,19 +3666,11 @@
 </tr>
 <tr>
 <td>2</td>
-<td><code>storage.workspace_root</code> in <code>agent.yml</code></td>
-</tr>
-<tr>
-<td>3</td>
-<td>Top-level <code>workspace_root</code> in <code>agent.yml</code></td>
-</tr>
-<tr>
-<td>4</td>
-<td>Current directory (<code>.</code>)</td>
+<td><code>agent.project_root</code> in <code>agent.yml</code> (defaults to the launch CWD)</td>
 </tr>
 </tbody>
 </table>
-<p>For example, when <code>workspace_root</code> is set to <code>~/my_project</code>, the chat agent's memory file is at:</p>
+<p>For example, when <code>agent.project_root</code> is set to <code>~/my_project</code>, the chat agent's memory file is at:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>~/my_project/.datus/memory/chat/MEMORY.md
 </span></code></pre></div>
 <h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>

@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#customized-subagents" class="md-skip">
           Skip to content
         </a>
       
@@ -1156,10 +1156,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#command-overview" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Command Overview
+        Overview
       
     </span>
   </a>
@@ -1167,22 +1167,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#subcommand-details" class="md-nav__link">
+  <a href="#what-the-wizard-creates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Subcommand Details
+        What the Wizard Creates
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Subcommand Details">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wizard-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wizard Fields
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wizard Fields">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#add-create-a-new-subagent" class="md-nav__link">
+  <a href="#step-1-basic-info" class="md-nav__link">
     <span class="md-ellipsis">
       
-        add — Create a New Sub‑Agent
+        Step 1: Basic Info
       
     </span>
   </a>
@@ -1190,10 +1201,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#list-list-all-subagents" class="md-nav__link">
+  <a href="#step-2-tools-and-mcp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        list — List All Sub‑Agents
+        Step 2: Tools and MCP
       
     </span>
   </a>
@@ -1201,10 +1212,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#remove-delete-a-subagent" class="md-nav__link">
+  <a href="#step-3-scoped-context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        remove — Delete a Sub‑Agent
+        Step 3: Scoped Context
       
     </span>
   </a>
@@ -1212,66 +1223,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#update-update-an-existing-subagent" class="md-nav__link">
+  <a href="#step-4-rules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        update — Update an Existing Sub‑Agent
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bootstrap-build-a-scoped-knowledge-base" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        bootstrap — Build a Scoped Knowledge Base
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="bootstrap — Build a Scoped Knowledge Base">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic Usage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parameters
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workflow
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
+        Step 4: Rules
       
     </span>
   </a>
@@ -1282,6 +1237,62 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#command-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subagent-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .subagent add
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagent-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .subagent list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagent-update-agent_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .subagent update &lt;agent_name&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagent-remove-agent_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .subagent remove &lt;agent_name&gt;
+      
+    </span>
+  </a>
+  
+</li>
         
       </ul>
     </nav>
@@ -1289,10 +1300,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#example-output" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Notes
+        Example Output
       
     </span>
   </a>
@@ -1300,10 +1311,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rebuilding-subagent-knowledge-bases-in-agent" class="md-nav__link">
+  <a href="#scoped-context-semantics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rebuilding Sub‑Agent Knowledge Bases in Agent
+        Scoped Context Semantics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-manual-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Manual Configuration
       
     </span>
   </a>
@@ -3307,10 +3329,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#command-overview" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Command Overview
+        Overview
       
     </span>
   </a>
@@ -3318,22 +3340,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#subcommand-details" class="md-nav__link">
+  <a href="#what-the-wizard-creates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Subcommand Details
+        What the Wizard Creates
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Subcommand Details">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wizard-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wizard Fields
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wizard Fields">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#add-create-a-new-subagent" class="md-nav__link">
+  <a href="#step-1-basic-info" class="md-nav__link">
     <span class="md-ellipsis">
       
-        add — Create a New Sub‑Agent
+        Step 1: Basic Info
       
     </span>
   </a>
@@ -3341,10 +3374,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#list-list-all-subagents" class="md-nav__link">
+  <a href="#step-2-tools-and-mcp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        list — List All Sub‑Agents
+        Step 2: Tools and MCP
       
     </span>
   </a>
@@ -3352,10 +3385,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#remove-delete-a-subagent" class="md-nav__link">
+  <a href="#step-3-scoped-context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        remove — Delete a Sub‑Agent
+        Step 3: Scoped Context
       
     </span>
   </a>
@@ -3363,66 +3396,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#update-update-an-existing-subagent" class="md-nav__link">
+  <a href="#step-4-rules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        update — Update an Existing Sub‑Agent
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bootstrap-build-a-scoped-knowledge-base" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        bootstrap — Build a Scoped Knowledge Base
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="bootstrap — Build a Scoped Knowledge Base">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic Usage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parameters
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workflow
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
+        Step 4: Rules
       
     </span>
   </a>
@@ -3433,6 +3410,62 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#command-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subagent-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .subagent add
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagent-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .subagent list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagent-update-agent_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .subagent update &lt;agent_name&gt;
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagent-remove-agent_name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .subagent remove &lt;agent_name&gt;
+      
+    </span>
+  </a>
+  
+</li>
         
       </ul>
     </nav>
@@ -3440,10 +3473,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#example-output" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Notes
+        Example Output
       
     </span>
   </a>
@@ -3451,10 +3484,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rebuilding-subagent-knowledge-bases-in-agent" class="md-nav__link">
+  <a href="#scoped-context-semantics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rebuilding Sub‑Agent Knowledge Bases in Agent
+        Scoped Context Semantics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-manual-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Manual Configuration
       
     </span>
   </a>
@@ -3486,127 +3530,134 @@
   
 
 
-<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
-<p>The <code>.subagent</code> command is a core feature provided by <strong>Datus CLI</strong> for managing sub‑agents. This document focuses on how to use <code>.subagent</code> to create, view, update, or delete sub‑agents, and explains its subcommands in detail. The <code>SubAgentBootstrapper</code> is a functional module within <code>.subagent</code> that builds or simulates building a <strong>scoped knowledge base</strong> for a specific sub‑agent. And the <code>.subagent</code> command allows full lifecycle management of sub‑agents and can trigger knowledge base construction.</p>
-<hr />
-<h2 id="command-overview">Command Overview<a class="headerlink" href="#command-overview" title="Permanent link">&para;</a></h2>
-<p>The <code>.subagent</code> command supports the following subcommands:</p>
+<h1 id="customized-subagents">Customized Subagents<a class="headerlink" href="#customized-subagents" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Use <code>.subagent</code> to manage custom subagents stored under <code>agent.agentic_nodes</code> in <code>agent.yml</code>.</p>
+<p>The current CLI supports:</p>
 <ul>
-<li><strong>add</strong> — Launches an interactive wizard to add a new sub‑agent.</li>
-<li><strong>list</strong> — Lists all configured sub‑agents.</li>
-<li><strong>remove <agent_name></strong> — Removes a specified sub‑agent from configuration.</li>
-<li><strong>update <agent_name></strong> — Launches an interactive wizard to update an existing sub‑agent.</li>
-<li><strong>bootstrap <agent_name> [--components <list>] [--plan]</strong> — Builds or simulates building a scoped knowledge base for a given sub‑agent.</li>
+<li><code>add</code>: create a custom subagent with the interactive wizard</li>
+<li><code>list</code>: list configured custom subagents</li>
+<li><code>update &lt;agent_name&gt;</code>: edit an existing custom subagent</li>
+<li><code>remove &lt;agent_name&gt;</code>: delete a custom subagent</li>
 </ul>
-<p>If no parameters or incorrect ones are provided, the command will automatically display a help message.</p>
-<blockquote>
-<p><strong>Note:</strong> After <code>add</code> or <code>update</code>, the system automatically builds the scoped knowledge base for the sub‑agent.</p>
-</blockquote>
-<hr />
-<h2 id="subcommand-details">Subcommand Details<a class="headerlink" href="#subcommand-details" title="Permanent link">&para;</a></h2>
-<h3 id="add-create-a-new-subagent">add — Create a New Sub‑Agent<a class="headerlink" href="#add-create-a-new-subagent" title="Permanent link">&para;</a></h3>
-<p>Run:</p>
+<p>Built-in system subagents from <code>SYS_SUB_AGENTS</code> are reserved and cannot be removed or edited with <code>.subagent</code>.</p>
+<h2 id="what-the-wizard-creates">What the Wizard Creates<a class="headerlink" href="#what-the-wizard-creates" title="Permanent link">&para;</a></h2>
+<p>The wizard writes two things:</p>
+<ol>
+<li>A new entry under <code>agent.agentic_nodes</code></li>
+<li>A prompt template file named like <code>{agent_name}_system_{prompt_version}.j2</code></li>
+</ol>
+<p>The wizard currently supports two custom node styles:</p>
+<ul>
+<li><code>gen_sql</code> (default)</li>
+<li><code>gen_report</code></li>
+</ul>
+<p>If you want advanced aliases such as <code>explore</code>, <code>gen_table</code>, <code>gen_skill</code>, <code>gen_dashboard</code>, or <code>scheduler</code>, edit <code>agent.yml</code> manually.</p>
+<h2 id="wizard-fields">Wizard Fields<a class="headerlink" href="#wizard-fields" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-basic-info">Step 1: Basic Info<a class="headerlink" href="#step-1-basic-info" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>system_prompt</code>: the subagent name and config key</li>
+<li><code>node_class</code>: <code>gen_sql</code> or <code>gen_report</code></li>
+<li><code>agent_description</code>: short description shown in previews and task-tool descriptions</li>
+</ul>
+<h3 id="step-2-tools-and-mcp">Step 2: Tools and MCP<a class="headerlink" href="#step-2-tools-and-mcp" title="Permanent link">&para;</a></h3>
+<p>You must select at least one native tool or one MCP tool.</p>
+<ul>
+<li>Native tools are stored as comma-separated category or method patterns such as <code>db_tools</code>, <code>semantic_tools.*</code>, or <code>context_search_tools.list_subject_tree</code></li>
+<li>MCP selections are stored as comma-separated server or <code>server.tool</code> entries</li>
+</ul>
+<h3 id="step-3-scoped-context">Step 3: Scoped Context<a class="headerlink" href="#step-3-scoped-context" title="Permanent link">&para;</a></h3>
+<p>The wizard supports scoped values for:</p>
+<ul>
+<li><code>tables</code></li>
+<li><code>metrics</code></li>
+<li><code>sqls</code></li>
+</ul>
+<p>When the wizard saves the config, it also records the current database as <code>scoped_context.namespace</code>.</p>
+<h3 id="step-4-rules">Step 4: Rules<a class="headerlink" href="#step-4-rules" title="Permanent link">&para;</a></h3>
+<p>Rules are stored as a string list under <code>rules</code> and appended to the final system prompt.</p>
+<h2 id="command-reference">Command Reference<a class="headerlink" href="#command-reference" title="Permanent link">&para;</a></h2>
+<h3 id="subagent-add"><code>.subagent add</code><a class="headerlink" href="#subagent-add" title="Permanent link">&para;</a></h3>
+<p>Starts the interactive wizard and creates a new custom subagent.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.subagent<span class="w"> </span>add
 </span></code></pre></div>
-<p>This launches an interactive wizard prompting for basic information such as the sub‑agent’s <strong>name (system_prompt)</strong>, <strong>description</strong>, <strong>tools</strong>, <strong>rules</strong>, and whether it requires a scoped context. Once completed, the configuration file is saved to the project, and optionally, a corresponding prompt template file is generated.</p>
-<p>If the creation is canceled mid‑process, a cancellation message appears, and no configuration is saved.</p>
 <p><img alt="Add subagent" src="../../assets/add_subagent.png" /></p>
-<blockquote>
-<p>💡 <strong>Tip:</strong> 
-1. In Step 2 (Native Tools Configuration), if you need to configure <code>context_search_tools</code>, please select <code>list_domain_layers_tree</code>. Failure to do so may render <code>search_metrics</code> and <code>search_reference_sql</code> inoperative.
-2. During step three (ScopedContext configuration), you can use <strong>Tab</strong> for hierarchical completion but preview is unavailable. Press <strong>F2</strong> to preview.</p>
-</blockquote>
-<hr />
-<h3 id="list-list-all-subagents">list — List All Sub‑Agents<a class="headerlink" href="#list-list-all-subagents" title="Permanent link">&para;</a></h3>
-<p>Run:</p>
+<h3 id="subagent-list"><code>.subagent list</code><a class="headerlink" href="#subagent-list" title="Permanent link">&para;</a></h3>
+<p>Lists configured custom subagents.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.subagent<span class="w"> </span>list
 </span></code></pre></div>
-<p>The CLI displays all configured sub‑agents in a table containing:</p>
+<p>The table currently shows:</p>
 <ul>
-<li><strong>Name (system_prompt)</strong></li>
-<li><strong>Scoped Context:</strong> e.g., tables, metrics, SQL lists (empty if none)</li>
-<li><strong>Scoped KB Path:</strong> shows the path to the scoped knowledge base directory ("—" if not available)</li>
-<li><strong>Tools:</strong> list of tools used by the sub‑agent</li>
-<li><strong>MCP:</strong> multi‑component process configuration</li>
-<li><strong>Rules:</strong> listed in Markdown format</li>
+<li><code>Name</code></li>
+<li><code>Scoped Context</code></li>
+<li><code>Scoped KB</code></li>
+<li><code>Tools</code></li>
+<li><code>MCPs</code></li>
+<li><code>Rules</code></li>
 </ul>
+<p><code>Scoped KB</code> is a legacy display column and is usually <code>—</code> for new configurations.</p>
+<p>The list is filtered by the current database when a subagent has scoped context.</p>
 <p><img alt="List subagent" src="../../assets/list_subagents.png" /></p>
-<p>If no sub‑agents exist in current namespace, the CLI displays <code>No configured sub‑agents</code>.</p>
-<hr />
-<h3 id="remove-delete-a-subagent">remove — Delete a Sub‑Agent<a class="headerlink" href="#remove-delete-a-subagent" title="Permanent link">&para;</a></h3>
-<p>Format:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>.subagent<span class="w"> </span>remove<span class="w"> </span>&lt;agent_name&gt;
-</span></code></pre></div>
-<p>Removes the configuration for the specified sub‑agent. If not found, an error message is shown. Upon successful removal, a confirmation message appears.</p>
-<hr />
-<h3 id="update-update-an-existing-subagent">update — Update an Existing Sub‑Agent<a class="headerlink" href="#update-update-an-existing-subagent" title="Permanent link">&para;</a></h3>
-<p>Format:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.subagent<span class="w"> </span>update<span class="w"> </span>&lt;agent_name&gt;
+<h3 id="subagent-update-agent_name"><code>.subagent update &lt;agent_name&gt;</code><a class="headerlink" href="#subagent-update-agent_name" title="Permanent link">&para;</a></h3>
+<p>Loads the existing config into the wizard and saves changes back to <code>agent.yml</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>.subagent<span class="w"> </span>update<span class="w"> </span>finance_report
 </span></code></pre></div>
 <p><img alt="Update subagent" src="../../assets/update_subagent.png" /></p>
-<p>The system first checks if the target sub‑agent exists. If it does, the wizard launches with existing configuration pre‑filled. After updates are confirmed, the configuration is saved. If the changes affect the scoped context, the CLI automatically triggers <code>bootstrap</code> to rebuild the knowledge base.</p>
-<hr />
-<h3 id="bootstrap-build-a-scoped-knowledge-base">bootstrap — Build a Scoped Knowledge Base<a class="headerlink" href="#bootstrap-build-a-scoped-knowledge-base" title="Permanent link">&para;</a></h3>
-<p>This command builds or updates a sub‑agent’s scoped knowledge base (Scoped KB). It supports component selection and plan simulation.</p>
-<h4 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>.subagent<span class="w"> </span>bootstrap<span class="w"> </span>&lt;agent_name&gt;
+<h3 id="subagent-remove-agent_name"><code>.subagent remove &lt;agent_name&gt;</code><a class="headerlink" href="#subagent-remove-agent_name" title="Permanent link">&para;</a></h3>
+<p>Deletes the config entry and its generated prompt template.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.subagent<span class="w"> </span>remove<span class="w"> </span>finance_report
 </span></code></pre></div>
-<p>The command uses <code>argparse.ArgumentParser</code> with <code>prog</code> and <code>description</code> parameters to define program name and description. Running <code>.subagent bootstrap -h</code> displays detailed help information.</p>
-<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<h2 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Permanent link">&para;</a></h2>
+<p>A generated config typically looks like this:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">agent</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">agentic_nodes</span><span class="p">:</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">finance_report</span><span class="p">:</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="nt">system_prompt</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finance_report</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">node_class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gen_report</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="nt">prompt_version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0&quot;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="nt">prompt_language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">en</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">      </span><span class="nt">agent_description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Finance</span><span class="nv"> </span><span class="s">reporting</span><span class="nv"> </span><span class="s">assistant&quot;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="nt">tools</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">semantic_tools.*, db_tools.*, context_search_tools.list_subject_tree</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="nt">mcp</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="nt">rules</span><span class="p">:</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prefer existing finance metrics before generating new SQL</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">      </span><span class="nt">scoped_context</span><span class="p">:</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finance</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="nt">tables</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mart.finance_daily</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">        </span><span class="nt">metrics</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finance.revenue.daily_revenue</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="nt">sqls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">finance.revenue.region_rollup</span>
+</span></code></pre></div>
+<h2 id="scoped-context-semantics">Scoped Context Semantics<a class="headerlink" href="#scoped-context-semantics" title="Permanent link">&para;</a></h2>
+<p>Current code no longer builds a separate scoped knowledge-base directory for each subagent.</p>
+<p>Instead:</p>
 <ul>
-<li><code>&lt;agent_name&gt;</code> — Required. Specifies which sub‑agent to build the KB for.</li>
-<li><code>--components &lt;list&gt;</code> — Optional. Comma‑separated list of components to build (case‑insensitive). Example:</li>
+<li>scoped context is stored in <code>agentic_nodes.&lt;name&gt;.scoped_context</code></li>
+<li>Datus applies filters against the shared global storage at query time</li>
+<li>database tools may also narrow their visible table surface based on the active subagent</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>--components<span class="w"> </span>metadata,metrics
-</span></code></pre></div>
-<p>If omitted, all supported components are built. Invalid components trigger an “unsupported component” message.
-* <code>--plan</code> — Optional flag. Runs in <strong>plan mode</strong>, which calculates and displays import plans but does not write or modify files.</p>
-<h4 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h4>
-<ol>
-<li><strong>Validate and locate sub‑agent</strong> — Parses parameters and checks if the specified sub‑agent exists.</li>
-<li><strong>Normalize component list</strong> — Converts to lowercase and validates against supported components (e.g., <code>metadata</code>, <code>metrics</code>, <code>reference_sql</code>). Invalid components are rejected with a supported list displayed.</li>
-<li>
-<p><strong>Execute or simulate build</strong></p>
-</li>
-<li>
-<p>Without <code>--plan</code>: Executes an overwrite strategy, importing database metadata, metrics, or reference SQL, generating a new scoped KB directory, and updating the config.</p>
-</li>
-<li>With <code>--plan</code>: Runs simulation only, calculating the data to be imported without writing files.</li>
-<li>
-<p><strong>Display results</strong> — Outputs a summary table (<code>Scoped KB Bootstrap Summary</code>) with columns:</p>
-</li>
-<li>
-<p><strong>Component</strong> | <strong>Status</strong> | <strong>Message</strong></p>
-</li>
-<li>Status options: <code>SUCCESS</code>, <code>ERROR</code>, <code>SKIPPED</code>, <code>PLAN</code></li>
-<li>Shows scoped KB path — “Simulated scoped directory” (plan mode) or “Scoped directory” (execution mode).</li>
-<li><strong>Show details</strong> — For missing or invalid records, displays JSON details under <code>missing</code> and <code>invalid</code> fields.</li>
-<li><strong>Save configuration</strong> — On success (non‑plan mode), updates the scoped KB path in the sub‑agent’s config. Errors during save will be reported; successful saves refresh in‑memory configurations.</li>
-</ol>
-<h4 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h4>
-<p>Build all components:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>.subagent<span class="w"> </span>bootstrap<span class="w"> </span>my_agent
-</span></code></pre></div>
-<p>Simulate metadata and metrics only:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>.subagent<span class="w"> </span>bootstrap<span class="w"> </span>my_agent<span class="w"> </span>--components<span class="w"> </span>metadata,metrics<span class="w"> </span>--plan
-</span></code></pre></div>
-<p>Build reference SQL only:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>.subagent<span class="w"> </span>bootstrap<span class="w"> </span>my_agent<span class="w"> </span>--components<span class="w"> </span>reference_sql
-</span></code></pre></div>
-<hr />
-<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<p>That means:</p>
 <ul>
-<li><strong>Name consistency:</strong> The sub‑agent name (<code>system_prompt</code>) uniquely identifies its configuration. Ensure consistent naming for <code>add</code>, <code>update</code>, <code>remove</code>, and <code>bootstrap</code> commands.</li>
-<li><strong>Supported components:</strong> Must be within predefined components (<code>metadata</code>, <code>metrics</code>, <code>reference_sql</code>). Check available options with <code>.subagent bootstrap -h</code>.</li>
-<li><strong>Simulation mode (<code>--plan</code>):</strong> Used for risk evaluation; it performs no disk write. Omit this flag to perform actual construction.</li>
-<li><strong>Automatic rebuild:</strong> Updating a sub‑agent that changes scoped context triggers an automatic rebuild to keep configurations and KBs consistent.</li>
+<li>there is no <code>.subagent bootstrap</code> command in the current CLI</li>
+<li><code>scoped_kb_path</code> is deprecated and not persisted for newly saved configs</li>
+<li>global knowledge still needs to be populated separately with <code>datus-agent bootstrap-kb</code></li>
 </ul>
-<hr />
-<h2 id="rebuilding-subagent-knowledge-bases-in-agent">Rebuilding Sub‑Agent Knowledge Bases in Agent<a class="headerlink" href="#rebuilding-subagent-knowledge-bases-in-agent" title="Permanent link">&para;</a></h2>
-<p>When running:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>python<span class="w"> </span>-m<span class="w"> </span>datus.main<span class="w"> </span>bootstrap-kb
+<h2 id="advanced-manual-configuration">Advanced Manual Configuration<a class="headerlink" href="#advanced-manual-configuration" title="Permanent link">&para;</a></h2>
+<p>The wizard covers the common <code>gen_sql</code> and <code>gen_report</code> cases. For more advanced setups, edit <code>agent.yml</code> directly.</p>
+<p>Example:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">agent</span><span class="p">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">agentic_nodes</span><span class="p">:</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">sales_dashboard</span><span class="p">:</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">      </span><span class="nt">node_class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gen_dashboard</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">claude</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">      </span><span class="nt">bi_platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">superset</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">      </span><span class="nt">max_turns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nt">etl_scheduler</span><span class="p">:</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">      </span><span class="nt">node_class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scheduler</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">      </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">claude</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">      </span><span class="nt">max_turns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
 </span></code></pre></div>
-<p>All sub‑agents under the current namespace with scoped context configuration will rebuild their knowledge bases. The content built depends on the <code>--component</code> parameter.</p>
+<p>See <a href="../introduction/">Subagent Guide</a> and <a href="../builtin_subagents/">Built-in subagents</a> for the supported node classes and runtime behavior.</p>
 
 
 

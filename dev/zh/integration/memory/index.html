@@ -3651,7 +3651,7 @@
 </table>
 <h2 id="_7">配置<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>Auto Memory <strong>无需显式配置</strong>，符合条件的 Agent 自动启用。</p>
-<p>记忆目录位置跟随 <code>workspace_root</code> 设置：</p>
+<p>记忆目录位置跟随解析后的 workspace root：</p>
 <table>
 <thead>
 <tr>
@@ -3666,19 +3666,11 @@
 </tr>
 <tr>
 <td>2</td>
-<td><code>agent.yml</code> 中 <code>storage.workspace_root</code></td>
-</tr>
-<tr>
-<td>3</td>
-<td><code>agent.yml</code> 中顶层 <code>workspace_root</code></td>
-</tr>
-<tr>
-<td>4</td>
-<td>当前目录（<code>.</code>）</td>
+<td><code>agent.yml</code> 中 <code>agent.project_root</code>（默认取启动时的 CWD）</td>
 </tr>
 </tbody>
 </table>
-<p>例如，当 <code>workspace_root</code> 设置为 <code>~/my_project</code> 时，chat agent 的记忆文件位于：</p>
+<p>例如，当 <code>agent.project_root</code> 设置为 <code>~/my_project</code> 时，chat agent 的记忆文件位于：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>~/my_project/.datus/memory/chat/MEMORY.md
 </span></code></pre></div>
 <h2 id="_8">最佳实践<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>

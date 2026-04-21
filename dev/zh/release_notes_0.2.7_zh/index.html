@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -8,19 +8,15 @@
       
       
       
-        <link rel="canonical" href="https://docs.datus.ai/dev/claw/feishu/">
+        <link rel="canonical" href="https://docs.datus.ai/dev/zh/release_notes_0.2.7_zh/">
       
       
-        <link rel="prev" href="../slack/">
-      
-      
-        <link rel="next" href="../../knowledge_base/introduction/">
       
       
         
-          <link rel="alternate" href="./" hreflang="en">
+          <link rel="alternate" href="../../release_notes_0.2.7_zh/" hreflang="en">
         
-          <link rel="alternate" href="../../zh/claw/feishu/" hreflang="zh">
+          <link rel="alternate" href="./" hreflang="zh">
         
       
       
@@ -29,7 +25,7 @@
     
     
       
-        <title>Feishu - Datus Docs</title>
+        <title>Datus-Agent 0.2.7 Release Note（中文版） - Datus Docs</title>
       
     
     
@@ -86,8 +82,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#feishu-lark-adapter" class="md-skip">
-          Skip to content
+        <a href="#datus-agent-027-release-note" class="md-skip">
+          跳转至
         </a>
       
     </div>
@@ -103,8 +99,8 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Datus Docs" class="md-header__button md-logo" aria-label="Datus Docs" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../" title="Datus Docs" class="md-header__button md-logo" aria-label="Datus Docs" data-md-component="logo">
       
   <img src="../../assets/logo-light.png" alt="logo">
 
@@ -123,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Feishu
+              Datus-Agent 0.2.7 Release Note（中文版）
             
           </span>
         </div>
@@ -173,20 +169,20 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Select language">
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="./" hreflang="en" class="md-select__link">
+            <a href="../../release_notes_0.2.7_zh/" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../zh/claw/feishu/" hreflang="zh" class="md-select__link">
+            <a href="./" hreflang="zh" class="md-select__link">
               中文
             </a>
           </li>
@@ -207,16 +203,16 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -227,7 +223,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -239,7 +235,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Datus-ai/Datus-agent" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/Datus-ai/Datus-agent" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -260,7 +256,7 @@
         
           
             
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -268,19 +264,17 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../.." class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../" class="md-tabs__link">
           
   
   
     
   
-  Home
+  首页
 
         </a>
       </li>
@@ -294,13 +288,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../release_notes/" class="md-tabs__link">
+      <a href="../release_notes/" class="md-tabs__link">
         
   
   
     
   
-  Release Notes
+  发布说明
 
       </a>
     </li>
@@ -327,9 +321,9 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Datus Docs" class="md-nav__button md-logo" aria-label="Datus Docs" data-md-component="logo">
+    <a href="../" title="Datus Docs" class="md-nav__button md-logo" aria-label="Datus Docs" data-md-component="logo">
       
   <img src="../../assets/logo-light.png" alt="logo">
 
@@ -338,7 +332,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Datus-ai/Datus-agent" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/Datus-ai/Datus-agent" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -355,8 +349,6 @@
       
   
   
-    
-  
   
   
     
@@ -400,28 +392,25 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../.." class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
   <span class="md-ellipsis">
     
   
-    Home
+    首页
   
 
     
@@ -432,18 +421,18 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Home
+    首页
   
 
           </label>
@@ -459,6 +448,8 @@
   
     
     
+      
+        
       
         
       
@@ -489,7 +480,7 @@
   <span class="md-ellipsis">
     
   
-    Getting Started
+    入门指南
   
 
     
@@ -505,7 +496,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Getting Started
+    入门指南
   
 
           </label>
@@ -518,14 +509,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/Quickstart/" class="md-nav__link">
+      <a href="../getting_started/Quickstart/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quickstart
+    快速开始
   
 
     
@@ -546,14 +537,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/contextual_data_engineering/" class="md-nav__link">
+      <a href="../getting_started/data_engineering_quickstart/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Contextual Data Engineering
+    数据工程快速开始
   
 
     
@@ -574,14 +565,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/Datus_tutorial/" class="md-nav__link">
+      <a href="../getting_started/contextual_data_engineering/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Tutorial
+    上下文数据工程
   
 
     
@@ -602,7 +593,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/dashboard_copilot/" class="md-nav__link">
+      <a href="../getting_started/Datus_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/dashboard_copilot/" class="md-nav__link">
         
   
   
@@ -679,7 +698,7 @@
   <span class="md-ellipsis">
     
   
-    CLI
+    命令行
   
 
     
@@ -695,7 +714,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    CLI
+    命令行
   
 
           </label>
@@ -708,14 +727,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/introduction/" class="md-nav__link">
+      <a href="../cli/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -736,14 +755,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/chat_command/" class="md-nav__link">
+      <a href="../cli/chat_command/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Chat Command
+    聊天命令
   
 
     
@@ -764,14 +783,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/context_command/" class="md-nav__link">
+      <a href="../cli/context_command/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Context Command
+    上下文命令
   
 
     
@@ -792,14 +811,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/execution_command/" class="md-nav__link">
+      <a href="../cli/execution_command/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Execution Command
+    执行命令
   
 
     
@@ -820,14 +839,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/mcp_extensions/" class="md-nav__link">
+      <a href="../cli/mcp_extensions/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    MCP Extensions
+    MCP 扩展
   
 
     
@@ -848,14 +867,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/sql_execution/" class="md-nav__link">
+      <a href="../cli/sql_execution/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    SQL Execution
+    SQL 执行
   
 
     
@@ -876,14 +895,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/skill_command/" class="md-nav__link">
+      <a href="../cli/skill_command/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Skill Command
+    技能命令
   
 
     
@@ -904,14 +923,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/reference/" class="md-nav__link">
+      <a href="../cli/reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Reference
+    参考
   
 
     
@@ -932,14 +951,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/plan_mode/" class="md-nav__link">
+      <a href="../cli/plan_mode/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Plan Mode
+    计划模式
   
 
     
@@ -969,6 +988,10 @@
   
     
     
+      
+        
+      
+        
       
         
       
@@ -1038,14 +1061,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/introduction/" class="md-nav__link">
+      <a href="../subagent/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -1066,14 +1089,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/builtin_subagents/" class="md-nav__link">
+      <a href="../subagent/builtin_subagents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Built-in subagents
+    内置 subagent
   
 
     
@@ -1094,14 +1117,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/customized_subagent/" class="md-nav__link">
+      <a href="../subagent/customized_subagent/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Customized subagents
+    自定义 subagent
   
 
     
@@ -1122,14 +1145,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_metrics/" class="md-nav__link">
+      <a href="../subagent/gen_dashboard/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Generate Metrics
+    生成 Dashboard
   
 
     
@@ -1150,14 +1173,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_semantic_model/" class="md-nav__link">
+      <a href="../subagent/gen_metrics/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Generate Semantic Model
+    生成指标
   
 
     
@@ -1178,7 +1201,63 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_sql_summary/" class="md-nav__link">
+      <a href="../subagent/gen_semantic_model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    生成语义模型
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subagent/scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    调度器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subagent/gen_sql_summary/" class="md-nav__link">
         
   
   
@@ -1206,7 +1285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_table/" class="md-nav__link">
+      <a href="../subagent/gen_table/" class="md-nav__link">
         
   
   
@@ -1234,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_job/" class="md-nav__link">
+      <a href="../subagent/gen_job/" class="md-nav__link">
         
   
   
@@ -1262,7 +1341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/migration/" class="md-nav__link">
+      <a href="../subagent/migration/" class="md-nav__link">
         
   
   
@@ -1298,14 +1377,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../web_chatbot/introduction/" class="md-nav__link">
+      <a href="../web_chatbot/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Chatbot
+    chatbot
   
 
     
@@ -1323,10 +1402,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1343,11 +1420,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6" >
         
           
           <label class="md-nav__link" for="__nav_1_6" id="__nav_1_6_label" tabindex="0">
@@ -1357,7 +1434,7 @@
   <span class="md-ellipsis">
     
   
-    IM Gateway (Claw)
+    IM 网关
   
 
     
@@ -1368,12 +1445,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_6">
             <span class="md-nav__icon md-icon"></span>
             
   
-    IM Gateway (Claw)
+    IM 网关
   
 
           </label>
@@ -1386,14 +1463,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../introduction/" class="md-nav__link">
+      <a href="../gateway/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -1414,7 +1491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../slack/" class="md-nav__link">
+      <a href="../gateway/slack/" class="md-nav__link">
         
   
   
@@ -1439,44 +1516,17 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Feishu
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../gateway/feishu/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Feishu
+    飞书
   
 
     
@@ -1485,219 +1535,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prerequisites
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-1-install-the-sdk" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 1: Install the SDK
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2-create-a-self-built-app" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2: Create a Self-Built App
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-get-app-credentials" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3: Get App Credentials
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-enable-bot-capability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4: Enable Bot Capability
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-5-configure-event-subscription-websocket-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 5: Configure Event Subscription (WebSocket Mode)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-configure-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 6: Configure Permissions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-7-publish-the-app" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 7: Publish the App
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-8-configure-datus-agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 8: Configure Datus Agent
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration Reference
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-the-connection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verify the Connection
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#app_ticket-is-empty-or-authentication-failure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "app_ticket is empty" or authentication failure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bot-connects-but-doesnt-receive-messages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bot connects but doesn't receive messages
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bot-doesnt-reply" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bot doesn't reply
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#permission-denied-errors-in-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "permission denied" errors in logs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#websocket-connection-keeps-dropping" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        WebSocket connection keeps dropping
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1757,7 +1594,7 @@
   <span class="md-ellipsis">
     
   
-    Knowledge Base
+    知识库
   
 
     
@@ -1773,7 +1610,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Knowledge Base
+    知识库
   
 
           </label>
@@ -1786,14 +1623,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../knowledge_base/introduction/" class="md-nav__link">
+      <a href="../knowledge_base/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -1814,14 +1651,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../knowledge_base/ext_knowledge/" class="md-nav__link">
+      <a href="../knowledge_base/ext_knowledge/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    External Knowledge
+    外部知识
   
 
     
@@ -1842,14 +1679,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../knowledge_base/platform_doc/" class="md-nav__link">
+      <a href="../knowledge_base/platform_doc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Platform Documentation
+    平台文档
   
 
     
@@ -1870,14 +1707,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../knowledge_base/metadata/" class="md-nav__link">
+      <a href="../knowledge_base/metadata/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Metadata
+    元数据
   
 
     
@@ -1898,14 +1735,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../knowledge_base/semantic_model/" class="md-nav__link">
+      <a href="../knowledge_base/semantic_model/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Semantic Models
+    语义模型
   
 
     
@@ -1926,14 +1763,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../knowledge_base/metrics/" class="md-nav__link">
+      <a href="../knowledge_base/metrics/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Metrics
+    指标
   
 
     
@@ -1954,7 +1791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../knowledge_base/reference_sql/" class="md-nav__link">
+      <a href="../knowledge_base/reference_sql/" class="md-nav__link">
         
   
   
@@ -1982,14 +1819,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../knowledge_base/reference_template/" class="md-nav__link">
+      <a href="../knowledge_base/reference_template/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Reference Template
+    SQL模板
   
 
     
@@ -2049,7 +1886,7 @@
   <span class="md-ellipsis">
     
   
-    Workflow
+    工作流
   
 
     
@@ -2065,7 +1902,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Workflow
+    工作流
   
 
           </label>
@@ -2078,14 +1915,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../workflow/introduction/" class="md-nav__link">
+      <a href="../workflow/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -2106,14 +1943,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../workflow/nodes/" class="md-nav__link">
+      <a href="../workflow/nodes/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Nodes
+    节点
   
 
     
@@ -2134,14 +1971,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../workflow/orchestration/" class="md-nav__link">
+      <a href="../workflow/orchestration/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Orchestration
+    编排
   
 
     
@@ -2162,7 +1999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../workflow/api/" class="md-nav__link">
+      <a href="../workflow/api/" class="md-nav__link">
         
   
   
@@ -2199,6 +2036,8 @@
   
     
     
+      
+        
       
         
       
@@ -2256,14 +2095,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../API/introduction/" class="md-nav__link">
+      <a href="../API/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -2284,14 +2123,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../API/deployment/" class="md-nav__link">
+      <a href="../API/deployment/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Deployment
+    部署
   
 
     
@@ -2312,7 +2151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../API/chat/" class="md-nav__link">
+      <a href="../API/chat/" class="md-nav__link">
         
   
   
@@ -2320,6 +2159,34 @@
     
   
     Chat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/knowledge_base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    知识库 API
   
 
     
@@ -2385,7 +2252,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    配置
   
 
     
@@ -2401,7 +2268,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Configuration
+    配置
   
 
           </label>
@@ -2414,14 +2281,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/introduction/" class="md-nav__link">
+      <a href="../configuration/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -2442,7 +2309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/agent/" class="md-nav__link">
+      <a href="../configuration/agent/" class="md-nav__link">
         
   
   
@@ -2470,14 +2337,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/workflow/" class="md-nav__link">
+      <a href="../configuration/workflow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Workflow
+    工作流
   
 
     
@@ -2498,14 +2365,102 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/benchmark/" class="md-nav__link">
+      <a href="../configuration/benchmark/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Benchmark
+    基准测试
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_10_5" id="__nav_1_10_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    服务
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    服务
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库
   
 
     
@@ -2526,14 +2481,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/namespace/" class="md-nav__link">
+      <a href="../configuration/semantic_layer/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Namespace
+    语义层
   
 
     
@@ -2554,7 +2509,71 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/storage/" class="md-nav__link">
+      <a href="../configuration/bi_platforms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BI 平台
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/schedulers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    调度器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/storage/" class="md-nav__link">
         
   
   
@@ -2582,14 +2601,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/nodes/" class="md-nav__link">
+      <a href="../configuration/nodes/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Nodes
+    节点
   
 
     
@@ -2624,6 +2643,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -2645,7 +2668,7 @@
   <span class="md-ellipsis">
     
   
-    Adapters
+    适配器
   
 
     
@@ -2661,7 +2684,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Adapters
+    适配器
   
 
           </label>
@@ -2674,14 +2697,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adapters/db_adapters/" class="md-nav__link">
+      <a href="../adapters/db_adapters/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Database Adapters
+    数据库适配器
   
 
     
@@ -2702,14 +2725,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adapters/semantic_adapters/" class="md-nav__link">
+      <a href="../adapters/semantic_adapters/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Semantic Adapters
+    语义层适配器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adapters/bi_adapters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BI 适配器
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adapters/scheduler_adapters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler 适配器
   
 
     
@@ -2763,7 +2842,7 @@
   <span class="md-ellipsis">
     
   
-    Benchmark
+    基准测试
   
 
     
@@ -2779,7 +2858,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Benchmark
+    基准测试
   
 
           </label>
@@ -2792,14 +2871,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../benchmark/benchmark_manual/" class="md-nav__link">
+      <a href="../benchmark/benchmark_manual/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -2853,7 +2932,7 @@
   <span class="md-ellipsis">
     
   
-    Metricflow
+    MetricFlow
   
 
     
@@ -2869,7 +2948,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Metricflow
+    MetricFlow
   
 
           </label>
@@ -2882,14 +2961,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../metricflow/introduction/" class="md-nav__link">
+      <a href="../metricflow/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -2947,7 +3026,7 @@
   <span class="md-ellipsis">
     
   
-    Integration
+    集成
   
 
     
@@ -2963,7 +3042,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Integration
+    集成
   
 
           </label>
@@ -2976,7 +3055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../integration/mcp/" class="md-nav__link">
+      <a href="../integration/mcp/" class="md-nav__link">
         
   
   
@@ -3004,7 +3083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../integration/skills/" class="md-nav__link">
+      <a href="../integration/skills/" class="md-nav__link">
         
   
   
@@ -3032,14 +3111,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../integration/memory/" class="md-nav__link">
+      <a href="../integration/memory/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Auto Memory
+    自动记忆
   
 
     
@@ -3122,7 +3201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../training/llm_trace_usage/" class="md-nav__link">
+      <a href="../training/llm_trace_usage/" class="md-nav__link">
         
   
   
@@ -3183,7 +3262,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../develop/" class="md-nav__link ">
+            <a href="../develop/" class="md-nav__link ">
               
   
   
@@ -3227,7 +3306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../develop/Architecture/" class="md-nav__link">
+      <a href="../develop/Architecture/" class="md-nav__link">
         
   
   
@@ -3255,7 +3334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../develop/Contributing/" class="md-nav__link">
+      <a href="../develop/Contributing/" class="md-nav__link">
         
   
   
@@ -3298,14 +3377,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../release_notes/" class="md-nav__link">
+      <a href="../release_notes/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Release Notes
+    发布说明
   
 
     
@@ -3331,7 +3410,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
@@ -3340,15 +3419,15 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        一、本次版本关键词
       
     </span>
   </a>
@@ -3356,132 +3435,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-install-the-sdk" class="md-nav__link">
+  <a href="#new-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1: Install the SDK
+        二、New Features
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2-create-a-self-built-app" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2: Create a Self-Built App
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-get-app-credentials" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3: Get App Credentials
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-enable-bot-capability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4: Enable Bot Capability
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-5-configure-event-subscription-websocket-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 5: Configure Event Subscription (WebSocket Mode)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-configure-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 6: Configure Permissions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-7-publish-the-app" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 7: Publish the App
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-8-configure-datus-agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 8: Configure Datus Agent
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration Reference
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-the-connection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verify the Connection
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
+    <nav class="md-nav" aria-label="二、New Features">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#app_ticket-is-empty-or-authentication-failure" class="md-nav__link">
+  <a href="#21-rest-api-chat-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        "app_ticket is empty" or authentication failure
+        2.1 REST API 服务与 Chat API
       
     </span>
   </a>
@@ -3489,10 +3458,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bot-connects-but-doesnt-receive-messages" class="md-nav__link">
+  <a href="#22-cli-print-modestdinstdout" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bot connects but doesn't receive messages
+        2.2 CLI Print Mode（stdin/stdout）
       
     </span>
   </a>
@@ -3500,10 +3469,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bot-doesnt-reply" class="md-nav__link">
+  <a href="#23-datus-gateway-im" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bot doesn't reply
+        2.3 Datus Gateway IM 网关
       
     </span>
   </a>
@@ -3511,10 +3480,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#permission-denied-errors-in-logs" class="md-nav__link">
+  <a href="#24-auto-memory" class="md-nav__link">
     <span class="md-ellipsis">
       
-        "permission denied" errors in logs
+        2.4 Auto Memory
       
     </span>
   </a>
@@ -3522,10 +3491,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#websocket-connection-keeps-dropping" class="md-nav__link">
+  <a href="#25-feature" class="md-nav__link">
     <span class="md-ellipsis">
       
-        WebSocket connection keeps dropping
+        2.5 其他用户可见 Feature
       
     </span>
   </a>
@@ -3534,6 +3503,139 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refactor-breaking-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三、Refactor &amp; Breaking Changes（升级重点）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三、Refactor &amp; Breaking Changes（升级重点）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 文件系统结构与工具重构（重点）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-tool-dispatch-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Tool Dispatch API 重写
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Session &amp; 观测
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bug-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        四、Bug Fixes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        五、从 0.2.6 升级指南
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="五、从 0.2.6 升级指南">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 升级命令
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-breaking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 必检项（Breaking / 行为变化）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-kb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 KB 目录迁移脚本（参考）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 新能力快速体验
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leo-felixliu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        六、贡献者（本次版本 Leo / Felix.Liu 部分）
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3554,7 +3656,7 @@
 
 
   
-    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/claw/feishu.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/release_notes_0.2.7_zh.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -3562,258 +3664,276 @@
   
 
 
-<h1 id="feishu-lark-adapter">Feishu (Lark) Adapter<a class="headerlink" href="#feishu-lark-adapter" title="Permanent link">&para;</a></h1>
-<p>This guide walks you through setting up a Feishu (Lark) bot that connects to Datus Agent via the Claw IM gateway. Feishu uses the official <code>lark-oapi</code> SDK with <strong>WebSocket long connection</strong>, which means the bot connects outbound — no public URL or webhook endpoint is required.</p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li>A Feishu tenant (organization) where you have developer permissions</li>
-<li>Datus Agent installed and configured</li>
-</ul>
-<h2 id="step-1-install-the-sdk">Step 1: Install the SDK<a class="headerlink" href="#step-1-install-the-sdk" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>lark-oapi
-</span></code></pre></div>
-<h2 id="step-2-create-a-self-built-app">Step 2: Create a Self-Built App<a class="headerlink" href="#step-2-create-a-self-built-app" title="Permanent link">&para;</a></h2>
+<h1 id="datus-agent-027-release-note">Datus-Agent 0.2.7 Release Note（中文版）<a class="headerlink" href="#datus-agent-027-release-note" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>面向用户的发版说明。覆盖范围：自 <code>v0.2.6</code> (2026-03-21) 以来由 Leo / Felix.Liu 负责落地的改动。
+发版分支：<code>fstool-fix</code>（合入 <code>main</code> 后打 <code>v0.2.7</code>）。</p>
+</blockquote>
+<hr />
+<h2 id="_1">一、本次版本关键词<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Go to <a href="https://open.feishu.cn">Feishu Open Platform</a> and log in with your Feishu account.</li>
-<li>Click your avatar in the top-right corner, then select <strong>Developer Console</strong> (or go directly to <a href="https://open.feishu.cn/app">open.feishu.cn/app</a>).</li>
-<li>Click <strong>Create Custom App</strong>.</li>
-<li>Fill in the app name (e.g., "Datus Agent") and description.</li>
-<li>Click <strong>Create</strong>.</li>
+<li><strong>新增独立 REST API 服务（<code>datus-api</code>）</strong> —— 从 Streamlit 后端抽出，可独立部署。</li>
+<li><strong>CLI Print Mode + Proxy Tools</strong> —— 支持 stdin/stdout 非交互式调用，便于外部 orchestrator 接管工具执行。</li>
+<li><strong>Gateway 网关 Daemon 模式 + 流式输出</strong> —— IM 场景（飞书）端到端打通 streaming。</li>
+<li><strong>Auto Memory（MEMORY.md）</strong> —— Agentic Node 获得跨会话的持久化记忆能力。</li>
+<li><strong>文件系统工具重构</strong> —— 统一到 <code>project_root</code> + <code>PathZone</code> 访问策略；<code>filesystem_strict</code> 升级为一等 AgentConfig 字段。</li>
+<li><strong>Project-level 配置 + Feedback Agent + Session 作用域隔离</strong> —— 多项目、多 Agent 协作的基础能力补齐。</li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Lark (International) users</p>
-<p>If you are using the international version (Lark), go to <a href="https://open.larksuite.com">open.larksuite.com</a> instead. The setup steps are the same.</p>
-</div>
-<h2 id="step-3-get-app-credentials">Step 3: Get App Credentials<a class="headerlink" href="#step-3-get-app-credentials" title="Permanent link">&para;</a></h2>
-<ol>
-<li>After creating the app, you will be taken to the app dashboard.</li>
-<li>In the left sidebar, click <strong>Credentials &amp; Basic Info</strong>.</li>
-<li>Copy the <strong>App ID</strong> and <strong>App Secret</strong>. These are your <code>FEISHU_APP_ID</code> and <code>FEISHU_APP_SECRET</code>.</li>
-</ol>
-<div class="admonition warning">
-<p class="admonition-title">Keep your App Secret safe</p>
-<p>The App Secret is equivalent to a password. Never share it publicly or commit it to version control. Use environment variables instead.</p>
-</div>
-<h2 id="step-4-enable-bot-capability">Step 4: Enable Bot Capability<a class="headerlink" href="#step-4-enable-bot-capability" title="Permanent link">&para;</a></h2>
-<ol>
-<li>In the left sidebar, go to <strong>Features → Bot</strong>.</li>
-<li>Toggle the bot capability to <strong>Enabled</strong>.</li>
-<li>Optionally, set a bot name and avatar.</li>
-</ol>
-<h2 id="step-5-configure-event-subscription-websocket-mode">Step 5: Configure Event Subscription (WebSocket Mode)<a class="headerlink" href="#step-5-configure-event-subscription-websocket-mode" title="Permanent link">&para;</a></h2>
-<p>Claw uses the Feishu WebSocket long connection to receive events. This eliminates the need for a public callback URL.</p>
-<ol>
-<li>In the left sidebar, go to <strong>Event Subscriptions</strong>.</li>
-<li>
-<p>Under <strong>Subscription Mode</strong>, select <strong>WebSocket Mode</strong> (also labeled "Use long connection to receive events").</p>
-<div class="admonition tip">
-<p class="admonition-title">Why WebSocket Mode?</p>
-<p>WebSocket mode is ideal for Claw because it does not require a publicly accessible server. The bot initiates an outbound WebSocket connection to Feishu's servers, and events are pushed through this connection.</p>
-</div>
-</li>
-<li>
-<p>Under <strong>Event List</strong>, click <strong>Add Event</strong> and search for:</p>
+<hr />
+<h2 id="new-features">二、New Features<a class="headerlink" href="#new-features" title="Permanent link">&para;</a></h2>
+<h3 id="21-rest-api-chat-api">2.1 REST API 服务与 Chat API<a class="headerlink" href="#21-rest-api-chat-api" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Event Name</th>
-<th>Event Key</th>
-<th>Description</th>
+<th>能力</th>
+<th>PR</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Receive messages</td>
-<td><code>im.message.receive_v1</code></td>
-<td>Triggered when the bot receives a message</td>
+<td>新增 <code>datus-api</code> CLI 入口与 FastAPI 模块</td>
+<td><a href="https://github.com/Datus-ai/Datus-agent/pull/520">#520</a></td>
+<td>独立的 REST API，包含 agents / chat / database / explorer / KB / MCP 路由；消除对 <code>datus_backend</code> 的 ORM 依赖；可独立部署</td>
 </tr>
 <tr>
-<td>Message reaction created</td>
-<td><code>im.message.reaction.created_v1</code></td>
-<td>Triggered when a user adds a reaction to a message</td>
+<td>Datus Chat 模块</td>
+<td><a href="https://github.com/Datus-ai/Datus-agent/pull/554">#554</a></td>
+<td>新的 chat 子模块，作为 Web/IM 调用 Agentic 能力的统一入口</td>
 </tr>
 <tr>
-<td>Message reaction deleted</td>
-<td><code>im.message.reaction.deleted_v1</code></td>
-<td>Triggered when a user removes a reaction from a message</td>
+<td>Chat API Streaming 输出</td>
+<td><a href="https://github.com/Datus-ai/Datus-agent/pull/555">#555</a></td>
+<td>新增 <code>--stream</code> CLI 标志与按请求级的 <code>stream_response</code>，逐 token 输出 thinking delta；客户端需处理 <code>create/append/update</code> 三类 message 事件</td>
+</tr>
+<tr>
+<td><code>ask_user_tool</code> 多选支持</td>
+<td><a href="https://github.com/Datus-ai/Datus-agent/pull/553">#553</a></td>
+<td>SSE <code>UserInteractionInput.input</code> 由 <code>List[str]</code> 升级为 <code>List[List[str]]</code> 以承载 multiSelect</td>
+</tr>
+<tr>
+<td>API Server 参数透传</td>
+<td><a href="https://github.com/Datus-ai/Datus-agent/pull/538">#538</a></td>
+<td>新增 <code>--source</code> / <code>--interactive</code> / <code>--no-interactive</code>，且支持 <code>ChatInput.interactive</code> / <code>ChatInput.source</code> 按请求覆盖</td>
+</tr>
+<tr>
+<td>Web API 文档</td>
+<td><a href="https://github.com/Datus-ai/Datus-agent/pull/530">#530</a></td>
+<td>完整 REST API 使用手册</td>
 </tr>
 </tbody>
 </table>
-</li>
-<li>
-<p>Click <strong>Save</strong>.</p>
-</li>
-</ol>
-<h2 id="step-6-configure-permissions">Step 6: Configure Permissions<a class="headerlink" href="#step-6-configure-permissions" title="Permanent link">&para;</a></h2>
-<ol>
-<li>In the left sidebar, go to <strong>Permissions &amp; Scopes</strong>.</li>
-<li>Search for and add the following permissions:</li>
-</ol>
+<h3 id="22-cli-print-modestdinstdout">2.2 CLI Print Mode（stdin/stdout）<a class="headerlink" href="#22-cli-print-modestdinstdout" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Permission</th>
-<th>Scope Key</th>
-<th>Purpose</th>
+<th>能力</th>
+<th>PR</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Read messages sent to the bot</td>
-<td><code>im:message</code></td>
-<td>Receive direct messages</td>
+<td><code>--print</code> 非交互模式</td>
+<td><a href="https://github.com/Datus-ai/Datus-agent/pull/489">#489</a></td>
+<td>JSON Lines 格式通过 stdin/stdout 流式通信；新增 <code>--resume</code> 恢复既有 session（要求同时指定 <code>--print</code>）；抽离 <code>node_factory</code> / <code>action_content_builder</code></td>
 </tr>
 <tr>
-<td>Read group messages</td>
-<td><code>im:message.group_msg:readonly</code></td>
-<td>Receive all group messages (required for thread replies without <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a>)</td>
-</tr>
-<tr>
-<td>Send messages as the bot</td>
-<td><code>im:message:send_as_bot</code></td>
-<td>Reply to users</td>
-</tr>
-<tr>
-<td>Read card info</td>
-<td><code>cardkit:card:read</code></td>
-<td>Convert message ID to card ID for streaming cards</td>
-</tr>
-<tr>
-<td>Write card content</td>
-<td><code>cardkit:card:write</code></td>
-<td>Update streaming card content and close streaming mode</td>
-</tr>
-<tr>
-<td>Get chat info</td>
-<td><code>im:chat:readonly</code></td>
-<td>Read group chat metadata (optional)</td>
-</tr>
-<tr>
-<td>Read user info</td>
-<td><code>contact:user.base:readonly</code></td>
-<td>Resolve sender names (optional)</td>
+<td>Proxy Tools for Print Mode</td>
+<td><a href="https://github.com/Datus-ai/Datus-agent/pull/501">#501</a></td>
+<td><code>--proxy_tools</code> 把指定工具替换为 channel-based 代理：Agent 发出 <code>call-tool</code> 事件到 stdout，外部进程通过 stdin 回传结果；适合 VSCode 插件、Web 前端接管工具执行</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Group message permission</p>
-<p><code>im:message.group_msg:readonly</code> allows the bot to receive <strong>all</strong> group messages, including thread replies without <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a>. The bot automatically filters out irrelevant messages — only <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a> messages and replies within an existing bot thread are processed. If you prefer a more restrictive scope, you can use <code>im:message.group_at_msg:readonly</code> instead, but thread replies without <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a> will not be received.</p>
-</div>
-<ol>
-<li>Click <strong>Save</strong>.</li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Batch import</p>
-<p>In the <strong>Permissions &amp; Scopes</strong> page, click <strong>Batch Enable</strong> and paste the following JSON to add all permissions at once:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;scopes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="s2">&quot;cardkit:card:read&quot;</span><span class="p">,</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="s2">&quot;cardkit:card:write&quot;</span><span class="p">,</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="s2">&quot;contact:user.base:readonly&quot;</span><span class="p">,</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="s2">&quot;im:chat:readonly&quot;</span><span class="p">,</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="s2">&quot;im:message&quot;</span><span class="p">,</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="s2">&quot;im:message.group_msg:readonly&quot;</span><span class="p">,</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="s2">&quot;im:message:send_as_bot&quot;</span><span class="p">,</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="s2">&quot;im:resource&quot;</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">]</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
-</span></code></pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Required vs Optional</p>
-<p><code>im:message</code>, <code>im:message.group_msg:readonly</code>, <code>im:message:send_as_bot</code>, <code>cardkit:card:read</code>, and <code>cardkit:card:write</code> are required for full functionality (including group <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a> messages, thread replies, and streaming card responses). The other permissions are optional and depend on your use case. Without CardKit permissions, the bot falls back to sending separate messages for each response chunk.</p>
-</div>
-<h2 id="step-7-publish-the-app">Step 7: Publish the App<a class="headerlink" href="#step-7-publish-the-app" title="Permanent link">&para;</a></h2>
-<ol>
-<li>In the left sidebar, go to <strong>Version Management &amp; Release</strong>.</li>
-<li>Click <strong>Create Version</strong>.</li>
-<li>Fill in the version number and update notes.</li>
-<li>
-<p>Click <strong>Submit for Review</strong>.</p>
-</li>
-<li>
-<p><strong>Test tenants</strong>: You can self-approve in test organizations. Go to the <strong>Testing</strong> section to add test members first.</p>
-</li>
-<li><strong>Production tenants</strong>: An admin of the organization must approve the app.</li>
-</ol>
-<div class="admonition info">
-<p class="admonition-title">App availability</p>
-<p>After approval, the app becomes available to users in the organization. Users can find and add the bot from the Feishu app directory or by searching its name.</p>
-</div>
-<h2 id="step-8-configure-datus-agent">Step 8: Configure Datus Agent<a class="headerlink" href="#step-8-configure-datus-agent" title="Permanent link">&para;</a></h2>
-<p>Add the Feishu channel to your <code>agent.yml</code>:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">channels</span><span class="p">:</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">feishu-main</span><span class="p">:</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">adapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">feishu</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">extra</span><span class="p">:</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">app_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${FEISHU_APP_ID}</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">app_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${FEISHU_APP_SECRET}</span>
-</span></code></pre></div>
-<p>Set the environment variables:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">FEISHU_APP_ID</span><span class="o">=</span><span class="s2">&quot;cli_xxxxxxxxxxxx&quot;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">FEISHU_APP_SECRET</span><span class="o">=</span><span class="s2">&quot;xxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>
-</span></code></pre></div>
-<h2 id="configuration-reference">Configuration Reference<a class="headerlink" href="#configuration-reference" title="Permanent link">&para;</a></h2>
+<h3 id="23-datus-gateway-im">2.3 Datus Gateway IM 网关<a class="headerlink" href="#23-datus-gateway-im" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Required</th>
-<th>Description</th>
+<th>能力</th>
+<th>PR</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>app_id</code></td>
-<td>Yes</td>
-<td>App ID from Feishu Open Platform</td>
+<td>Daemon 模式</td>
+<td><a href="https://github.com/Datus-ai/Datus-agent/pull/559">#559</a></td>
+<td>新增 <code>--daemon</code>、<code>--action start/stop/restart/status</code>、<code>--pid-file</code>、<code>--daemon-log-file</code>；POSIX-only 调用加平台守卫；<code>--log-level</code> 在 daemon 模式下生效</td>
 </tr>
 <tr>
-<td><code>app_secret</code></td>
-<td>Yes</td>
-<td>App Secret from Feishu Open Platform</td>
+<td>Gateway Streaming 输出</td>
+<td><a href="https://github.com/Datus-ai/Datus-agent/pull/562">#562</a></td>
+<td>网关向 IM 下行支持逐 token 增量输出</td>
+</tr>
+<tr>
+<td>飞书 Streaming 支持</td>
+<td><a href="https://github.com/Datus-ai/Datus-agent/pull/565">#565</a></td>
+<td>飞书 adapter 端接 Gateway streaming</td>
+</tr>
+<tr>
+<td>Gateway/API Feedback Action</td>
+<td><a href="https://github.com/Datus-ai/Datus-agent/pull/593">#593</a></td>
+<td>修复 ContextVar 跨线程传递导致的 <code>project_name</code> 空串问题，IM 场景也能正确解析 project</td>
 </tr>
 </tbody>
 </table>
-<h2 id="verify-the-connection">Verify the Connection<a class="headerlink" href="#verify-the-connection" title="Permanent link">&para;</a></h2>
-<p>Start the Claw gateway and check the logs:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python<span class="w"> </span>-m<span class="w"> </span>datus.claw.main<span class="w"> </span>--config<span class="w"> </span>conf/agent.yml<span class="w"> </span>--debug
+<h3 id="24-auto-memory">2.4 Auto Memory<a class="headerlink" href="#24-auto-memory" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/498">#498</a> <strong>MEMORY.md 持久化</strong>：Agentic Node 的系统提示词会自动注入 <code>MEMORY.md</code> 内容（≤200 行为 L1 主文件；超过的部分由模型按需读取 L2 子文件），不新增任何工具，复用现有 <code>FilesystemFuncTool</code>。</li>
+<li>适用节点：<code>chat</code> + 自定义 subagent（<code>GenSQL</code> / <code>GenReport</code> 强制保留 filesystem tools）。</li>
+<li>增强：空 <code>MEMORY.md</code> 场景下显式下发 <code>"empty -- no memories saved yet"</code> 占位符，避免模型误判注入失败（<a href="https://github.com/Datus-ai/Datus-agent/pull/595">#595</a>）。</li>
+</ul>
+<h3 id="25-feature">2.5 其他用户可见 Feature<a class="headerlink" href="#25-feature" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/579">#579</a> <strong>Feedback Agent</strong>：新增反馈 Agent 节点。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/583">#583</a> <strong>CLI 底部栏 UX 重设计</strong>。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/575">#575</a> <strong>SubAgentTaskTool 通用化</strong>：<code>SubAgentConfig</code> / <code>AgenticNode</code> 新增 <code>subagents</code> 字段；<code>chat</code> 默认 <code>'*'</code>，其他节点（GenSQL、GenReport）默认 <code>'explore'</code>；强制 2 级深度。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/592">#592</a> <strong>Project-level 配置</strong>。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/523">#523</a> <strong><code>--session-scope</code> 参数</strong>：session 目录隔离，支持按 scope 划分会话存储。</li>
+</ul>
+<hr />
+<h2 id="refactor-breaking-changes">三、Refactor &amp; Breaking Changes（升级重点）<a class="headerlink" href="#refactor-breaking-changes" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 文件系统结构与工具重构（重点）<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>涉及 <a href="https://github.com/Datus-ai/Datus-agent/pull/578">#578</a>、<a href="https://github.com/Datus-ai/Datus-agent/pull/588">#588</a>、<a href="https://github.com/Datus-ai/Datus-agent/pull/561">#561</a>、<a href="https://github.com/Datus-ai/Datus-agent/pull/587">#587</a>；以及 <code>fstool-fix</code> 分支上 <code>d6c610bf</code>、<code>ddf42ba8</code>。</p>
+</blockquote>
+<p><strong>变更摘要</strong></p>
+<ol>
+<li><strong>KB 内容锚定规则变更</strong></li>
+<li>旧：<code>knowledge_base_home</code> 可任意指定；路径内包含 <code>{current_database}</code> 层级。</li>
+<li>新：KB 内容**强制**锚定到 <code>{project_root}/subject/{semantic_models|sql_summaries|ext_knowledge|metrics}/</code>；不再有 <code>{db}/</code> 子目录；<code>agent.yml</code> 里 <code>agent.knowledge_base_home</code> 字段被**静默忽略**。</li>
+<li><strong>Global 存储按 project 分片</strong></li>
+<li><code>~/.datus/sessions/{project_name}/{session_id}.db</code></li>
+<li><code>~/.datus/data/{project_name}/datus_db/</code></li>
+<li><code>project_name</code> 规则：<code>os.getcwd().replace("/", "-").lstrip("-")</code>，空路径回落 <code>_root</code>，超长路径尾部加 7 位 md5。</li>
+<li><strong>FilesystemFuncTool 工具集精简</strong>（<a href="https://github.com/Datus-ai/Datus-agent/pull/561">#561</a>）</li>
+<li><code>read_file</code> 新增 <code>offset</code> / <code>limit</code>。</li>
+<li><code>edit_file</code> 简化为单对 <code>old_string</code> / <code>new_string</code>（带唯一性校验）。</li>
+<li>新增 <code>glob</code> 与 <code>grep</code>；移除 <code>read_multiple_files</code> / <code>create_directory</code> / <code>list_directory</code> / <code>directory_tree</code> / <code>move_file</code> / <code>search_files</code>。</li>
+<li><strong>访问区分级</strong>（<a href="https://github.com/Datus-ai/Datus-agent/pull/588">#588</a>）：<code>PathZone</code> = <code>INTERNAL</code> / <code>WHITELIST</code>（<code>~/.datus/skills</code>、<code>.datus/skills</code>、<code>.datus/memory/{current_node}</code>）/ <code>HIDDEN</code>（<code>.datus</code> 其他内容）/ <code>EXTERNAL</code>（项目根以外）。</li>
+<li><strong><code>filesystem_strict</code> 一等字段</strong>（<code>d6c610bf</code>）</li>
+<li><code>agent.yml</code> 新增 <code>agent.filesystem.strict: true/false</code>。</li>
+<li>CLI 互斥三态：<code>--filesystem-strict</code> / <code>--no-filesystem-strict</code> / 两者均不传（保留 YAML 值）。</li>
+<li>API（<code>chat_task_manager</code>）与 Gateway（<code>main._run_gateway</code>）在 strict 模式下会硬拒绝 <code>EXTERNAL</code> 路径，不再向权限 broker 发交互 prompt，避免无人值守场景挂起。</li>
+</ol>
+<h3 id="32-tool-dispatch-api">3.2 Tool Dispatch API 重写<a class="headerlink" href="#32-tool-dispatch-api" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/569">#569</a> 用 <code>POST /api/v1/tools/{tool_name}</code> 直连 <code>ContextSearchTools</code> 注册表，<strong>移除旧 route</strong> <code>execute_tool</code> 与一组陈旧 CLI 模型（<code>SchemaLinkingToolInput</code> / <code>SearchMetricsToolInput</code> 等）。</li>
+</ul>
+<h3 id="33-session">3.3 Session &amp; 观测<a class="headerlink" href="#33-session" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/547">#547</a> SSE 事件新增 <code>depth</code> / <code>parent_action_id</code> / <code>subagent-complete</code>，前端可构建层级活动树。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/544">#544</a> <code>session_total_tokens</code> 语义调整为 <strong>最后一次模型调用的 input_tokens</strong>（真实上下文占用），而非累加；CLI 展示与 SSE <code>end</code> 事件新增 <code>requests</code>（LLM 调用次数）。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/594">#594</a> <code>.sessions</code>/<code>.resume</code> 与 <code>GET /api/v1/chat/sessions</code> 按当前 agent 过滤；API 新增 <code>subagent_id</code> 可选参数。</li>
+</ul>
+<hr />
+<h2 id="bug-fixes">四、Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/570">#570</a> streaming delta chunk 不再 <code>strip()</code>，保留 token 之间的空白（飞书下 <code>"Hi" + " again!"</code> 不再变成 <code>"Hiagain!"</code>）。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/568">#568</a> 群聊中 bot 不再回复未参与过的 thread。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/577">#577</a> session compact 结果持久化修复。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/548">#548</a> compact API 不再恒返回 <code>success=false</code>（补齐 <code>_get_or_create_session</code>）。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/533">#533</a> 工具结果以 JSON mode 序列化，保留 session history 中的结构（修复 <code>datetime/Decimal/UUID</code> 被 <code>str(dict)</code> 破坏）。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/531">#531</a> 任务阻塞时主动下发 ping，避免 SSE 连接被中间层掐断。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/529">#529</a> 自定义 subagent 的 <code>node_name</code> 从 <code>agentic_nodes</code> key 正确解析，<code>scoped_context</code> 不再为空。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/516">#516</a> <code>filesystem_tools</code> 不再被错误代理到 <code>gen_semantic_model</code>、<code>gen_metrics</code>、<code>gen_sql_summary</code>、<code>gen_ext_knowledge</code>。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/505">#505</a> 加载历史 session 使用真实 id。</li>
+<li><a href="https://github.com/Datus-ai/Datus-agent/pull/587">#587</a> 移除 KB 生成 prompt 里过时的 <code>{current_database}</code> 目录层级。</li>
+</ul>
+<hr />
+<h2 id="026">五、从 0.2.6 升级指南<a class="headerlink" href="#026" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 升级命令<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>uv<span class="w"> </span>sync
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># 或 pip 安装方式</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>datus-agent
 </span></code></pre></div>
-<p>You should see:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Feishu adapter &#39;feishu-main&#39; connecting...
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Feishu adapter &#39;feishu-main&#39; started.
+<h3 id="52-breaking">5.2 必检项（Breaking / 行为变化）<a class="headerlink" href="#52-breaking" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>0.2.6 行为</th>
+<th>0.2.7 行为</th>
+<th>动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>agent.knowledge_base_home</code></td>
+<td>生效</td>
+<td><strong>静默忽略</strong></td>
+<td>删除该配置；把本地已生成的 KB 内容迁移至 <code>./subject/</code></td>
+</tr>
+<tr>
+<td>KB 目录结构</td>
+<td><code>subject/{kind}/{db}/...</code></td>
+<td><code>subject/{kind}/...</code>（无 <code>{db}</code>）</td>
+<td>执行下方迁移脚本或重新 bootstrap</td>
+</tr>
+<tr>
+<td><code>~/.datus/sessions/</code></td>
+<td>扁平</td>
+<td>按 <code>{project_name}</code> 分片</td>
+<td>旧 session 文件移动到 <code>~/.datus/sessions/{project_name}/</code> 下即可复用</td>
+</tr>
+<tr>
+<td><code>~/.datus/data/datus_db/</code></td>
+<td>全局</td>
+<td><code>~/.datus/data/{project_name}/datus_db/</code></td>
+<td>同上</td>
+</tr>
+<tr>
+<td>FilesystemFuncTool API</td>
+<td>包含 <code>list_directory</code>/<code>directory_tree</code>/<code>search_files</code> 等</td>
+<td>已移除，改用 <code>glob</code> / <code>grep</code></td>
+<td>如你自己的插件/脚本调用了旧工具名，迁移至新工具</td>
+</tr>
+<tr>
+<td><code>execute_tool</code> REST API</td>
+<td><code>GET/POST /api/v1/tools/{tool_name}</code> 旧实现</td>
+<td>由 <code>ToolService</code> 直连</td>
+<td>重新对齐请求 body 为工具的原生参数</td>
+</tr>
+<tr>
+<td><code>session_total_tokens</code> 语义</td>
+<td>累加 input_tokens</td>
+<td>最后一次调用的 input_tokens</td>
+<td>监控面板/报表需要重新校准</td>
+</tr>
+<tr>
+<td><code>UserInteractionInput.input</code></td>
+<td><code>List[str]</code></td>
+<td><code>List[List[str]]</code></td>
+<td>API 客户端改造 payload</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-kb">5.3 KB 目录迁移脚本（参考）<a class="headerlink" href="#53-kb" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 0.2.6 → 0.2.7：去掉多余的 {current_database} 层</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>./subject
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">for</span><span class="w"> </span>kind<span class="w"> </span><span class="k">in</span><span class="w"> </span>semantic_models<span class="w"> </span>sql_summaries<span class="w"> </span>ext_knowledge<span class="w"> </span>metrics<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="o">[</span><span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$kind</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">continue</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>find<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$kind</span><span class="s2">&quot;</span><span class="w"> </span>-mindepth<span class="w"> </span><span class="m">2</span><span class="w"> </span>-maxdepth<span class="w"> </span><span class="m">2</span><span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>db_dir<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span>mv<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$db_dir</span><span class="s2">&quot;</span>/*<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$kind</span><span class="s2">/&quot;</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rmdir<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$db_dir</span><span class="s2">&quot;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="k">done</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">done</span>
 </span></code></pre></div>
-<p>Send a message to the bot in a Feishu group or direct message. The bot should respond with the agent's analysis.</p>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="app_ticket-is-empty-or-authentication-failure">"app_ticket is empty" or authentication failure<a class="headerlink" href="#app_ticket-is-empty-or-authentication-failure" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Verify that <code>app_id</code> and <code>app_secret</code> are correct and match the app in the Feishu Open Platform.</li>
-<li>Ensure the app has been published and approved.</li>
-</ul>
-<h3 id="bot-connects-but-doesnt-receive-messages">Bot connects but doesn't receive messages<a class="headerlink" href="#bot-connects-but-doesnt-receive-messages" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Check that the <strong>WebSocket Mode</strong> is selected (not HTTP callback mode) under Event Subscriptions.</li>
-<li>Verify the <code>im.message.receive_v1</code> event is added.</li>
-<li>Ensure the bot capability is enabled under <strong>Features → Bot</strong>.</li>
-</ul>
-<h3 id="bot-doesnt-reply">Bot doesn't reply<a class="headerlink" href="#bot-doesnt-reply" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Check that the <code>im:message:send_as_bot</code> permission has been added and approved.</li>
-<li>Verify the app version with this permission has been published.</li>
-</ul>
-<h3 id="permission-denied-errors-in-logs">"permission denied" errors in logs<a class="headerlink" href="#permission-denied-errors-in-logs" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Go to <strong>Permissions &amp; Scopes</strong> and ensure all required permissions are added.</li>
-<li>After adding permissions, you must <strong>create a new version</strong> and get it approved for the permissions to take effect.</li>
-</ul>
-<h3 id="websocket-connection-keeps-dropping">WebSocket connection keeps dropping<a class="headerlink" href="#websocket-connection-keeps-dropping" title="Permanent link">&para;</a></h3>
-<ul>
-<li>The <code>lark-oapi</code> SDK handles reconnection automatically. Check network connectivity.</li>
-<li>Enable debug logging (<code>--debug</code>) to see detailed connection status.</li>
-</ul>
+<h3 id="54">5.4 新能力快速体验<a class="headerlink" href="#54" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 启动独立 API</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>datus-api<span class="w"> </span>server<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">8080</span><span class="w"> </span>--stream<span class="w"> </span>--interactive
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># CLI print mode + proxy tools</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>datus<span class="w"> </span>chat<span class="w"> </span>--print<span class="w"> </span>--proxy_tools<span class="w"> </span>query_sql<span class="w"> </span>--resume<span class="w"> </span>&lt;session_id&gt;
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Datus Gateway 网关以 daemon 启动</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>datus-gateway<span class="w"> </span>--daemon<span class="w"> </span>--action<span class="w"> </span>start<span class="w"> </span>--pid-file<span class="w"> </span>~/.datus/run/gateway.pid
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># 开启 filesystem strict（无人值守安全）</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>datus<span class="w"> </span>chat<span class="w"> </span>--filesystem-strict
+</span></code></pre></div>
+<hr />
+<h2 id="leo-felixliu">六、贡献者（本次版本 Leo / Felix.Liu 部分）<a class="headerlink" href="#leo-felixliu" title="Permanent link">&para;</a></h2>
+<p>共 39 个提交，含 15 项 Feature / 4 项 Refactor / 8 项 Enhancement / 10 项 Bug Fix / 1 项 Doc。</p>
 
 
 
@@ -3840,44 +3960,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../slack/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Slack">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Slack
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../../knowledge_base/introduction/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Introduction
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -3958,7 +4040,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tabs", "navigation.tracking", "navigation.indexes", "content.code.copy", "content.code.select", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tabs", "navigation.tracking", "navigation.indexes", "content.code.copy", "content.code.select", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

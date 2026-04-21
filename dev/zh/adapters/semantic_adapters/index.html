@@ -2464,14 +2464,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/databases/" class="md-nav__link">
+      <a href="../../configuration/datasources/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    数据库
+    Datasources
   
 
     
@@ -4246,6 +4246,7 @@
 <p>安装后，Datus Agent 会自动检测并加载适配器。</p>
 <h2 id="_6">配置<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>在 <code>agent.yml</code> 的 <code>agent.services.semantic_layer</code> 中配置语义层适配器：</p>
+<p>如果你使用的是 MetricFlow 的默认配置，整个 <code>semantic_layer</code> 段也可以省略；此时 Datus 会自动默认使用 <code>metricflow</code>。</p>
 <h3 id="metricflow_1">MetricFlow<a class="headerlink" href="#metricflow_1" title="Permanent link">&para;</a></h3>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">agent</span><span class="p">:</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">services</span><span class="p">:</span>
@@ -4269,13 +4270,14 @@
 <ul>
 <li><code>services.semantic_layer</code> 下的 key <strong>必须等于 adapter type</strong>（例如 <code>metricflow</code>）。如果同时写了 <code>type:</code> 字段，其值必须与 key 一致，否则 Datus 会在启动时抛出配置错误。比较时会先对 key 与 <code>type</code> 做 lowercase + trim 处理，因此 <code>MetricFlow</code> 或 <code>metricflow</code> 也会被视为与 <code>metricflow</code> 匹配。</li>
 <li>语义相关节点通过 <code>semantic_adapter</code> 选择适配器。</li>
+<li>如果 <code>services.semantic_layer</code> 和 <code>semantic_adapter</code> 都省略，Datus 会默认使用 <code>metricflow</code>。</li>
 <li>如果只配置了一个 semantic layer，省略 <code>semantic_adapter</code> 时会自动使用它。</li>
 <li>如果配置了多个 semantic layer，则必须显式填写 <code>semantic_adapter</code>。</li>
 </ul>
 <h3 id="config_path">关于 <code>config_path</code><a class="headerlink" href="#config_path" title="Permanent link">&para;</a></h3>
 <p><code>config_path</code> 是可选项。正常运行时，Datus 会从以下上下文构造 MetricFlow 配置：</p>
 <ol>
-<li><code>services.databases</code> 中当前选中的数据库</li>
+<li><code>services.datasources</code> 中当前选中的数据源</li>
 <li>当前项目的语义模型目录</li>
 <li>当前生效的 <code>agent.home</code></li>
 </ol>

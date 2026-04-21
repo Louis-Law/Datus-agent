@@ -2464,14 +2464,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/databases/" class="md-nav__link">
+      <a href="../../configuration/datasources/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Databases
+    Datasources
   
 
     
@@ -4246,6 +4246,7 @@
 <p>Once installed, Datus Agent will automatically detect and load the adapter.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p>Configure semantic adapters under <code>agent.services.semantic_layer</code> in <code>agent.yml</code>:</p>
+<p>The entire <code>semantic_layer</code> block is optional when you use MetricFlow with default settings. In that case Datus defaults to <code>metricflow</code> automatically.</p>
 <h3 id="metricflow">MetricFlow<a class="headerlink" href="#metricflow" title="Permanent link">&para;</a></h3>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">agent</span><span class="p">:</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">services</span><span class="p">:</span>
@@ -4269,13 +4270,14 @@ By default, Datus points MetricFlow at the current project's semantic model dire
 <ul>
 <li>The key under <code>services.semantic_layer</code> <strong>must equal the adapter type</strong> (for example <code>metricflow</code>). If a <code>type:</code> field is present, it must match the key; otherwise Datus raises a configuration error at startup. Comparison is case-insensitive and trims surrounding whitespace, so <code>MetricFlow</code> and <code>metricflow</code> also match.</li>
 <li>Semantic nodes choose the adapter with <code>semantic_adapter</code>.</li>
+<li>If both <code>services.semantic_layer</code> and <code>semantic_adapter</code> are omitted, Datus defaults to <code>metricflow</code>.</li>
 <li>If <code>semantic_adapter</code> is omitted and only one semantic layer is configured, Datus uses that adapter automatically.</li>
 <li>If multiple semantic layers are configured, set <code>semantic_adapter</code> explicitly.</li>
 </ul>
 <h3 id="about-config_path">About <code>config_path</code><a class="headerlink" href="#about-config_path" title="Permanent link">&para;</a></h3>
 <p><code>config_path</code> is optional. The normal runtime path builds MetricFlow config from:</p>
 <ol>
-<li>the selected database in <code>services.databases</code></li>
+<li>the selected datasource in <code>services.datasources</code></li>
 <li>the current project's semantic model directory</li>
 <li>the active <code>agent.home</code></li>
 </ol>

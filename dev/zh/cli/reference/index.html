@@ -945,6 +945,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -961,6 +979,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        会话
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        元数据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        上下文
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1011,8 +1103,6 @@
   
     
     
-      
-        
       
         
       
@@ -1343,35 +1433,7 @@
   <span class="md-ellipsis">
     
   
-    ETL Job
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../subagent/migration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migration
+    Data Pipeline (ETL + Migration)
   
 
     
@@ -3440,6 +3502,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        会话
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        元数据
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        上下文
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        系统
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3463,10 +3588,179 @@
   
 
 
-<h1 id="_1">参考<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p>本章节内容尚在整理，将在后续版本补充完整的命令参考。</p>
-</blockquote>
+<h1 id="_1">斜杠命令参考<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Datus-CLI 中所有可用的斜杠命令，按类别分组。</p>
+<h2 id="_2">会话<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>别名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/help</code></td>
+<td></td>
+<td>显示所有斜杠命令的帮助信��</td>
+</tr>
+<tr>
+<td><code>/exit</code></td>
+<td><code>/quit</code></td>
+<td>退出 CLI</td>
+</tr>
+<tr>
+<td><code>/clear</code></td>
+<td></td>
+<td>清除控制台和聊天会话</td>
+</tr>
+<tr>
+<td><code>/chat_info</code></td>
+<td></td>
+<td>显示当前聊天会话信息</td>
+</tr>
+<tr>
+<td><code>/compact</code></td>
+<td></td>
+<td>通过摘要历史记录压缩聊天会话</td>
+</tr>
+<tr>
+<td><code>/resume</code></td>
+<td></td>
+<td>列出并恢复之前的聊天会话</td>
+</tr>
+<tr>
+<td><code>/rewind</code></td>
+<td></td>
+<td>将当前会话回退到指定的轮次</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">元数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/databases</code></td>
+<td>列出所有数据库</td>
+</tr>
+<tr>
+<td><code>/database</code></td>
+<td>切换当前数据库</td>
+</tr>
+<tr>
+<td><code>/tables</code></td>
+<td>列出所有表</td>
+</tr>
+<tr>
+<td><code>/schemas</code></td>
+<td>列出所有 schema 或显示 schema 详情</td>
+</tr>
+<tr>
+<td><code>/schema</code></td>
+<td>切换当前 schema</td>
+</tr>
+<tr>
+<td><code>/table_schema</code></td>
+<td>显示表字段详情</td>
+</tr>
+<tr>
+<td><code>/indexes</code></td>
+<td>显示表的索引</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">上下文<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/catalog</code></td>
+<td>显示数据库目录浏览器</td>
+</tr>
+<tr>
+<td><code>/subject</code></td>
+<td>显示语义模型、指标和参考</td>
+</tr>
+</tbody>
+</table>
+<h2 id="agent">Agent<a class="headerlink" href="#agent" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/agent</code></td>
+<td>选择或查看默认 agent</td>
+</tr>
+<tr>
+<td><code>/subagent</code></td>
+<td>管理子 agent（列表/添加/删除/更新）</td>
+</tr>
+<tr>
+<td><code>/namespace</code></td>
+<td>切换当前命名空间</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_5">系统<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>别名</th>
+<th>说明</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/model</code></td>
+<td><code>/models</code></td>
+<td>运行时切换 LLM 提供商/模型</td>
+<td><a href="../model_command/">Model 命令</a></td>
+</tr>
+<tr>
+<td><code>/mcp</code></td>
+<td></td>
+<td>管理 MCP 服务器（列表/添加/删除/检查/调用/过滤）</td>
+<td><a href="../mcp_extensions/">MCP 扩展</a></td>
+</tr>
+<tr>
+<td><code>/skill</code></td>
+<td></td>
+<td>管理技能和市场</td>
+<td><a href="../skill_command/">Skill 命令</a></td>
+</tr>
+<tr>
+<td><code>/bootstrap-bi</code></td>
+<td></td>
+<td>为子 agent 上下文提取 BI 仪表盘资产</td>
+<td></td>
+</tr>
+<tr>
+<td><code>/services</code></td>
+<td></td>
+<td>列出已配置的服务平台及其只读方法</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 

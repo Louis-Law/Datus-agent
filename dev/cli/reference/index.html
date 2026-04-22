@@ -85,6 +85,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#slash-command-reference" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -937,6 +942,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -954,6 +979,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1004,8 +1103,6 @@
   
     
     
-      
-        
       
         
       
@@ -1336,35 +1433,7 @@
   <span class="md-ellipsis">
     
   
-    ETL Job
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../subagent/migration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migration
+    Data Pipeline (ETL + Migration)
   
 
     
@@ -3430,6 +3499,71 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Session
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metadata
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3454,11 +3588,179 @@
   
 
 
-  <h1>Reference</h1>
-
-<blockquote>
-<p>This section is currently under preparation. A full command reference will be added in a future release.</p>
-</blockquote>
+<h1 id="slash-command-reference">Slash Command Reference<a class="headerlink" href="#slash-command-reference" title="Permanent link">&para;</a></h1>
+<p>All slash commands available in Datus-CLI, grouped by category.</p>
+<h2 id="session">Session<a class="headerlink" href="#session" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Aliases</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/help</code></td>
+<td></td>
+<td>Display help for all slash commands</td>
+</tr>
+<tr>
+<td><code>/exit</code></td>
+<td><code>/quit</code></td>
+<td>Exit the CLI</td>
+</tr>
+<tr>
+<td><code>/clear</code></td>
+<td></td>
+<td>Clear console and chat session</td>
+</tr>
+<tr>
+<td><code>/chat_info</code></td>
+<td></td>
+<td>Show current chat session information</td>
+</tr>
+<tr>
+<td><code>/compact</code></td>
+<td></td>
+<td>Compact chat session by summarizing history</td>
+</tr>
+<tr>
+<td><code>/resume</code></td>
+<td></td>
+<td>List and resume a previous chat session</td>
+</tr>
+<tr>
+<td><code>/rewind</code></td>
+<td></td>
+<td>Rewind current session to a specific turn</td>
+</tr>
+</tbody>
+</table>
+<h2 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/databases</code></td>
+<td>List all databases</td>
+</tr>
+<tr>
+<td><code>/database</code></td>
+<td>Switch the current database</td>
+</tr>
+<tr>
+<td><code>/tables</code></td>
+<td>List all tables</td>
+</tr>
+<tr>
+<td><code>/schemas</code></td>
+<td>List all schemas or show schema details</td>
+</tr>
+<tr>
+<td><code>/schema</code></td>
+<td>Switch the current schema</td>
+</tr>
+<tr>
+<td><code>/table_schema</code></td>
+<td>Show table field details</td>
+</tr>
+<tr>
+<td><code>/indexes</code></td>
+<td>Show indexes for a table</td>
+</tr>
+</tbody>
+</table>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/catalog</code></td>
+<td>Display database catalog explorer</td>
+</tr>
+<tr>
+<td><code>/subject</code></td>
+<td>Display semantic models, metrics, and references</td>
+</tr>
+</tbody>
+</table>
+<h2 id="agents">Agents<a class="headerlink" href="#agents" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/agent</code></td>
+<td>Select or inspect the default agent</td>
+</tr>
+<tr>
+<td><code>/subagent</code></td>
+<td>Manage sub-agents (list/add/remove/update)</td>
+</tr>
+<tr>
+<td><code>/namespace</code></td>
+<td>Switch the current namespace</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system">System<a class="headerlink" href="#system" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Aliases</th>
+<th>Description</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/model</code></td>
+<td><code>/models</code></td>
+<td>Switch LLM provider/model at runtime</td>
+<td><a href="../model_command/">Model Command</a></td>
+</tr>
+<tr>
+<td><code>/mcp</code></td>
+<td></td>
+<td>Manage MCP servers (list/add/remove/check/call/filter)</td>
+<td><a href="../mcp_extensions/">MCP Extensions</a></td>
+</tr>
+<tr>
+<td><code>/skill</code></td>
+<td></td>
+<td>Manage skills and marketplace</td>
+<td><a href="../skill_command/">Skill Command</a></td>
+</tr>
+<tr>
+<td><code>/bootstrap-bi</code></td>
+<td></td>
+<td>Extract BI dashboard assets for sub-agent context</td>
+<td></td>
+</tr>
+<tr>
+<td><code>/services</code></td>
+<td></td>
+<td>List configured service platforms and their read-only methods</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 

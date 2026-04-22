@@ -1,0 +1,19 @@
+# Extra lower-bound constraints for the offline bundle's pip resolver.
+#
+# These packages are transitive dependencies (not declared in pyproject.toml),
+# so they are absent from the auto-generated .constraints.txt. Without lower
+# bounds pip backtracks across their entire release history, which blew up as
+# "resolution-too-deep" on the boto3 -> jmespath branch of
+# snowflake-connector-python during the datus-postgresql stage.
+#
+# Only add >= lower bounds here. Do NOT use == pins; this file is a resolver
+# hint, not a runtime requirement source of truth (pyproject.toml owns that).
+# Any entry whose package is already constrained by pyproject.toml is ignored
+# by the bundle builder, so pyproject.toml always wins on conflicts.
+
+boto3>=1.34
+botocore>=1.34
+jmespath>=1.0.1
+s3transfer>=0.10
+snowflake-connector-python>=3.7
+urllib3>=2.0

@@ -1,0 +1,11 @@
+# Build seed wheels for packages that do not publish the wheels you need.
+# Pure Python packages become universal wheels.
+# Compiled packages must be built inside the matching manylinux container for
+# the requested target architecture, otherwise the bundle build will fail fast.
+
+pure-sasl>=0.6.2
+thrift-sasl>=0.4.3
+pyhive>=0.7.0
+thrift==0.20.0
+pyperclip==1.9.0
+halo==0.0.31

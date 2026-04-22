@@ -80,6 +80,8 @@ curl -fsSL https://raw.githubusercontent.com/datus-ai/datus-agent/main/install.s
 
 Other variables supported by both installers: `DATUS_HOME` (default `~/.datus`), `DATUS_BIN_DIR` (default `~/.local/bin`), `DATUS_FORCE=1` to recreate the venv, `DATUS_NO_MODIFY_PATH=1` to skip shell rc edits.
 
+Offline customer delivery bundles are documented in [offline/README.md](offline/README.md). They are built through manylinux Docker containers and produce Linux `x86_64` and `arm64` archives with a local `wheelhouse`.
+
 #### Manual install
 
 ```bash

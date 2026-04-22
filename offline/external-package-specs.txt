@@ -1,0 +1,11 @@
+# Pin the published adapter versions for reproducible offline deliveries.
+# Leaving these unpinned dramatically increases resolver backtracking.
+
+datus-metricflow>=0.1.11
+datus-semantic-metricflow>=0.2.0
+datus-bi-superset>=0.1.0
+datus-starrocks>=0.1.5
+datus-hive>=0.1.1
+datus-mysql>=0.1.6
+datus-oceanbase>=0.1.1
+datus-postgresql>=0.1.4

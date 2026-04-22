@@ -1,4 +1,4 @@
-.PHONY: help clean build install install-dist test check upload-test upload all publish dev-install
+.PHONY: help clean build install install-dist test check upload-test upload all publish dev-install offline-bundle-x86_64 offline-bundle-arm64
 
 help: ## Show this help message
 	@echo "Available commands:"
@@ -45,3 +45,9 @@ setup-dev: ## Setup development environment
 quick-build: clean build ## Quick build (clean + build)
 quick-test: build test ## Quick test (build + test)
 quick-publish: clean build check upload ## Quick publish (clean + build + check + upload) 
+
+offline-bundle-x86_64: ## Build Linux x86_64 offline bundle via manylinux container
+	./scripts/build_offline_bundle_x86_64.sh
+
+offline-bundle-arm64: ## Build Linux arm64 offline bundle via manylinux container
+	./scripts/build_offline_bundle_arm64.sh

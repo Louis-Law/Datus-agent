@@ -1,0 +1,28 @@
+name: "Offline Docs Consistency"
+
+on:
+  pull_request:
+    paths:
+      - 'offline/**'
+      - 'scripts/build_offline_bundle.py'
+      - 'scripts/check_offline_docs_consistency.py'
+      - 'Makefile'
+      - '.github/workflows/offline-docs-lint.yml'
+
+concurrency:
+  group: offline-docs-lint-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check offline/SYSTEM_REQUIREMENTS.md consistency
+        run: make offline-docs-lint

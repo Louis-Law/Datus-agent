@@ -5,6 +5,10 @@ BUNDLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 EXPECTED_OS="Linux"
 EXPECTED_ARCHES="aarch64 arm64"
 
+BUNDLED_RUNTIME_DIR="$BUNDLE_DIR/python-runtime"
+BUNDLED_PYTHON_HOME="$BUNDLE_DIR/python"
+BUNDLED_PYTHON_BIN="$BUNDLED_PYTHON_HOME/bin/python3.12"
+
 usage() {
   cat <<'USAGE'
 Usage:
@@ -17,8 +21,13 @@ Usage:
 Modes:
   venv     Create (if missing) and populate an isolated Python 3.12 virtualenv. Safest.
   --user   Install to ~/.local/lib/python3.12/site-packages. No sudo. Add ~/.local/bin to PATH.
+           Requires a host python3.12 on PATH (the bundled runtime is venv-only).
   --system Install into the global Python. Conflicts with distro packages on PEP 668 systems;
-           may require sudo. Hardest to uninstall cleanly.
+           may require sudo. Requires a host python3.12 on PATH.
+
+Environment:
+  PYTHON_BIN    Override Python selection (e.g. PYTHON_BIN=/opt/py312/bin/python).
+                Falls back to 'python3.12' on PATH, then to the bundle's own runtime.
 USAGE
 }
 
@@ -60,17 +69,43 @@ case "$CURRENT_ARCH" in
     ;;
 esac
 
-PYTHON_BIN="${PYTHON_BIN:-python3.12}"
-if ! command -v "$PYTHON_BIN" >/dev/null 2>&1; then
-  if command -v python3 >/dev/null 2>&1; then
-    PYTHON_BIN=python3
-  else
-    echo "Python 3.12 is required but was not found." >&2
+# Resolve Python: user override -> system python3.12 -> bundled PBS runtime.
+USING_BUNDLED=0
+RESOLVED_PYTHON=""
+
+if [[ -n "${PYTHON_BIN:-}" ]]; then
+  if ! command -v "$PYTHON_BIN" >/dev/null 2>&1; then
+    echo "PYTHON_BIN is set to '$PYTHON_BIN' but that command was not found." >&2
     exit 1
   fi
+  RESOLVED_PYTHON="$PYTHON_BIN"
+elif command -v python3.12 >/dev/null 2>&1; then
+  RESOLVED_PYTHON="python3.12"
+elif [[ -x "$BUNDLED_PYTHON_BIN" ]]; then
+  RESOLVED_PYTHON="$BUNDLED_PYTHON_BIN"
+  USING_BUNDLED=1
+elif [[ -d "$BUNDLED_RUNTIME_DIR" ]]; then
+  BUNDLED_TARBALL="$(ls "$BUNDLED_RUNTIME_DIR"/cpython-3.12*.tar.gz 2>/dev/null | head -1 || true)"
+  if [[ -z "$BUNDLED_TARBALL" ]]; then
+    echo "Bundle's python-runtime/ directory is present but contains no tarball." >&2
+    exit 1
+  fi
+  echo "Extracting bundled Python runtime from $(basename "$BUNDLED_TARBALL") ..."
+  tar -xzf "$BUNDLED_TARBALL" -C "$BUNDLE_DIR"
+  if [[ ! -x "$BUNDLED_PYTHON_BIN" ]]; then
+    echo "Extraction failed: $BUNDLED_PYTHON_BIN not found after untar." >&2
+    exit 1
+  fi
+  RESOLVED_PYTHON="$BUNDLED_PYTHON_BIN"
+  USING_BUNDLED=1
+else
+  echo "Python 3.12 is required but was not found, and this bundle does not ship one." >&2
+  echo "Either install python3.12 (see SYSTEM_REQUIREMENTS.md section 3), or" >&2
+  echo "set PYTHON_BIN=/path/to/python3.12 before rerunning." >&2
+  exit 1
 fi
 
-"$PYTHON_BIN" - <<'PY'
+"$RESOLVED_PYTHON" - <<'PY'
 import sys
 
 required = tuple(int(part) for part in "3.12".split("."))
@@ -80,6 +115,13 @@ if current != required:
         f"Python {required[0]}.{required[1]} is required, but found {current[0]}.{current[1]}."
     )
 PY
+
+if [[ "$USING_BUNDLED" -eq 1 && "$MODE" != "venv" ]]; then
+  echo "The bundled Python runtime can only host 'venv' mode installs." >&2
+  echo "For --user or --system, install Python 3.12 on the host first" >&2
+  echo "(see SYSTEM_REQUIREMENTS.md section 3), then rerun." >&2
+  exit 2
+fi
 
 PIP_CMD=(
   -m pip install
@@ -92,17 +134,22 @@ PIP_CMD=(
 case "$MODE" in
   venv)
     if [[ ! -d "$VENV_DIR" ]]; then
-      "$PYTHON_BIN" -m venv "$VENV_DIR"
+      "$RESOLVED_PYTHON" -m venv "$VENV_DIR"
     fi
     INSTALL_PYTHON="$VENV_DIR/bin/python"
     ;;
   user)
-    INSTALL_PYTHON="$PYTHON_BIN"
+    INSTALL_PYTHON="$RESOLVED_PYTHON"
     PIP_CMD+=(--user)
     ;;
   system)
-    INSTALL_PYTHON="$PYTHON_BIN"
-    PIP_CMD+=(--break-system-packages)
+    INSTALL_PYTHON="$RESOLVED_PYTHON"
+    # On Debian/Ubuntu the system Python often ships distro-managed packages
+    # (python3-typing-extensions, python3-requests, ...) without pip's RECORD
+    # file, so pip cannot uninstall them to swap in our pinned version and
+    # aborts with "Cannot uninstall X, RECORD file not found". --ignore-installed
+    # tells pip to skip the uninstall step and overlay our wheels instead.
+    PIP_CMD+=(--break-system-packages --ignore-installed)
     ;;
 esac
 
@@ -113,7 +160,8 @@ case "$MODE" in
   venv)
     cat <<EOF
 Offline installation completed.
-Virtualenv: $VENV_DIR
+Python used: $RESOLVED_PYTHON$( [[ $USING_BUNDLED -eq 1 ]] && echo "  (bundled)" )
+Virtualenv:  $VENV_DIR
 Activate with:
   source "$VENV_DIR/bin/activate"
 EOF

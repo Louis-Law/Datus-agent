@@ -17,3 +17,12 @@ jmespath>=1.0.1
 s3transfer>=0.10
 snowflake-connector-python>=3.7
 urllib3>=2.0
+
+# Cap the gRPC/protobuf stack so PyPI datus-agent mode stays resolvable:
+# datus-agent 0.2.6 on PyPI pulls google-generativeai -> google-ai-generativelanguage 0.6.9,
+# which demands protobuf<6. grpcio-status 1.80+ demands protobuf>=6.31, so leave 1.74+.
+# grpcio-status 1.73.x lives in the sweet spot (protobuf >=5.26,<6). Cap grpcio alongside
+# because grpcio and grpcio-status are released in lockstep and must match versions.
+grpcio<1.74
+grpcio-status<1.74
+protobuf<6

@@ -468,8 +468,6 @@
       
         
       
-        
-      
     
     
     
@@ -584,34 +582,6 @@
     
   
     Contextual Data Engineering
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting_started/Datus_tutorial/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tutorial
   
 
     
@@ -4025,7 +3995,7 @@
 <li><strong>Dynamic Discovery</strong>: Glob pattern-based database discovery for multiple database files</li>
 </ul>
 <blockquote>
-<p><strong>Migration note</strong>: The old <code>namespace:</code> config format is auto-migrated to <code>services.datasources</code> at runtime. The earlier <code>services.databases</code> key has been renamed to <code>services.datasources</code>; run <code>python -m datus.configuration.config_migrator --config conf/agent.yml</code> to rewrite the YAML automatically, or rename the key manually — the runtime rejects the old name.</p>
+<p><strong>Note</strong>: The earlier <code>services.databases</code> key has been renamed to <code>services.datasources</code>. Rename the key manually in your <code>agent.yml</code> — the runtime rejects the old name.</p>
 </blockquote>
 <h2 id="configuration-structure">Configuration Structure<a class="headerlink" href="#configuration-structure" title="Permanent link">&para;</a></h2>
 <p>Datasources are configured under <code>agent.services.datasources</code>. Each entry is an independent database connection:</p>
@@ -4049,7 +4019,7 @@
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nt">bi_platforms</span><span class="p">:</span>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">      </span><span class="nt">superset</span><span class="p">:</span>
 </span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">superset</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:8088</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="nt">api_base_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:8088</span>
 </span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SUPERSET_USER}</span>
 </span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SUPERSET_PASSWORD}</span>
 </span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
@@ -4074,7 +4044,7 @@
 <tr>
 <td><code>services.datasources</code></td>
 <td>Database connections used by SQL and KB operations</td>
-<td><code>--database</code> / current database / default database</td>
+<td><code>--datasource</code> / current database / default database</td>
 </tr>
 <tr>
 <td><code>services.semantic_layer</code></td>
@@ -4246,10 +4216,10 @@
 </span></code></pre></div>
 <h2 id="default-database-selection">Default Database Selection<a class="headerlink" href="#default-database-selection" title="Permanent link">&para;</a></h2>
 <p>When running CLI commands, specify which database to use:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>datus-cli<span class="w"> </span>--database<span class="w"> </span>my_duckdb
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>datus-agent<span class="w"> </span>run<span class="w"> </span>--database<span class="w"> </span>my_snowflake<span class="w"> </span>--task<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--task_db_name<span class="w"> </span>ANALYTICS
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>datus-cli<span class="w"> </span>--datasource<span class="w"> </span>my_duckdb
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>datus-agent<span class="w"> </span>run<span class="w"> </span>--datasource<span class="w"> </span>my_snowflake<span class="w"> </span>--task<span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="w"> </span>--task_db_name<span class="w"> </span>ANALYTICS
 </span></code></pre></div>
-<p>If <code>--database</code> is not specified:
+<p>If <code>--datasource</code> is not specified:
 1. If a database has <code>default: true</code> → auto-selected
 2. If only one database configured → auto-selected
 3. If multiple without default → shows available list</p>

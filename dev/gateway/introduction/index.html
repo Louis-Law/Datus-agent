@@ -468,8 +468,6 @@
       
         
       
-        
-      
     
     
     
@@ -584,34 +582,6 @@
     
   
     Contextual Data Engineering
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting_started/Datus_tutorial/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tutorial
   
 
     
@@ -1655,6 +1625,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#channel-configuration-configure-subcommand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Channel Configuration (configure subcommand)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1745,10 +1726,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#namespace-override" class="md-nav__link">
+  <a href="#datasource-override" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Namespace Override
+        Datasource Override
       
     </span>
   </a>
@@ -3941,6 +3922,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#channel-configuration-configure-subcommand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Channel Configuration (configure subcommand)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4031,10 +4023,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#namespace-override" class="md-nav__link">
+  <a href="#datasource-override" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Namespace Override
+        Datasource Override
       
     </span>
   </a>
@@ -4161,7 +4153,7 @@
 <li><strong>Outbound long connections only</strong> — Datus Gateway actively connects to each IM platform using WebSocket, Socket Mode, or Stream SDK. No webhook endpoint or public URL is needed.</li>
 <li><strong>Real-time streaming</strong> — Agent responses (thinking, tool calls, SQL, markdown) are streamed back to the chat as they are generated.</li>
 <li><strong>Session management</strong> — Each conversation (group/DM/thread) automatically gets a persistent session. Users can reset it with <code>/new</code> or <code>/reset</code>.</li>
-<li><strong>Namespace &amp; subagent routing</strong> — Each channel can override the default namespace or route messages to a specific sub-agent.</li>
+<li><strong>Datasource &amp; subagent routing</strong> — Each channel can override the default datasource or route messages to a specific sub-agent.</li>
 </ul>
 <h2 id="supported-platforms">Supported Platforms<a class="headerlink" href="#supported-platforms" title="Permanent link">&para;</a></h2>
 <table>
@@ -4234,7 +4226,7 @@
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">my-channel</span><span class="p">:</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">adapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">slack</span><span class="w">          </span><span class="c1"># Required: feishu | slack</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">           </span><span class="c1"># Optional: default true</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_namespace</span><span class="w"> </span><span class="c1"># Optional: override default namespace</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">datasource</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_datasource</span><span class="w"> </span><span class="c1"># Optional: override default datasource</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">subagent_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">agent_01</span><span class="w">   </span><span class="c1"># Optional: route to a specific sub-agent</span>
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">extra</span><span class="p">:</span><span class="w">                  </span><span class="c1"># Required: adapter-specific credentials</span>
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="c1"># ... platform-specific keys</span>
@@ -4262,10 +4254,10 @@
 <td>Whether this channel is active (default: <code>true</code>)</td>
 </tr>
 <tr>
-<td><code>namespace</code></td>
+<td><code>datasource</code></td>
 <td>string</td>
 <td>No</td>
-<td>Override the gateway's default namespace</td>
+<td>Override the gateway's default datasource</td>
 </tr>
 <tr>
 <td><code>subagent_id</code></td>
@@ -4351,9 +4343,9 @@
 <td>Path to agent configuration file</td>
 </tr>
 <tr>
-<td><code>--namespace</code></td>
-<td><code>default</code> (or <code>DATUS_NAMESPACE</code> env)</td>
-<td>Default namespace for all channels</td>
+<td><code>--datasource</code></td>
+<td><code>default</code> (or <code>DATUS_DATASOURCE</code> env)</td>
+<td>Default datasource for all channels</td>
 </tr>
 <tr>
 <td><code>--host</code></td>
@@ -4394,6 +4386,45 @@
 <td><code>--daemon-log-file</code></td>
 <td><code>logs/datus-gateway.log</code></td>
 <td>Daemon log file path</td>
+</tr>
+</tbody>
+</table>
+<h3 id="channel-configuration-configure-subcommand">Channel Configuration (<code>configure</code> subcommand)<a class="headerlink" href="#channel-configuration-configure-subcommand" title="Permanent link">&para;</a></h3>
+<p>Manage IM channels (Feishu, Slack, …) interactively without hand-editing
+<code>agent.yml</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>datus-gateway<span class="w"> </span>configure
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># or with a non-default config file</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>datus-gateway<span class="w"> </span>configure<span class="w"> </span>--config<span class="w"> </span>/path/to/agent.yml
+</span></code></pre></div>
+<p>The wizard opens a single-window TUI: an <strong>Add</strong> entry at the top, followed
+by a live list of currently configured channels. Selecting a channel opens
+a per-channel submenu that lets you:</p>
+<ul>
+<li>Toggle <code>enabled</code></li>
+<li>Change <code>verbose</code> level</li>
+<li>Reinstall the channel's adapter dependencies (e.g. <code>lark-oapi</code>,
+  <code>slack-sdk[socket_mode]</code>)</li>
+<li>Delete the channel</li>
+</ul>
+<p>Adding a channel prompts for the channel name plus the adapter-specific
+secrets (Feishu App ID/Secret, Slack App/Bot tokens, …); secret values are
+redacted in display and may be supplied as <code>${ENV_VAR}</code> placeholders. Any
+save operation is written back to <code>agent.yml</code> immediately, so the next
+<code>datus-gateway</code> start picks up the new channels.</p>
+<p>Flags:</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--config</code></td>
+<td><code>./conf/agent.yml</code></td>
+<td>Override the agent configuration file used by this command.</td>
 </tr>
 </tbody>
 </table>
@@ -4468,21 +4499,21 @@
 </tbody>
 </table>
 <p>Examples:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>/verbose           # Show current verbosity level
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>/verbose quiet     # Only show thinking and final answer
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>/verbose brief     # Show tool call summaries
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>/verbose detail    # Show full tool call details
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>/verbose           # Show current verbosity level
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>/verbose quiet     # Only show thinking and final answer
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>/verbose brief     # Show tool call summaries
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>/verbose detail    # Show full tool call details
 </span></code></pre></div>
 <h3 id="session-management">Session Management<a class="headerlink" href="#session-management" title="Permanent link">&para;</a></h3>
 <p>Each conversation (group chat, DM, or thread) automatically maps to a persistent session. To start a fresh session, send <code>/new</code>, <code>/reset</code>, or <code>/clear</code>.</p>
 <p>The bot will confirm the reset with the new session ID.</p>
-<h3 id="namespace-override">Namespace Override<a class="headerlink" href="#namespace-override" title="Permanent link">&para;</a></h3>
-<p>Each channel can specify a <code>namespace</code> in its configuration to override the gateway's default namespace. This allows different channels to query different databases.</p>
+<h3 id="datasource-override">Datasource Override<a class="headerlink" href="#datasource-override" title="Permanent link">&para;</a></h3>
+<p>Each channel can specify a <code>datasource</code> in its configuration to override the gateway's default datasource. This allows different channels to query different databases.</p>
 <h3 id="subagent-routing">Subagent Routing<a class="headerlink" href="#subagent-routing" title="Permanent link">&para;</a></h3>
 <p>Use the <code>subagent_id</code> field to route messages from a specific channel to a dedicated sub-agent, enabling specialized behavior per channel.</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="sdk-not-installed">SDK Not Installed<a class="headerlink" href="#sdk-not-installed" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ImportError: slack_sdk is required for the Slack adapter. Install it with: pip install slack-sdk[socket_mode]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ImportError: slack_sdk is required for the Slack adapter. Install it with: pip install slack-sdk[socket_mode]
 </span></code></pre></div>
 <p>Install the required SDK package for your platform. See the <a href="#installation">Installation</a> section.</p>
 <h3 id="invalid-credentials">Invalid Credentials<a class="headerlink" href="#invalid-credentials" title="Permanent link">&para;</a></h3>
@@ -4498,10 +4529,10 @@
 </ul>
 <h3 id="debug-logging">Debug Logging<a class="headerlink" href="#debug-logging" title="Permanent link">&para;</a></h3>
 <p>Enable verbose logging to diagnose connection issues:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>datus-gateway<span class="w"> </span>--config<span class="w"> </span>conf/agent.yml<span class="w"> </span>--debug
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>datus-gateway<span class="w"> </span>--config<span class="w"> </span>conf/agent.yml<span class="w"> </span>--debug
 </span></code></pre></div>
 <p>Or set the environment variable:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DATUS_LOG_LEVEL</span><span class="o">=</span>DEBUG
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DATUS_LOG_LEVEL</span><span class="o">=</span>DEBUG
 </span></code></pre></div>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ul>

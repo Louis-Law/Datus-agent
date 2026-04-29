@@ -468,8 +468,6 @@
       
         
       
-        
-      
     
     
     
@@ -584,34 +582,6 @@
     
   
     Contextual Data Engineering
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting_started/Datus_tutorial/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tutorial
   
 
     
@@ -3706,15 +3676,19 @@
 <tbody>
 <tr>
 <td><code>/agent</code></td>
-<td>Select or inspect the default agent</td>
+<td>Open the unified agent manager (built-in overrides / default). <code>/agent &lt;name&gt;</code> still sets the default directly.</td>
 </tr>
 <tr>
 <td><code>/subagent</code></td>
-<td>Manage sub-agents (list/add/remove/update)</td>
+<td>Open the unified agent manager, seeded on the Custom tab</td>
 </tr>
 <tr>
-<td><code>/namespace</code></td>
-<td>Switch the current namespace</td>
+<td><code>/datasource</code></td>
+<td>Switch the current datasource</td>
+</tr>
+<tr>
+<td><code>/language</code></td>
+<td>Pin the response language for every agentic node (<a href="../language_command/">Language Command</a>)</td>
 </tr>
 </tbody>
 </table>
@@ -3734,6 +3708,18 @@
 <td><code>/models</code></td>
 <td>Switch LLM provider/model at runtime</td>
 <td><a href="../model_command/">Model Command</a></td>
+</tr>
+<tr>
+<td><code>/effort</code></td>
+<td></td>
+<td>Set reasoning effort level (off/minimal/low/medium/high)</td>
+<td><a href="../effort_command/">Effort Command</a></td>
+</tr>
+<tr>
+<td><code>/init</code></td>
+<td></td>
+<td>Generate <code>AGENTS.md</code> for the current project (uses the active LLM)</td>
+<td><a href="../init_command/">Init Command</a></td>
 </tr>
 <tr>
 <td><code>/mcp</code></td>
@@ -3757,6 +3743,12 @@
 <td><code>/services</code></td>
 <td></td>
 <td>List configured service platforms and their read-only methods</td>
+<td></td>
+</tr>
+<tr>
+<td><code>/profile</code></td>
+<td></td>
+<td>Switch the active CLI / agent profile</td>
 <td></td>
 </tr>
 </tbody>

@@ -457,8 +457,6 @@
       
         
       
-        
-      
     
     
     
@@ -573,34 +571,6 @@
     
   
     Contextual Data Engineering
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../getting_started/Datus_tutorial/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tutorial
   
 
     
@@ -3402,34 +3372,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Setup Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#datus-configure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        datus configure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#datus-init" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        datus init
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -3445,10 +3387,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#datus-service-list" class="md-nav__link">
+  <a href="#datus-agent-service-list" class="md-nav__link">
     <span class="md-ellipsis">
       
-        datus service list
+        datus-agent service list
       
     </span>
   </a>
@@ -3456,10 +3398,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#datus-service-add" class="md-nav__link">
+  <a href="#datus-agent-service-add" class="md-nav__link">
     <span class="md-ellipsis">
       
-        datus service add
+        datus-agent service add
       
     </span>
   </a>
@@ -3467,10 +3409,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#datus-service-delete" class="md-nav__link">
+  <a href="#datus-agent-service-delete" class="md-nav__link">
     <span class="md-ellipsis">
       
-        datus service delete
+        datus-agent service delete
       
     </span>
   </a>
@@ -3495,10 +3437,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#-database-flag" class="md-nav__link">
+  <a href="#-datasource-flag" class="md-nav__link">
     <span class="md-ellipsis">
       
-        --database flag
+        --datasource flag
       
     </span>
   </a>
@@ -3507,17 +3449,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#migration-from-legacy-config" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migration from Legacy Config
-      
-    </span>
-  </a>
   
 </li>
       
@@ -3548,113 +3479,77 @@
 
 <h1 id="datus-cli-commands">Datus CLI Commands<a class="headerlink" href="#datus-cli-commands" title="Permanent link">&para;</a></h1>
 <h2 id="setup-commands">Setup Commands<a class="headerlink" href="#setup-commands" title="Permanent link">&para;</a></h2>
-<h3 id="datus-configure"><code>datus configure</code><a class="headerlink" href="#datus-configure" title="Permanent link">&para;</a></h3>
-<p>Interactive wizard to configure database connections and workspace settings.</p>
-<p>Writes configuration to <code>~/.datus/conf/agent.yml</code> using the <code>services.datasources</code> format.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>datus<span class="w"> </span>configure
+<p>Datus is configured entirely from inside the REPL. After installation, launch
+<code>datus</code> and use slash commands:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../cli/model_command/"><code>/model</code></a></td>
+<td>Pick an LLM provider, capture credentials, persist to <code>~/.datus/conf/agent.yml</code></td>
+</tr>
+<tr>
+<td><a href="../cli/reference/"><code>/datasource</code></a></td>
+<td>Add / edit / delete / switch datasources (DuckDB, SQLite, Snowflake, MySQL, PostgreSQL, StarRocks, …); writes to <code>~/.datus/conf/agent.yml</code> under <code>services.datasources</code></td>
+</tr>
+<tr>
+<td><a href="../cli/init_command/"><code>/init</code></a></td>
+<td>Generate an <code>AGENTS.md</code> for the current project (scans the directory, optionally probes a datasource, calls the active LLM)</td>
+</tr>
+</tbody>
+</table>
+<p>The resulting <code>~/.datus/conf/agent.yml</code> looks like:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">agent</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">providers</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">openai</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${OPENAI_API_KEY}</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">datasources</span><span class="p">:</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">my_duckdb</span><span class="p">:</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">duckdb</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./data.duckdb</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">semantic_layer</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">bi_platforms</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">schedulers</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="nt">project_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.datus/workspace</span>
 </span></code></pre></div>
-<p><strong>Steps:</strong>
-1. <strong>[&frac12;] Configure Database</strong> — Name the database, select type (duckdb, sqlite, snowflake, etc.), enter connection details, test connectivity
-2. <strong>[2/2] Configure Workspace</strong> — Set workspace directory path</p>
-<div class="admonition note">
-<p class="admonition-title">LLM Configuration</p>
-<p><code>datus configure</code> focuses on database connections only. Use the <a href="../cli/model_command/"><code>/model</code></a> slash command inside the CLI to configure and switch LLM providers interactively.</p>
-</div>
-<p><strong>Repeatable:</strong> Yes. If <code>~/.datus/conf/agent.yml</code> already exists, you'll be asked to confirm overwrite. The existing configuration is fully replaced.</p>
-<p><strong>Output:</strong> <code>~/.datus/conf/agent.yml</code> with structure:
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">agent</span><span class="p">:</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">providers</span><span class="p">:</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">openai</span><span class="p">:</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${OPENAI_API_KEY}</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">databases</span><span class="p">:</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">my_duckdb</span><span class="p">:</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">duckdb</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./data.duckdb</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="nt">semantic_layer</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="nt">bi_platforms</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nt">schedulers</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="nt">project_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.datus/workspace</span>
-</span></code></pre></div></p>
-<p><strong>To add more databases later:</strong> Use <code>datus service add</code>.</p>
-<p><strong>To configure LLM providers:</strong> Use <code>/model</code> inside the CLI session.</p>
-<hr />
-<h3 id="datus-init"><code>datus init</code><a class="headerlink" href="#datus-init" title="Permanent link">&para;</a></h3>
-<p>Initialize a project workspace by generating <code>AGENTS.md</code> in the current directory.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>/path/to/your/project
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>datus<span class="w"> </span>init
-</span></code></pre></div>
-<p><strong>Requires:</strong> A configured LLM (<code>datus configure</code> must be run first).</p>
-<p><strong>What it does:</strong>
-1. Loads LLM and service configuration from <code>~/.datus/conf/agent.yml</code>
-2. Scans current directory structure (up to 3 levels deep)
-3. Detects project type (Python, Node.js, Docker, dbt, etc.)
-4. Reads README.md if present
-5. Uses LLM to generate <code>AGENTS.md</code> with project-specific content
-6. Falls back to a template skeleton if LLM generation fails</p>
-<p><strong>If AGENTS.md already exists:</strong> Prompts to overwrite or cancel.</p>
-<p><strong>Generated sections:</strong>
-- <code>## Architecture</code> — Project architecture description with ASCII diagram
-- <code>## Directory Map</code> — Table mapping directories to purposes
-- <code>## Services</code> — Configured databases and services from agent.yml
-- <code>## Artifacts</code> — Data catalogs, semantic models, SQL files, etc.</p>
+<p><code>datus-agent service add | list | delete</code> provide a non-interactive surface
+for the same datasource CRUD operations (handy in scripts or CI).</p>
 <hr />
 <h2 id="service-management">Service Management<a class="headerlink" href="#service-management" title="Permanent link">&para;</a></h2>
-<h3 id="datus-service-list"><code>datus service list</code><a class="headerlink" href="#datus-service-list" title="Permanent link">&para;</a></h3>
-<p>Show all configured databases, semantic adapters, BI platforms, and schedulers.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>datus<span class="w"> </span>service<span class="w"> </span>list
+<h3 id="datus-agent-service-list"><code>datus-agent service list</code><a class="headerlink" href="#datus-agent-service-list" title="Permanent link">&para;</a></h3>
+<p>Show all configured datasources, semantic adapters, BI platforms, and schedulers.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>datus-agent<span class="w"> </span>service<span class="w"> </span>list
 </span></code></pre></div>
-<h3 id="datus-service-add"><code>datus service add</code><a class="headerlink" href="#datus-service-add" title="Permanent link">&para;</a></h3>
-<p>Interactively add a new database connection.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>datus<span class="w"> </span>service<span class="w"> </span>add
+<h3 id="datus-agent-service-add"><code>datus-agent service add</code><a class="headerlink" href="#datus-agent-service-add" title="Permanent link">&para;</a></h3>
+<p>Interactively add a new datasource. Equivalent to running <code>/datasource</code> inside the REPL and choosing <strong>Add</strong>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>datus-agent<span class="w"> </span>service<span class="w"> </span>add
 </span></code></pre></div>
-<h3 id="datus-service-delete"><code>datus service delete</code><a class="headerlink" href="#datus-service-delete" title="Permanent link">&para;</a></h3>
-<p>Interactively remove a database connection.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>datus<span class="w"> </span>service<span class="w"> </span>delete
+<h3 id="datus-agent-service-delete"><code>datus-agent service delete</code><a class="headerlink" href="#datus-agent-service-delete" title="Permanent link">&para;</a></h3>
+<p>Interactively remove a datasource.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>datus-agent<span class="w"> </span>service<span class="w"> </span>delete
 </span></code></pre></div>
 <hr />
 <h2 id="database-selection">Database Selection<a class="headerlink" href="#database-selection" title="Permanent link">&para;</a></h2>
-<h3 id="-database-flag"><code>--database</code> flag<a class="headerlink" href="#-database-flag" title="Permanent link">&para;</a></h3>
-<p>Most commands require specifying which database to use:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>datus-cli<span class="w"> </span>--database<span class="w"> </span>my_duckdb
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>datus<span class="w"> </span>run<span class="w"> </span>--database<span class="w"> </span>my_duckdb<span class="w"> </span>--task<span class="w"> </span><span class="s2">&quot;show tables&quot;</span><span class="w"> </span>--task_db_name<span class="w"> </span>demo
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>datus<span class="w"> </span>check-db<span class="w"> </span>--database<span class="w"> </span>my_duckdb
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>datus<span class="w"> </span>bootstrap-kb<span class="w"> </span>--database<span class="w"> </span>my_duckdb<span class="w"> </span>--components<span class="w"> </span>metadata
+<h3 id="-datasource-flag"><code>--datasource</code> flag<a class="headerlink" href="#-datasource-flag" title="Permanent link">&para;</a></h3>
+<p><code>datus-agent</code> subcommands require specifying which datasource to use. Interactive <code>datus-cli</code> can auto-select a datasource when the configuration is unambiguous.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>datus-cli<span class="w"> </span>--datasource<span class="w"> </span>my_duckdb
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>datus-agent<span class="w"> </span>run<span class="w"> </span>--datasource<span class="w"> </span>my_duckdb<span class="w"> </span>--task<span class="w"> </span><span class="s2">&quot;show tables&quot;</span><span class="w"> </span>--task_db_name<span class="w"> </span>demo
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>datus-agent<span class="w"> </span>check-db<span class="w"> </span>--datasource<span class="w"> </span>my_duckdb
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>datus-agent<span class="w"> </span>bootstrap-kb<span class="w"> </span>--datasource<span class="w"> </span>my_duckdb<span class="w"> </span>--components<span class="w"> </span>metadata
 </span></code></pre></div>
-<p><strong>Auto-selection:</strong> If <code>--database</code> is not specified:
+<p><strong>Interactive CLI auto-selection:</strong> If <code>--datasource</code> is not specified for <code>datus-cli</code>:
 - If a database has <code>default: true</code> in config, it's auto-selected
 - If only one database is configured, it's auto-selected
 - Otherwise, a list of available databases is shown</p>
-<p><strong>Legacy support:</strong> <code>--database</code> still works as an alias for <code>--database</code>.</p>
+<p>The old database-selection flag is no longer accepted by the current CLI; use <code>--datasource</code>.</p>
 <hr />
-<h2 id="migration-from-legacy-config">Migration from Legacy Config<a class="headerlink" href="#migration-from-legacy-config" title="Permanent link">&para;</a></h2>
-<p>If you have an existing <code>agent.yml</code> using the old <code>namespace</code> format:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Preview migration (dry run)</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>python<span class="w"> </span>-m<span class="w"> </span>datus.configuration.config_migrator<span class="w"> </span>--config<span class="w"> </span>conf/agent.yml<span class="w"> </span>--dry-run
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Migrate (backs up original to agent.yml.bak)</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>python<span class="w"> </span>-m<span class="w"> </span>datus.configuration.config_migrator<span class="w"> </span>--config<span class="w"> </span>conf/agent.yml
-</span></code></pre></div>
-<p>The old format is also auto-migrated at runtime — no manual migration required for existing configs.</p>
-<p><strong>Old format:</strong>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">agent</span><span class="p">:</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nt">my_ns</span><span class="p">:</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sqlite</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">      </span><span class="nt">dbs</span><span class="p">:</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db1</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">          </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./db1.sqlite</span>
-</span></code></pre></div></p>
-<p><strong>New format:</strong>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">agent</span><span class="p">:</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">databases</span><span class="p">:</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">      </span><span class="nt">db1</span><span class="p">:</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sqlite</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./db1.sqlite</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span></code></pre></div></p>
 
 
 

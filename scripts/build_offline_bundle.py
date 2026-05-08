@@ -22,7 +22,15 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_EXTERNAL_SPECS_FILE = REPO_ROOT / "offline" / "external-package-specs.txt"
 DEFAULT_SOURCE_ONLY_SPECS_FILE = REPO_ROOT / "offline" / "source-only-package-specs.txt"
 DEFAULT_EXTRA_CONSTRAINTS_FILE = REPO_ROOT / "offline" / "extra-constraints.txt"
+DEFAULT_HF_SNAPSHOTS_FILE = REPO_ROOT / "offline" / "huggingface-snapshots.txt"
 DEFAULT_OUTPUT_ROOT = REPO_ROOT / "offline" / "dist"
+
+# Bundle-relative directory for pre-fetched runtime assets (HF snapshots,
+# eventually any other lazy-download fixtures). The install script mirrors
+# `fastembed-cache/` into the user's fastembed cache so first-run KB ops do
+# not reach out to huggingface.co.
+RUNTIME_ASSETS_DIRNAME = "assets"
+FASTEMBED_CACHE_SUBDIR = "fastembed-cache"
 
 # --- python-build-standalone (PBS) runtime ---
 # The bundle ships a self-contained CPython so target machines do not have to
@@ -376,13 +384,29 @@ def build_seed_wheels(
     target: dict[str, object],
     index_url: str | None,
     extra_index_urls: list[str],
+    resume: bool = False,
 ) -> None:
+    if not source_only_specs:
+        if seed_wheels_dir.exists():
+            shutil.rmtree(seed_wheels_dir)
+        seed_wheels_dir.mkdir(parents=True, exist_ok=True)
+        return
+
+    if resume and seed_wheels_dir.exists():
+        existing = sorted(seed_wheels_dir.glob("*.whl"))
+        if existing:
+            for wheel_path in existing:
+                if not is_compatible_seed_wheel(wheel_path, target):
+                    raise RuntimeError(
+                        "Seed wheel reused from a prior --resume run is not compatible with the "
+                        f"requested target: {wheel_path.name}. Re-run without --resume to rebuild."
+                    )
+            print(f"[resume] Reusing {len(existing)} seed wheel(s) in {seed_wheels_dir}")
+            return
+
     if seed_wheels_dir.exists():
         shutil.rmtree(seed_wheels_dir)
     seed_wheels_dir.mkdir(parents=True, exist_ok=True)
-
-    if not source_only_specs:
-        return
 
     for spec in source_only_specs:
         seed_wheels_dir.mkdir(parents=True, exist_ok=True)
@@ -485,9 +509,14 @@ def copy_wheels_to_directory(paths: list[Path], destination_dir: Path) -> None:
 
 
 def replace_wheelhouse_from_stage(stage_dir: Path, wheelhouse_dir: Path, preserved_wheels: list[Path]) -> None:
+    # Preserved wheels are kept verbatim; this matters when --resume is in
+    # play and `preserved_wheels` includes paths that live inside
+    # `wheelhouse_dir` itself (carried over from a partial prior run).
+    keep_names = {wheel_path.name for wheel_path in preserved_wheels}
     if wheelhouse_dir.exists():
         for wheel_path in wheelhouse_dir.glob("*.whl"):
-            wheel_path.unlink()
+            if wheel_path.name not in keep_names:
+                wheel_path.unlink()
     else:
         wheelhouse_dir.mkdir(parents=True, exist_ok=True)
 
@@ -660,10 +689,68 @@ def download_pbs_runtime(
     return cached
 
 
+def download_huggingface_snapshots(
+    snapshot_specs: list[str],
+    cache_dir: Path,
+) -> list[dict[str, str]]:
+    """Pre-download HF snapshots into ``cache_dir`` using the standard HF cache layout.
+
+    Each spec is ``<repo_id>`` or ``<repo_id>@<revision>``. We rely on
+    ``huggingface_hub.snapshot_download`` so the resulting directory is a
+    drop-in for ``$HF_HOME/fastembed`` (or ``$FASTEMBED_CACHE_PATH``) on the
+    target machine. Returns a list of ``{repo_id, revision, commit}`` records
+    for ``manifest.json``.
+    """
+
+    if not snapshot_specs:
+        return []
+
+    try:
+        from huggingface_hub import snapshot_download
+        from huggingface_hub.utils import disable_progress_bars
+    except ImportError as exc:  # pragma: no cover - build-host concern
+        raise RuntimeError(
+            "huggingface_hub must be installed in the build environment to "
+            "pre-download offline runtime assets. Run `uv sync` (or "
+            "`pip install huggingface_hub`) before invoking the bundle "
+            "builder."
+        ) from exc
+
+    disable_progress_bars()
+
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    records: list[dict[str, str]] = []
+
+    for spec in snapshot_specs:
+        if "@" in spec:
+            repo_id, revision = spec.split("@", 1)
+        else:
+            repo_id, revision = spec, None
+
+        kwargs: dict[str, object] = {"repo_id": repo_id, "cache_dir": str(cache_dir)}
+        if revision:
+            kwargs["revision"] = revision
+
+        print(f"Downloading HF snapshot {repo_id}" + (f"@{revision}" if revision else ""))
+        snapshot_path = snapshot_download(**kwargs)
+
+        commit = Path(snapshot_path).name  # snapshots/<commit_hash>
+        records.append(
+            {
+                "repo_id": repo_id,
+                "revision": revision or "",
+                "commit": commit,
+            }
+        )
+
+    return records
+
+
 def render_bundle_readme(
     bundle_name: str,
     python_version: str,
     python_runtime: dict | None,
+    runtime_assets: list[dict[str, str]] | None = None,
 ) -> str:
     if python_runtime:
         runtime_block = textwrap.dedent(
@@ -684,6 +771,31 @@ def render_bundle_readme(
             provide `python3.12` on PATH before running `install_offline.sh`.
             """
         )
+
+    if runtime_assets:
+        asset_lines = "\n".join(
+            f"          - `{record['repo_id']}` @ `{record['commit']}`" for record in runtime_assets
+        )
+        assets_block = (
+            textwrap.dedent(
+                """\
+                ## Pre-fetched runtime assets
+                The bundle ships the Hugging Face snapshots Datus would otherwise
+                lazy-download on first use. `install_offline.sh` mirrors them into
+                `~/.cache/huggingface/fastembed/` so the embedding model never
+                touches the network. Override the destination by exporting
+                `FASTEMBED_CACHE_PATH` (or `HF_HOME`) before running Datus, or
+                pass `--skip-runtime-assets` to `install_offline.sh` to leave the
+                user cache alone.
+
+                Snapshots included:
+                """
+            )
+            + asset_lines
+            + "\n"
+        )
+    else:
+        assets_block = ""
 
     return (
         textwrap.dedent(
@@ -718,6 +830,7 @@ def render_bundle_readme(
         """
         )
         + runtime_block
+        + assets_block
     )
 
 
@@ -728,12 +841,14 @@ def create_bundle(
     external_specs: list[str],
     source_only_specs: list[str],
     extra_constraint_specs: list[str],
+    huggingface_snapshots: list[str],
     pypi_version: str | None,
     index_url: str | None,
     extra_index_urls: list[str],
     include_python_runtime: bool,
     pbs_release: str,
     pbs_python_version: str,
+    resume: bool = False,
 ) -> Path:
     pip_python = resolve_pip_python()
     target = TARGETS[target_name]
@@ -741,15 +856,31 @@ def create_bundle(
     bundle_dir = output_root / bundle_name
     archive_path = output_root / f"{bundle_name}.tar.gz"
 
-    if bundle_dir.exists():
-        shutil.rmtree(bundle_dir)
-    if archive_path.exists():
-        archive_path.unlink()
+    if resume:
+        if not bundle_dir.exists():
+            print(f"[resume] {bundle_dir} does not exist; nothing to resume — falling back to a clean build")
+        else:
+            print(f"[resume] Reusing {bundle_dir}")
+    else:
+        if bundle_dir.exists():
+            shutil.rmtree(bundle_dir)
+        if archive_path.exists():
+            archive_path.unlink()
 
     wheelhouse_dir = bundle_dir / "wheelhouse"
     local_dist_dir = bundle_dir / ".local-dist"
     seed_wheels_dir = bundle_dir / ".seed-wheels"
     wheelhouse_dir.mkdir(parents=True, exist_ok=True)
+
+    # Snapshot wheels already in the wheelhouse so the staged resolver does not
+    # wipe them between stages. Empty on a clean build.
+    pre_existing_wheels: list[Path] = []
+    if resume:
+        pre_existing_wheels = sorted(wheelhouse_dir.glob("*.whl"))
+        if pre_existing_wheels:
+            print(
+                f"[resume] Found {len(pre_existing_wheels)} wheel(s) in {wheelhouse_dir}; will preserve across stages"
+            )
 
     platform_tags = list(target["platform_tags"])
 
@@ -767,11 +898,27 @@ def create_bundle(
 
     base_constraint_lines = build_base_constraint_lines(project_dependencies)
     base_constraint_lines = merge_extra_constraint_lines(base_constraint_lines, extra_constraint_specs)
-    build_seed_wheels(pip_python, seed_wheels_dir, source_only_specs, target, index_url, extra_index_urls)
+    build_seed_wheels(
+        pip_python,
+        seed_wheels_dir,
+        source_only_specs,
+        target,
+        index_url,
+        extra_index_urls,
+        resume=resume,
+    )
 
-    preserved_wheels = sorted(seed_wheels_dir.glob("*.whl"))
+    # `preserved_wheels` is the set the staged resolver must keep across each
+    # `replace_wheelhouse_from_stage`. With --resume we extend it with whatever
+    # was already downloaded in a prior partial run.
+    preserved_by_name: dict[str, Path] = {}
+    for wheel_path in pre_existing_wheels:
+        preserved_by_name[wheel_path.name] = wheel_path
+    for wheel_path in sorted(seed_wheels_dir.glob("*.whl")):
+        preserved_by_name[wheel_path.name] = wheel_path
     if local_wheel is not None:
-        preserved_wheels = [local_wheel, *preserved_wheels]
+        preserved_by_name[local_wheel.name] = local_wheel
+    preserved_wheels = list(preserved_by_name.values())
     copy_wheels_to_directory(preserved_wheels, wheelhouse_dir)
 
     download_top_level_packages(
@@ -820,9 +967,22 @@ def create_bundle(
             "tarball": pbs_tar.name,
         }
 
+    runtime_asset_records: list[dict[str, str]] = []
+    if huggingface_snapshots:
+        fastembed_cache_dir = bundle_dir / RUNTIME_ASSETS_DIRNAME / FASTEMBED_CACHE_SUBDIR
+        runtime_asset_records = download_huggingface_snapshots(
+            snapshot_specs=huggingface_snapshots,
+            cache_dir=fastembed_cache_dir,
+        )
+
     readme_path = bundle_dir / "README.md"
     readme_path.write_text(
-        render_bundle_readme(bundle_name, python_version, python_runtime_meta),
+        render_bundle_readme(
+            bundle_name,
+            python_version,
+            python_runtime_meta,
+            runtime_asset_records,
+        ),
         encoding="utf-8",
     )
 
@@ -834,6 +994,9 @@ def create_bundle(
         "top_level_packages": locked_packages,
         "wheel_count": len(list(wheelhouse_dir.glob("*"))),
         "python_runtime": python_runtime_meta,
+        "runtime_assets": {
+            "huggingface_snapshots": runtime_asset_records,
+        },
     }
     (bundle_dir / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
 
@@ -855,6 +1018,27 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--external-specs-file", type=Path, default=DEFAULT_EXTERNAL_SPECS_FILE)
     parser.add_argument("--source-only-specs-file", type=Path, default=DEFAULT_SOURCE_ONLY_SPECS_FILE)
     parser.add_argument("--extra-constraints-file", type=Path, default=DEFAULT_EXTRA_CONSTRAINTS_FILE)
+    parser.add_argument(
+        "--huggingface-snapshots-file",
+        type=Path,
+        default=DEFAULT_HF_SNAPSHOTS_FILE,
+        help=(
+            "List of Hugging Face repo ids to pre-download into "
+            f"{RUNTIME_ASSETS_DIRNAME}/{FASTEMBED_CACHE_SUBDIR}/. The install "
+            "script mirrors this directory into the user's fastembed cache so "
+            "Datus never has to reach huggingface.co at runtime. Use "
+            "--skip-runtime-assets to opt out entirely."
+        ),
+    )
+    parser.add_argument(
+        "--skip-runtime-assets",
+        action="store_true",
+        help=(
+            "Do not pre-fetch Hugging Face snapshots. The bundle will then be "
+            "smaller but the target machine must reach huggingface.co the "
+            "first time the embedding model loads."
+        ),
+    )
     parser.add_argument(
         "--pypi-version",
         default=None,
@@ -894,6 +1078,18 @@ def parse_args() -> argparse.Namespace:
             "the PBS download would slow things down."
         ),
     )
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help=(
+            "Continue a previous bundle build instead of starting from scratch. "
+            "Existing wheels in wheelhouse/ are preserved across pip stages, "
+            "seed wheels are reused, and HF snapshots / PBS runtime are "
+            "redownloaded only if missing. Use after a transient network "
+            "failure mid-build. Inputs (specs files, --pypi-version, etc.) "
+            "must match the original run."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -915,6 +1111,9 @@ def main() -> int:
     external_specs = load_specs(args.external_specs_file.resolve(), required=True)
     source_only_specs = load_specs(args.source_only_specs_file.resolve(), required=False)
     extra_constraint_specs = load_specs(args.extra_constraints_file.resolve(), required=False)
+    huggingface_snapshots: list[str] = []
+    if not args.skip_runtime_assets:
+        huggingface_snapshots = load_specs(args.huggingface_snapshots_file.resolve(), required=False)
 
     archive_path = create_bundle(
         output_root=output_root,
@@ -923,12 +1122,14 @@ def main() -> int:
         external_specs=external_specs,
         source_only_specs=source_only_specs,
         extra_constraint_specs=extra_constraint_specs,
+        huggingface_snapshots=huggingface_snapshots,
         pypi_version=args.pypi_version,
         index_url=args.index_url,
         extra_index_urls=args.extra_index_url,
         include_python_runtime=not args.skip_python_runtime,
         pbs_release=args.pbs_release,
         pbs_python_version=args.pbs_python_version,
+        resume=args.resume,
     )
 
     print(f"Offline bundle created: {archive_path}")

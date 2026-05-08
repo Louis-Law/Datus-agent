@@ -65,6 +65,8 @@ Each archive contains:
 - `install_offline.sh`
 - `README.md`
 - `manifest.json`
+- `python-runtime/` — bundled CPython 3.12 tarball (skip with `--skip-python-runtime`)
+- `assets/fastembed-cache/` — pre-fetched Hugging Face snapshots (skip with `--skip-runtime-assets`). Today this contains the default embedding model `qdrant/all-MiniLM-L6-v2-onnx` so the first KB embedding op never has to reach huggingface.co. Add more entries to [`offline/huggingface-snapshots.txt`](huggingface-snapshots.txt) to ship additional snapshots.
 
 The checked-in install script templates are here:
 

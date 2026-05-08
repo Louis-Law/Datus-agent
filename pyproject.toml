@@ -112,6 +112,7 @@ exclude = ["benchmark*", "docs*"]
 "datus.cli.web" = ["templates/*.html"]
 "datus.prompts" = ["*.txt", "*.md", "*.j2"]
 "datus.prompts.prompt_templates" = ["*.j2"]
+"datus.cli.web.templates" = ["*.html"]
 
 [tool.setuptools.data-files]
 "datus/conf" = ["conf/*.yml", "conf/*.yml.*"]

@@ -25,6 +25,11 @@ Modes:
   --system Install into the global Python. Conflicts with distro packages on PEP 668 systems;
            may require sudo. Requires a host python3.12 on PATH.
 
+Flags:
+  --skip-runtime-assets  Do not copy bundled fastembed/HF snapshots into the
+                         user's cache. Datus will then try to download the
+                         embedding model from huggingface.co on first use.
+
 Environment:
   PYTHON_BIN    Override Python selection (e.g. PYTHON_BIN=/opt/py312/bin/python).
                 Falls back to 'python3.12' on PATH, then to the bundle's own runtime.
@@ -33,25 +38,34 @@ USAGE
 
 MODE=venv
 VENV_DIR="$BUNDLE_DIR/.venv"
+SKIP_RUNTIME_ASSETS=0
+POSITIONAL_VENV=""
 
-if [[ $# -gt 1 ]]; then
-  echo "Too many arguments." >&2
-  usage >&2
-  exit 2
-elif [[ $# -eq 1 ]]; then
+while [[ $# -gt 0 ]]; do
   case "$1" in
-    --user)    MODE=user ;;
-    --system)  MODE=system ;;
-    --help|-h) usage; exit 0 ;;
+    --user)                MODE=user ;;
+    --system)              MODE=system ;;
+    --skip-runtime-assets) SKIP_RUNTIME_ASSETS=1 ;;
+    --help|-h)             usage; exit 0 ;;
     --*)
       echo "Unknown option: $1" >&2
       usage >&2
       exit 2
       ;;
     *)
-      VENV_DIR="$1"
+      if [[ -n "$POSITIONAL_VENV" ]]; then
+        echo "Too many positional arguments." >&2
+        usage >&2
+        exit 2
+      fi
+      POSITIONAL_VENV="$1"
       ;;
   esac
+  shift
+done
+
+if [[ -n "$POSITIONAL_VENV" ]]; then
+  VENV_DIR="$POSITIONAL_VENV"
 fi
 
 if [[ "$(uname -s)" != "$EXPECTED_OS" ]]; then
@@ -156,6 +170,33 @@ esac
 "$INSTALL_PYTHON" "${PIP_CMD[@]}"
 "$INSTALL_PYTHON" -m pip check
 
+# Mirror bundled runtime assets (fastembed/HF snapshots) into the user's
+# fastembed cache so the first KB embedding op does not reach huggingface.co.
+# Datus's `_resolve_cache_dir()` looks at $FASTEMBED_CACHE_PATH first, then
+# $HF_HOME/fastembed, then ~/.cache/huggingface/fastembed; we install to the
+# last (default) location and let users override via env var if they want.
+RUNTIME_ASSETS_DIR="$BUNDLE_DIR/assets/fastembed-cache"
+RUNTIME_ASSETS_INSTALLED=""
+if [[ "$SKIP_RUNTIME_ASSETS" -eq 0 && -d "$RUNTIME_ASSETS_DIR" ]]; then
+  # When invoked with sudo, prefer the invoking user's HOME so the cache is
+  # actually visible to the user who runs Datus afterwards.
+  TARGET_HOME="$HOME"
+  if [[ -n "${SUDO_USER:-}" && "${SUDO_USER}" != "root" ]]; then
+    SUDO_HOME="$(getent passwd "$SUDO_USER" 2>/dev/null | cut -d: -f6 || true)"
+    if [[ -n "$SUDO_HOME" && -d "$SUDO_HOME" ]]; then
+      TARGET_HOME="$SUDO_HOME"
+    fi
+  fi
+  FASTEMBED_DEST="${FASTEMBED_CACHE_PATH:-${HF_HOME:-$TARGET_HOME/.cache/huggingface}/fastembed}"
+  mkdir -p "$FASTEMBED_DEST"
+  # `cp -rn` is "no clobber": existing snapshots are kept, we only fill gaps.
+  cp -rn "$RUNTIME_ASSETS_DIR"/. "$FASTEMBED_DEST"/
+  if [[ -n "${SUDO_USER:-}" && "${SUDO_USER}" != "root" && "$TARGET_HOME" != "$HOME" ]]; then
+    chown -R "$SUDO_USER" "$FASTEMBED_DEST" 2>/dev/null || true
+  fi
+  RUNTIME_ASSETS_INSTALLED="$FASTEMBED_DEST"
+fi
+
 case "$MODE" in
   venv)
     cat <<EOF
@@ -184,3 +225,16 @@ Python: $INSTALL_PYTHON
 EOF
     ;;
 esac
+
+if [[ -n "$RUNTIME_ASSETS_INSTALLED" ]]; then
+  cat <<EOF
+Runtime assets:
+  fastembed snapshot mirrored to $RUNTIME_ASSETS_INSTALLED
+  Override with FASTEMBED_CACHE_PATH=$RUNTIME_ASSETS_DIR if you want Datus
+  to read directly from the bundle instead of the user cache.
+EOF
+elif [[ "$SKIP_RUNTIME_ASSETS" -eq 1 ]]; then
+  echo "Runtime assets: skipped (--skip-runtime-assets); first KB embedding op will reach huggingface.co."
+elif [[ ! -d "$RUNTIME_ASSETS_DIR" ]]; then
+  echo "Runtime assets: bundle has no assets/fastembed-cache; first KB embedding op will reach huggingface.co."
+fi

@@ -47,12 +47,13 @@ quick-test: build test ## Quick test (build + test)
 quick-publish: clean build check upload ## Quick publish (clean + build + check + upload) 
 
 PYPI_VERSION ?=
-OFFLINE_EXTRA_ARGS := $(if $(PYPI_VERSION),--pypi-version $(PYPI_VERSION))
+RESUME ?=
+OFFLINE_EXTRA_ARGS := $(if $(PYPI_VERSION),--pypi-version $(PYPI_VERSION)) $(if $(RESUME),--resume)
 
-offline-bundle-x86_64: ## Build Linux x86_64 offline bundle (optional: PYPI_VERSION=X.Y.Z)
+offline-bundle-x86_64: ## Build Linux x86_64 offline bundle (optional: PYPI_VERSION=X.Y.Z, RESUME=1)
 	./scripts/build_offline_bundle_x86_64.sh $(OFFLINE_EXTRA_ARGS)
 
-offline-bundle-arm64: ## Build Linux arm64 offline bundle (optional: PYPI_VERSION=X.Y.Z)
+offline-bundle-arm64: ## Build Linux arm64 offline bundle (optional: PYPI_VERSION=X.Y.Z, RESUME=1)
 	./scripts/build_offline_bundle_arm64.sh $(OFFLINE_EXTRA_ARGS)
 
 offline-docs-lint: ## Check offline/SYSTEM_REQUIREMENTS.md stays consistent with Makefile vars, CLI flags, install templates

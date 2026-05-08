@@ -148,8 +148,9 @@ cd datus-agent-offline-linux-x86_64-py312
 | `python-runtime/` | 一份 python-build-standalone 打包好的 CPython 3.12 tar.gz（~30MB），首次 install 时自动解压到 `python/` |
 | `wheelhouse/` | datus-agent 及其所有 Python 依赖的 wheel |
 | `requirements.lock` | 锁定版本清单，`pip install` 依赖它做完整一致性安装 |
-| `install_offline.sh` | 一键安装脚本（venv / --user / --system 三种模式） |
-| `manifest.json` | bundle 元数据（PBS 版本、wheel 数、生成时间等） |
+| `assets/fastembed-cache/` | 预下载的 Hugging Face 模型快照（默认含 `qdrant/all-MiniLM-L6-v2-onnx`，是 `sentence-transformers/all-MiniLM-L6-v2` 的 ONNX 导出，~80MB）。`install_offline.sh` 会把它复制到 `~/.cache/huggingface/fastembed/`，避免首次跑 KB embedding 时联网拉模型。需要扩展时改 `offline/huggingface-snapshots.txt` |
+| `install_offline.sh` | 一键安装脚本（venv / --user / --system 三种模式，外加 `--skip-runtime-assets` 可跳过运行时资产拷贝） |
+| `manifest.json` | bundle 元数据（PBS 版本、wheel 数、HF 快照 commit、生成时间等） |
 
 ### 6.2 不包含（客户自备）
 
@@ -264,3 +265,38 @@ make offline-bundle-x86_64 PYPI_VERSION=0.2.6
 ```
 
 这种情况下 install 脚本找不到宿主 python3.12 时会直接报错退出。
+
+### 续跑：从中断的 build 继续，不要从零开始
+
+下载几百个 wheel + HF 快照偶尔会被网络抖断（典型如 pip 报 `IncompleteRead`）。
+这种时候**不要重跑干净 build**，加 `--resume` / `RESUME=1` 即可：脚本会保留
+`offline/dist/<bundle>/wheelhouse/` 里已下好的 wheel、`.seed-wheels/` 里已编译的 seed
+wheel、`assets/fastembed-cache/` 里已拉下的 HF 快照，pip 只补缺失的；HF Hub 的
+snapshot_download 是基于 blob hash 的，已存在的文件直接跳过。
+
+```bash
+# 干净构建中断后续跑
+make offline-bundle-arm64 RESUME=1 PYPI_VERSION=0.3.0-rc3
+
+# 或直接调脚本
+./scripts/build_offline_bundle_arm64.sh --resume --pypi-version 0.3.0-rc3
+```
+
+注意：`--resume` 假设输入（specs 文件、`--pypi-version`、镜像 index 等）和上一次
+完全一致。换了任何输入，请去掉 `--resume` 重新干净构建。
+
+### 调整或跳过预下载的运行时资产（HF 快照）
+
+构建时默认会把 [`offline/huggingface-snapshots.txt`](huggingface-snapshots.txt) 列出的
+仓库下载到 `assets/fastembed-cache/`，目前只有 `qdrant/all-MiniLM-L6-v2-onnx`（默认
+embedding 模型的 ONNX 导出，~80MB）。新增模型只要往清单里加一行 `<repo_id>[@<revision>]` 就行。
+
+跳过整个步骤（bundle 更小，但目标机首次跑 KB embedding 时必须能访问 huggingface.co）：
+
+```bash
+./scripts/build_offline_bundle_x86_64.sh --skip-runtime-assets
+```
+
+target 机上同样支持 `./install_offline.sh --skip-runtime-assets`，只跳过把资产
+铺到 `~/.cache/huggingface/fastembed/` 这一步——bundle 里的拷贝仍然在，可手动复制
+或用 `FASTEMBED_CACHE_PATH=$BUNDLE_DIR/assets/fastembed-cache` 直接指过去。

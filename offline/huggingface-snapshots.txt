@@ -1,0 +1,13 @@
+# Hugging Face snapshots that the offline bundle pre-downloads so the target
+# machine never has to reach out to huggingface.co at runtime.
+#
+# One repo per line. Comments start with '#'. The default fastembed embedding
+# model (`sentence-transformers/all-MiniLM-L6-v2`) resolves to the ONNX export
+# below; fastembed's `_get_model_description(...).sources.hf` is what we mirror.
+#
+# Format: <repo_id>[@<revision>]
+#   - revision is optional; when omitted the snapshot tracks the repo's
+#     default branch at build time and the resolved commit is recorded in
+#     manifest.json.
+
+qdrant/all-MiniLM-L6-v2-onnx

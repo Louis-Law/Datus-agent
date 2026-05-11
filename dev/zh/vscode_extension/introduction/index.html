@@ -3964,25 +3964,25 @@
 <p>当前发布渠道为 VSIX 直装：</p>
 <ol>
 <li>下载最新版本：<a href="https://cdn.studio.datus.ai/vsc/release/datus-studio-vsix.zip">https://cdn.studio.datus.ai/vsc/release/datus-studio-vsix.zip</a>，解压 zip 得到 .vsix 文件。</li>
-<li>在 VSCode 中打开命令面板（<code>Cmd/Ctrl + Shift + P</code>），执行 <strong>Extensions: Install from VSIX...</strong>，选择刚下载的 <code>.vsix</code> 文件。</li>
+<li>在 VSCode 中打开命令面板（<code>Cmd/Ctrl + Shift + P</code>），执行 <strong>「Extensions: Install from VSIX...」</strong>，选择刚下载的 <code>.vsix</code> 文件。</li>
 <li>安装完成后，活动栏会出现 Datus Studio 图标，并新增三个面板：左侧 <strong>Datus: Object Explorer</strong>、主面板 <strong>Datus Studio</strong>（Chat，你可以手动拖拽到右侧）、底部 <strong>Datus Studio</strong>（SQL / Chart）。</li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">升级</p>
-<p>重新下载 <code>latest.vsix</code> 后再次执行 <em>Install from VSIX</em> 即可覆盖安装。</p>
+<p>重新下载最新的 <code>.vsix</code> 文件后再次执行 <em>Install from VSIX</em> 即可覆盖安装。</p>
 </div>
 <h2 id="_3">启动步骤<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>Datus Studio 自身不持有任何模型与数据库凭证，所有能力都由 Datus-agent 的 Web Server 提供。启动顺序如下。</p>
 <h3 id="1-web-server-datus-agent">1. 启动带 Web Server 的 Datus-agent<a class="headerlink" href="#1-web-server-datus-agent" title="Permanent link">&para;</a></h3>
 <p>任意带有 <code>--web</code> 的启动方式都可以，关键是要让 Datus-agent 暴露 HTTP 服务。常见命令：</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 直接指定数据源</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>datus<span class="w"> </span>--web<span class="w"> </span>--datasource<span class="w"> </span>&lt;your_datasource&gt;
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>datus-cli<span class="w"> </span>--web<span class="w"> </span>--datasource<span class="w"> </span>&lt;your_datasource&gt;
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 指定配置文件 + 数据源（推荐：项目化配置）</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>uv<span class="w"> </span>run<span class="w"> </span>datus<span class="w"> </span>--web<span class="w"> </span>--config<span class="w"> </span>/path/to/conf/agent.yml<span class="w"> </span>--datasource<span class="w"> </span>&lt;your_datasource&gt;
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>datus-cli<span class="w"> </span>--web<span class="w"> </span>--config<span class="w"> </span>/path/to/conf/agent.yml<span class="w"> </span>--datasource<span class="w"> </span>&lt;your_datasource&gt;
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># 自定义端口与监听地址</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>datus<span class="w"> </span>--web<span class="w"> </span>--port<span class="w"> </span><span class="m">8080</span><span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>datus-cli<span class="w"> </span>--web<span class="w"> </span>--port<span class="w"> </span><span class="m">8080</span><span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0
 </span></code></pre></div>
 <p>启动完成后，终端会打印实际的服务地址，例如：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>http://localhost:8501
@@ -3994,7 +3994,7 @@
 </div>
 <h3 id="2-vscode-endpoint">2. 在 VSCode 中配置 Endpoint<a class="headerlink" href="#2-vscode-endpoint" title="Permanent link">&para;</a></h3>
 <ol>
-<li>打开活动栏的 <strong>Datus Studio</strong>，点击右上角齿轮图标进入 <strong>Datus · Settings</strong>。</li>
+<li>打开活动栏的 <strong>Datus Studio</strong> Chat 面板，点击右上角齿轮图标进入 <strong>「Datus · Settings」</strong>。</li>
 <li>切到 <strong>General</strong> 页，将上一步的服务地址填入 <strong>Endpoint</strong>，例如 <code>http://localhost:8501</code>。</li>
 <li>同页还可以设置：<ul>
 <li><strong>Language</strong>：插件界面语言（中 / 英）。</li>
@@ -4010,7 +4010,7 @@
 <p><strong>Models</strong> 与 <strong>Datasources</strong> 两个子页是 Datus-agent 同名配置的可视化镜像，可在插件里直接编辑，写回到对应的 <code>agent.yml</code>。</p>
 </div>
 <h2 id="_4">核心功能<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>整个插件按 VSCode 习惯划分为 <strong>左侧 Catalog Tree/Context Tree/Subagent Explorer</strong>、<strong>右侧 Datus Studio Chat</strong>、<strong>底部 Datus Studio (SQL / Chart)</strong> 三块。</p>
+<p>整个插件按 VSCode 习惯划分为 <strong>左侧 Catalog Tree/Context Tree/SubAgent Explorer</strong>、<strong>右侧 Datus Studio Chat</strong>、<strong>底部 Datus Studio (SQL / Chart)</strong> 三块。</p>
 <h3 id="1-catalog-tree-context-tree">1. Catalog Tree 与 Context Tree<a class="headerlink" href="#1-catalog-tree-context-tree" title="Permanent link">&para;</a></h3>
 <p>左侧 <strong>Datus: Object Explorer</strong> 提供两个 Tab：</p>
 <ul>
@@ -4028,7 +4028,7 @@
 </ul>
 <p>Catalog 与 Context 中的任意节点都可以作为 Chat 的引用对象（在 Chat 输入框 <code>@</code> 选择），也可以作为 SubAgent 的可见范围（见下文）。</p>
 <h3 id="2-subagent">2. SubAgent 创建与管理<a class="headerlink" href="#2-subagent" title="Permanent link">&para;</a></h3>
-<p>左下 <strong>Agents</strong> 区列出当前工程的全部子代理（含 Built-in 与自定义）。点击 <strong>+ Add Agent</strong> 进入四步向导：</p>
+<p>左下 <strong>Agents</strong> 区列出当前工程的全部子代理（含 Built-in 与自定义）。点击 <strong>「+ Add Agent」</strong> 进入四步向导：</p>
 <ol>
 <li><strong>Description</strong>：基本信息（名称、描述、面向场景）。</li>
 <li><strong>Tools</strong>：勾选可用工具 / MCP 工具。</li>
@@ -4071,8 +4071,8 @@
 </ul>
 <h4 id="_5">使用建议<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>保持 VSCode 工作区干净</strong>：因为读写都落在工作区根，建议每个 Datus 项目对应一个 VSCode 工作区文件夹，与 Datus-agent 的 <code>project_name</code>、<code>subject/</code> 目录一一对应，子代理生成的 <code>metric.yml</code>、<code>semantic_model.yml</code>、<code>reference_sql/*.sql</code> 才会落到正确位置。</li>
-<li><strong>未打开文件夹的情况</strong>：VSCode 没有打开任何工作区时，所有文件工具都会返回错误。先用 <em>File → Open Folder...</em> 打开你的项目再发起对话。</li>
+<li><strong>保持 VSCode 工作区干净</strong>：因为读写都落在工作区根目录，建议每个 Datus 项目对应一个 VSCode 工作区文件夹，与 Datus-agent 的 <code>project_name</code>、<code>subject/</code> 目录一一对应，子代理生成的 <code>metric.yml</code>、<code>semantic_model.yml</code>、<code>reference_sql/*.sql</code> 才会落到正确位置。</li>
+<li><strong>未打开文件夹的情况</strong>：VSCode 没有打开任何工作区时，所有文件工具都会返回错误。先用 <em>「File → Open Folder...」</em> 打开你的项目再发起对话。</li>
 <li><strong>超出白名单的文件</strong>：二进制、Notebook、Office 文档等会被直接拒绝。需要让 Datus 处理这些文件时，先转换成支持的文本格式或在白名单中扩展（修改插件源码）。</li>
 </ul>
 <h2 id="_6">常见问题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
@@ -4083,7 +4083,7 @@
 <h3 id="catalog">Catalog 看不到表<a class="headerlink" href="#catalog" title="Permanent link">&para;</a></h3>
 <p>确认 Datus-agent 已对该数据源跑过元数据抓取（CLI 中的 <code>/init</code> 或 <code>/refresh-meta</code>）。插件本身只渲染后端返回的目录。</p>
 <h3 id="built-in">Built-in 子代理可以编辑吗<a class="headerlink" href="#built-in" title="Permanent link">&para;</a></h3>
-<p>不可以。Built-in 仅展示其结构，要定制请使用 <em>+ Add Agent</em> 新建一个独立子代理。</p>
+<p>不可以。Built-in 仅展示其结构，要定制请使用 <em>「+ Add Agent」</em> 新建一个独立子代理。</p>
 <h2 id="_8">总结<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>Datus Studio VSCode 插件把 Datus-agent 的核心能力——元数据浏览、上下文管理、子代理编排、Chat 对话、SQL 执行与 AI 可视化——整合进一个 IDE 内的工作区，与 <a href="../../cli/introduction/">CLI</a> 与 <a href="../../web_chatbot/introduction/">Web Chatbot</a> 共用同一份后端配置与知识库，是开发态最顺手的入口。</p>
 

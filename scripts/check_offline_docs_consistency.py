@@ -28,6 +28,7 @@ MAKEFILE = ROOT / "Makefile"
 INSTALL_TEMPLATES = {
     "x86_64": ROOT / "offline" / "templates" / "install_offline_linux-x86_64.sh",
     "arm64": ROOT / "offline" / "templates" / "install_offline_linux-arm64.sh",
+    "darwin-arm64": ROOT / "offline" / "templates" / "install_offline_darwin-arm64.sh",
 }
 REFERENCED_FILES = [
     ROOT / "offline" / "extra-constraints.txt",

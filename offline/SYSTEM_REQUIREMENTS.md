@@ -1,8 +1,14 @@
 # Datus Agent 离线 Bundle — 系统依赖清单
 
-适用于 `datus-agent-offline-linux-{x86_64,arm64}-py312.tar.gz` 离线安装包。
+适用于以下离线安装包：
+
+- `datus-agent-offline-linux-x86_64-py312.tar.gz`
+- `datus-agent-offline-linux-arm64-py312.tar.gz`
+- `datus-agent-offline-darwin-arm64-py312.tar.gz`（macOS / Apple Silicon）
 
 目标读者：拿到 bundle、准备在目标机器上部署 datus-agent 的运维同学。
+
+> macOS 客户请直接看 [§2.5 macOS (Apple Silicon) Bundle](#25-macos-apple-silicon-bundle)；第 1–4、第 7 节针对 Linux，macOS 不适用。
 
 ---
 
@@ -60,6 +66,49 @@
 2. 跑 `uname -m`：
    - `x86_64` → 选 `-linux-x86_64-` 的 tar.gz
    - `aarch64` → 选 `-linux-arm64-` 的 tar.gz
+
+---
+
+## 2.5 macOS (Apple Silicon) Bundle
+
+适用于 `datus-agent-offline-darwin-arm64-py312.tar.gz`。这是独立于 Linux 的另一条管线，门槛单独列在这里。
+
+### 硬门槛
+
+| 门槛 | 要求 |
+|---|---|
+| **OS** | macOS（Darwin）≥ **11 Big Sur** |
+| **CPU** | Apple Silicon — `uname -m` 必须是 `arm64`（M1 / M2 / M3 / M4） |
+| **Python 3.12** | **bundle 自带**，客户机器不必预装；与 Linux 一致 |
+
+### 不支持的环境
+
+- macOS 10.15 (Catalina) 及更早 —— bundle 里 `macosx_11_0_arm64` 的 wheel 加载不了，install 脚本第一步就会用 `sw_vers` 拒绝。
+- Intel Mac (`x86_64`) —— 当前没有 darwin-x86_64 bundle；客户机若是 Intel Mac，需走 Linux x86_64 bundle 跑在 Linux VM / Docker 里，或单独提需求。
+- 用 Rosetta 启动的 shell —— 即使是 Apple Silicon 机器，从 x86_64 shell 跑也会被 `uname -m` 判定为 `x86_64` 拒绝。请在原生 arm64 shell 下运行。
+
+### 一句话自检
+
+```bash
+sw_vers -productVersion && uname -m
+# 输出形如：
+# 14.5
+# arm64
+# 任意 ≥ 11.x + arm64 即可
+```
+
+### 客户机器额外依赖
+
+| 项 | 说明 |
+|---|---|
+| `git` | 同 Linux：semantic adapter 运行时要调；`brew install git` 或 Xcode Command Line Tools |
+| Xcode Command Line Tools | 可选；只有自行编译扩展时才需要。bundle 全程走预编译 wheel，正常无需 |
+| Homebrew Python 3.12 | 仅当客户想用 `--user` / `--system` 模式时需要：`brew install python@3.12`。默认 venv 模式不需要 |
+
+### 构建侧限制（运维同学）
+
+- macOS bundle **只能在 macOS arm64 主机上原生构建**，不能像 Linux 那样用 Docker 跨架构 —— Docker on Mac 跑的是 Linux 容器，做不出 `macosx_*` wheel 和 Darwin PBS runtime。
+- 命令见第 9 节：`make offline-bundle-darwin-arm64`。
 
 ---
 
@@ -229,9 +278,12 @@ install 脚本按以下优先级找 Python 3.12：
 ## 9. 构建端常用命令（运维人员/CI 参考）
 
 ```bash
-# 默认 bundle（glibc 2.27+，含自带 Python 3.12）
+# Linux bundle（glibc 2.27+，含自带 Python 3.12；走 Docker）
 make offline-bundle-x86_64
 make offline-bundle-arm64
+
+# macOS bundle（Apple Silicon，必须在 macOS arm64 主机上跑）
+make offline-bundle-darwin-arm64
 
 # 使用 PyPI 稳定版 datus-agent（不从本地源码打本地 wheel）
 make offline-bundle-x86_64 PYPI_VERSION=0.2.6
@@ -241,6 +293,7 @@ make offline-bundle-x86_64 PYPI_VERSION=0.2.6
 
 - `datus-agent-offline-linux-x86_64-py312.tar.gz`
 - `datus-agent-offline-linux-arm64-py312.tar.gz`
+- `datus-agent-offline-darwin-arm64-py312.tar.gz`
 
 ### 调整 bundle 自带的 Python 版本 / PBS release
 

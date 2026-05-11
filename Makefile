@@ -1,4 +1,4 @@
-.PHONY: help clean build install install-dist test check upload-test upload all publish dev-install offline-bundle-x86_64 offline-bundle-arm64 offline-docs-lint
+.PHONY: help clean build install install-dist test check upload-test upload all publish dev-install offline-bundle-x86_64 offline-bundle-arm64 offline-bundle-darwin-arm64 offline-docs-lint
 
 help: ## Show this help message
 	@echo "Available commands:"
@@ -55,6 +55,9 @@ offline-bundle-x86_64: ## Build Linux x86_64 offline bundle (optional: PYPI_VERS
 
 offline-bundle-arm64: ## Build Linux arm64 offline bundle (optional: PYPI_VERSION=X.Y.Z, RESUME=1)
 	./scripts/build_offline_bundle_arm64.sh $(OFFLINE_EXTRA_ARGS)
+
+offline-bundle-darwin-arm64: ## Build macOS arm64 (Apple Silicon) offline bundle — must run on a Mac (optional: PYPI_VERSION=X.Y.Z, RESUME=1)
+	./scripts/build_offline_bundle_darwin_arm64.sh $(OFFLINE_EXTRA_ARGS)
 
 offline-docs-lint: ## Check offline/SYSTEM_REQUIREMENTS.md stays consistent with Makefile vars, CLI flags, install templates
 	python3 scripts/check_offline_docs_consistency.py

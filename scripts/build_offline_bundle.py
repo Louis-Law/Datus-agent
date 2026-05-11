@@ -43,9 +43,12 @@ FASTEMBED_CACHE_SUBDIR = "fastembed-cache"
 DEFAULT_PBS_RELEASE = "20250723"
 DEFAULT_PBS_PYTHON_VERSION = "3.12.11"
 
-PBS_ARCH_MAP = {
-    "linux-x86_64": "x86_64",
-    "linux-arm64": "aarch64",
+# python-build-standalone release-asset target triples per bundle target.
+# Filename pattern: cpython-<pyver>+<release>-<triple>-install_only.tar.gz
+PBS_TRIPLE_MAP = {
+    "linux-x86_64": "x86_64-unknown-linux-gnu",
+    "linux-arm64": "aarch64-unknown-linux-gnu",
+    "darwin-arm64": "aarch64-apple-darwin",
 }
 
 PBS_CACHE_DIR = REPO_ROOT / "offline" / ".pbs-cache"
@@ -107,6 +110,32 @@ TARGETS = {
         "expected_uname_s": "Linux",
         "expected_uname_m": ["aarch64", "arm64"],
         "bundle_suffix": "linux-arm64",
+    },
+    "darwin-arm64": {
+        # macOS wheel platform tags. `macosx_<major>_<minor>_<arch>` declares the
+        # minimum macOS the wheel supports — we list 11.0 first so pip prefers
+        # the most broadly compatible wheel, then escalate when only newer
+        # wheels are published. `universal2` wheels run on both arm64 and
+        # x86_64 so they are accepted under arm64 as well.
+        "platform_tags": [
+            "macosx_11_0_arm64",
+            "macosx_11_0_universal2",
+            "macosx_12_0_arm64",
+            "macosx_13_0_arm64",
+            "macosx_14_0_arm64",
+            "macosx_15_0_arm64",
+        ],
+        "seed_platform_fragments": [
+            "macosx_11_0_arm64",
+            "macosx_11_0_universal2",
+            "macosx_12_0_arm64",
+            "macosx_13_0_arm64",
+            "macosx_14_0_arm64",
+            "macosx_15_0_arm64",
+        ],
+        "expected_uname_s": "Darwin",
+        "expected_uname_m": ["arm64"],
+        "bundle_suffix": "darwin-arm64",
     },
 }
 
@@ -625,8 +654,8 @@ def install_script_template_path(target_name: str) -> Path:
 
 
 def pbs_filename(pbs_release: str, pbs_python_version: str, target_name: str) -> str:
-    arch = PBS_ARCH_MAP[target_name]
-    return f"cpython-{pbs_python_version}+{pbs_release}-{arch}-unknown-linux-gnu-install_only.tar.gz"
+    triple = PBS_TRIPLE_MAP[target_name]
+    return f"cpython-{pbs_python_version}+{pbs_release}-{triple}-install_only.tar.gz"
 
 
 def _http_get(url: str) -> bytes:
@@ -751,6 +780,7 @@ def render_bundle_readme(
     python_version: str,
     python_runtime: dict | None,
     runtime_assets: list[dict[str, str]] | None = None,
+    target_name: str = "linux-x86_64",
 ) -> str:
     if python_runtime:
         runtime_block = textwrap.dedent(
@@ -797,6 +827,28 @@ def render_bundle_readme(
     else:
         assets_block = ""
 
+    if target_name.startswith("darwin-"):
+        arch_label = target_name.split("-", 1)[1]
+        prereq_block = textwrap.dedent(
+            f"""\
+            ## Prerequisites
+            - macOS target machine (Darwin), version 11 (Big Sur) or newer
+            - Apple Silicon CPU; the bundle's arch must match (`{arch_label}`)
+            - `venv` module available in the Python installation (PBS runtime includes it)
+
+            """
+        )
+    else:
+        prereq_block = textwrap.dedent(
+            """\
+            ## Prerequisites
+            - Linux target machine, glibc 2.27+
+            - Architecture matches the bundle (x86_64 or aarch64)
+            - `venv` module available in the Python installation (PBS runtime includes it)
+
+            """
+        )
+
     return (
         textwrap.dedent(
             f"""\
@@ -822,13 +874,9 @@ def render_bundle_readme(
         ./install_offline.sh /opt/datus-agent/.venv
         ```
 
-        ## Prerequisites
-        - Linux target machine, glibc 2.27+
-        - Architecture matches the bundle (x86_64 or aarch64)
-        - `venv` module available in the Python installation (PBS runtime includes it)
-
         """
         )
+        + prereq_block
         + runtime_block
         + assets_block
     )
@@ -982,6 +1030,7 @@ def create_bundle(
             python_version,
             python_runtime_meta,
             runtime_asset_records,
+            target_name=target_name,
         ),
         encoding="utf-8",
     )

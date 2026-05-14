@@ -4171,11 +4171,11 @@
 <ul>
 <li>已安装 <code>datus</code>（参见<a href="../Quickstart/">快速开始</a>）</li>
 <li>在 <code>datus</code> 内通过 <code>/model</code> 配置好 LLM provider；选择器会把凭据写入 <code>~/.datus/conf/agent.yml</code></li>
-<li>通过 <code>/services semantic</code> 配置 MetricFlow 语义层适配器；CLI 会自动安装缺失的 <code>datus-semantic-metricflow</code> 包</li>
+<li>通过 <code>/services semantic</code> 配置 MetricFlow 语义层适配器；CLI 会在保存该服务配置时自动安装缺失的 <code>datus-semantic-metricflow</code> 包</li>
 </ul>
 <p>不需要下载或手动 <code>cp</code> 任何文件。首次启动 <code>datus</code> 在没有配置时会自动 bootstrap <code>~/.datus/</code>：</p>
 <ul>
-<li><code>~/.datus/sample/</code> —— 内置样本数据（每次启动覆盖刷新）</li>
+<li><code>~/.datus/sample/</code> —— 内置样本数据（首次启动创建；后续启动将保留已有文件）</li>
 <li><code>~/.datus/benchmark/california_schools/</code> —— 你的工作副本（升级时保留改动）</li>
 <li><code>~/.datus/conf/agent.yml</code> —— <code>california_schools</code> 数据源与基准已预写</li>
 </ul>

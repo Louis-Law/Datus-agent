@@ -3441,6 +3441,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#030" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.3.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#02" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3641,6 +3669,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0.3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#030" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0.3.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#02" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3832,20 +3888,82 @@
 
 
 <h1 id="release-notes">Release notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h1>
+<h2 id="03">0.3<a class="headerlink" href="#03" title="Permanent link">&para;</a></h2>
+<h3 id="030">0.3.0<a class="headerlink" href="#030" title="Permanent link">&para;</a></h3>
+<p><strong>New Features</strong></p>
+<p><strong><em>Datus API</em></strong></p>
+<ul>
+<li><strong>FastAPI REST API</strong> - Layered service/model REST API with CLI entry, streaming Chat, task tracking, SQL execution stop, multi-select <code>ask_user</code>, success story persistence, knowledge base bootstrap, and request-side proxy source / interactive mode controls. <a href="https://github.com/Datus-ai/Datus-agent/pull/520">#520</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/538">#538</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/539">#539</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/551">#551</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/553">#553</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/555">#555</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/606">#606</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/610">#610</a> <a href="../API/introduction/">docs</a></li>
+<li><strong>Model Discovery API</strong> - Model discovery, per-request model override, current model metadata, and ISO-8601 UTC timestamps. <a href="https://github.com/Datus-ai/Datus-agent/pull/643">#643</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/649">#649</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/700">#700</a> <a href="../API/models/">docs</a></li>
+<li><strong>Chart Recommendation &amp; Visualization API</strong> - Generate dashboard-ready visualizations from Datus Chat and external applications. <a href="https://github.com/Datus-ai/Datus-agent/pull/545">#545</a> <a href="../getting_started/dashboard_copilot/">docs</a></li>
+</ul>
+<p><strong><em>Datus Chat &amp; IM Gateways</em></strong></p>
+<ul>
+<li><strong>Datus Chat (FastAPI Chatbot)</strong> - Replaced the legacy Streamlit chatbot with FastAPI + <code>@datus/web-chatbot</code>, adding the Datus Chat module. <a href="https://github.com/Datus-ai/Datus-agent/pull/543">#543</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/554">#554</a> <a href="../web_chatbot/introduction/">docs</a></li>
+<li><strong>Slack &amp; Feishu/Lark Gateways</strong> - New IM gateways with channel configuration, daemon mode, streaming replies, and feedback actions; <code>datus-claw</code> renamed to <code>datus-gateway</code>. <a href="https://github.com/Datus-ai/Datus-agent/pull/559">#559</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/562">#562</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/565">#565</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/616">#616</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/623">#623</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/593">#593</a> <a href="../gateway/introduction/">docs</a></li>
+</ul>
+<p><strong><em>Project &amp; Workspace Configuration</em></strong></p>
+<ul>
+<li><strong>Project-aware Configure/Init Flow</strong> - Split <code>setup</code> into project-aware <code>configure</code>/<code>init</code> flows with project-level <code>.datus/config.yml</code>, project memory, automatic datasource/service setup, and a redesigned <code>.datus</code> directory. <a href="https://github.com/Datus-ai/Datus-agent/pull/542">#542</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/578">#578</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/592">#592</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/608">#608</a> <a href="../cli/init_command/">docs</a></li>
+<li><strong>Unified Runtime Services Config</strong> - Unified configuration around <code>services.datasources</code>, <code>services.bi_platforms</code>, semantic layer, and scheduler; CLI now uses <code>--datasource</code>. <a href="https://github.com/Datus-ai/Datus-agent/pull/614">#614</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/633">#633</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/636">#636</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/642">#642</a> <a href="../configuration/datasources/">docs</a></li>
+<li><strong>One-line Installer</strong> - New Linux/macOS <code>curl | sh</code> install script with refreshed quickstart and service docs. <a href="https://github.com/Datus-ai/Datus-agent/pull/613">#613</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/611">#611</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/667">#667</a> <a href="../getting_started/Quickstart/">docs</a></li>
+</ul>
+<p><strong><em>CLI Experience</em></strong></p>
+<ul>
+<li><strong>Unified <code>/</code> Command Prefix</strong> - All interactive commands moved to <code>/</code> prefix; added <code>/model</code>, <code>/skill</code>, <code>/mcp</code>, <code>/agent</code>, <code>/subagent</code>, interactive input, and a streaming <code>/bootstrap</code> TUI. <a href="https://github.com/Datus-ai/Datus-agent/pull/621">#621</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/635">#635</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/650">#650</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/655">#655</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/656">#656</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/659">#659</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/683">#683</a> <a href="../cli/reference/">docs</a></li>
+<li><strong><code>/language</code> and <code>/effort</code> Commands</strong> - Pin response language with <code>/language</code>, control reasoning effort with <code>/effort</code>, plus <code>/&lt;service&gt;.&lt;method&gt;</code> dispatch for read-only service calls. <a href="https://github.com/Datus-ai/Datus-agent/pull/641">#641</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/653">#653</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/631">#631</a> <a href="../cli/language_command/">docs</a></li>
+<li><strong>CLI Print Mode &amp; UX Polish</strong> - Print mode, proxy tools, reworked bottom status bar, fixed streaming/tool status line, improved markdown streaming, and restored <code>@</code> reference auto-completion. <a href="https://github.com/Datus-ai/Datus-agent/pull/489">#489</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/501">#501</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/583">#583</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/586">#586</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/654">#654</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/664">#664</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/661">#661</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/662">#662</a> <a href="../cli/introduction/">docs</a></li>
+<li><strong>New Model &amp; Plan Providers</strong> - Codex OAuth, Claude Subscription, Coding Plan, OpenRouter, MiniMax, GLM, BigModel, Z.AI support, with rebuilt provider-based model configuration and provider catalog. <a href="https://github.com/Datus-ai/Datus-agent/pull/487">#487</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/635">#635</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/687">#687</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/693">#693</a> <a href="../cli/model_command/">docs</a></li>
+<li><strong>Permission Profiles</strong> - New <code>normal</code> / <code>auto</code> / <code>dangerous</code> permission profiles with subagent-aware permission hooks; safe discovery tools relaxed in normal mode. <a href="https://github.com/Datus-ai/Datus-agent/pull/646">#646</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/652">#652</a> <a href="../integration/skills/">docs</a></li>
+</ul>
+<p><strong><em>Data Engineering Subagents &amp; Skills</em></strong></p>
+<ul>
+<li><strong>Data Engineering Agents &amp; Skills</strong> - Built-in agents and skills for cross-database migration, ETL/job generation, scheduler workflows, table generation, dashboard generation, and BI/scheduler orchestration. <a href="https://github.com/Datus-ai/Datus-agent/pull/494">#494</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/525">#525</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/564">#564</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/575">#575</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/580">#580</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/639">#639</a> <a href="../subagent/builtin_subagents/">docs</a></li>
+<li><strong>Deliverable Validation Hooks</strong> - Table deliverable validation hook, shared deliverable node, validation skills, and a publish gate for semantic/metric generation. <a href="https://github.com/Datus-ai/Datus-agent/pull/657">#657</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/663">#663</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/665">#665</a> <a href="../integration/validation/">docs</a></li>
+<li><strong>Natural-language Metrics &amp; Skill Creator</strong> - Natural-language metric creation, wheel-bundled built-in skills, skill frontmatter scope, and a <code>skill-creator</code> subagent for interactive skill authoring. <a href="https://github.com/Datus-ai/Datus-agent/pull/504">#504</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/526">#526</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/627">#627</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/645">#645</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/676">#676</a> <a href="../subagent/customized_subagent/">docs</a></li>
+</ul>
+<p><strong><em>Memory &amp; Reference Template</em></strong></p>
+<ul>
+<li><strong>Auto Memory</strong> - New <code>MEMORY.md</code>-based Auto Memory with an emergent topic tree, empty-memory prompt, and project/session isolation. <a href="https://github.com/Datus-ai/Datus-agent/pull/498">#498</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/620">#620</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/595">#595</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/523">#523</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/594">#594</a> <a href="../integration/memory/">docs</a></li>
+<li><strong>Reference Template</strong> - New Reference Template mechanism, with bootstrap reference template parsing fixes. <a href="https://github.com/Datus-ai/Datus-agent/pull/508">#508</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/574">#574</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/677">#677</a> <a href="../knowledge_base/reference_template/">docs</a></li>
+</ul>
+<p><strong><em>Ecosystem &amp; Adapters</em></strong></p>
+<ul>
+<li><strong>Datus Studio (VSCode Extension)</strong> - Official VSCode extension that brings Datus into the IDE: Object Explorer (Catalog/Context trees), SubAgent wizard, Datus Chat panel with <code>@</code>-references, plan mode, datasource/subagent switching, SQL Result &amp; AI Chart panel (ECharts), and workspace-scoped FileSystem tools. Connects to any Datus-agent Web Server (<code>datus-cli --web</code>) via a single Endpoint. <a href="https://github.com/Datus-ai/Datus-agent/pull/713">#713</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/717">#717</a> <a href="../vscode_extension/introduction/">docs</a></li>
+<li><strong>Database Adapters: Greenplum &amp; Migration Mixin</strong> - <code>datus-db-adapters</code> added Greenplum, improved metadata robustness, thread-safe connector isolation, dialect-specific identifier quoting, and a <code>MigrationTargetMixin</code> for migration workflows. <a href="https://github.com/Datus-ai/datus-db-adapters/pull/40">datus-db-adapters#40</a> <a href="https://github.com/Datus-ai/datus-db-adapters/pull/43">#43</a> <a href="https://github.com/Datus-ai/datus-db-adapters/pull/45">#45</a> <a href="https://github.com/Datus-ai/datus-db-adapters/pull/46">#46</a> <a href="https://github.com/Datus-ai/datus-db-adapters/pull/47">#47</a> <a href="https://github.com/Datus-ai/datus-db-adapters/pull/48">#48</a> <a href="../adapters/db_adapters/">docs</a></li>
+<li><strong>BI Adapters: Superset &amp; Grafana</strong> - New <code>datus-bi-core</code> with Superset and Grafana adapters, list API, chart data retrieval, dashboard/chart write validation, paginated envelope, datasource metadata fixes, and dashboard layout improvements. <a href="https://github.com/Datus-ai/datus-bi-adapters/pull/1">datus-bi-adapters#1</a> <a href="https://github.com/Datus-ai/datus-bi-adapters/pull/2">#2</a> <a href="https://github.com/Datus-ai/datus-bi-adapters/pull/3">#3</a> <a href="https://github.com/Datus-ai/datus-bi-adapters/pull/7">#7</a> <a href="https://github.com/Datus-ai/datus-bi-adapters/pull/8">#8</a> <a href="https://github.com/Datus-ai/datus-bi-adapters/pull/9">#9</a> <a href="../adapters/bi_adapters/">docs</a></li>
+<li><strong>Scheduler Adapters: Airflow</strong> - New <code>datus-scheduler-core</code> and Airflow adapter with DuckDB DAG execution, multi-tenant DAG folder, job/run list result envelope, and inactive DAG deletion semantics; published as <code>datus-scheduler-airflow</code> 0.1.2. <a href="https://github.com/Datus-ai/datus-scheduler-adapters/pull/2">datus-scheduler-adapters#2</a> <a href="https://github.com/Datus-ai/datus-scheduler-adapters/pull/3">#3</a> <a href="https://github.com/Datus-ai/datus-scheduler-adapters/pull/4">#4</a> <a href="https://github.com/Datus-ai/datus-scheduler-adapters/pull/8">#8</a> <a href="https://github.com/Datus-ai/datus-scheduler-adapters/pull/9">#9</a> <a href="../adapters/scheduler_adapters/">docs</a></li>
+<li><strong>Semantic Adapter Split</strong> - <code>datus-semantic-adapter</code> split out <code>datus-semantic-core</code> and migrated the MetricFlow adapter, with dict config injection, adapter contract tests, datasource terminology, configurable semantic model paths, and stricter MetricFlow validation. <a href="https://github.com/Datus-ai/datus-semantic-adapter/pull/6">datus-semantic-adapter#6</a> <a href="https://github.com/Datus-ai/datus-semantic-adapter/pull/7">#7</a> <a href="https://github.com/Datus-ai/datus-semantic-adapter/pull/9">#9</a> <a href="https://github.com/Datus-ai/datus-semantic-adapter/pull/10">#10</a> <a href="../adapters/semantic_adapters/">docs</a></li>
+</ul>
+<p><strong>Enhancements</strong></p>
+<ul>
+<li><strong>Streaming &amp; Session Stability</strong> - Fixed and enhanced web/chat/gateway streaming, compact/resume, group chat thread handling, Feishu permissions, Slack replies, API node creation, session persistence, and timestamp formats. <a href="https://github.com/Datus-ai/Datus-agent/pull/531">#531</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/548">#548</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/567">#567</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/568">#568</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/638">#638</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/674">#674</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/680">#680</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/689">#689</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/700">#700</a> <a href="../API/chat/">docs</a></li>
+<li><strong>Generation Stability</strong> - Improved semantic, metric, reference-template, dashboard, SQL prompt, and query-metric generation. <a href="https://github.com/Datus-ai/Datus-agent/pull/596">#596</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/604">#604</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/690">#690</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/691">#691</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/692">#692</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/697">#697</a> <a href="../subagent/gen_semantic_model/">docs</a></li>
+<li><strong>Filesystem &amp; Data Isolation</strong> - Strengthened via <code>filesystem_strict</code>, project-root zone policy, safe search, credential redaction, and strict FuncTool result handling. <a href="https://github.com/Datus-ai/Datus-agent/pull/588">#588</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/597">#597</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/603">#603</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/681">#681</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/694">#694</a> <a href="../configuration/agent/">docs</a></li>
+<li><strong>Storage Refactor</strong> - Unified <code>datus_db</code>, datasource isolation, singleton registry, pluggable RDB/vector backends, and PostgreSQL support via <code>datus-storage-postgresql</code>. <a href="https://github.com/Datus-ai/Datus-agent/pull/493">#493</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/499">#499</a> <a href="../configuration/storage/">docs</a></li>
+<li><strong>CI Restructure</strong> - Split PR acceptance and nightly pipelines, added docker-backed adapter integration tests and a test-quality audit workflow, and resolved multiple nightly/unit/integration regressions. <a href="https://github.com/Datus-ai/Datus-agent/pull/589">#589</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/600">#600</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/601">#601</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/634">#634</a></li>
+</ul>
+<p><strong>Documentation</strong></p>
+<ul>
+<li><strong>REST API, IM Gateway &amp; CLI Docs</strong> - New docs for REST API deployment / chat / KB / models, Slack &amp; Feishu IM gateways, and <code>/model</code> / <code>/language</code> / <code>/effort</code> / <code>/init</code> / <code>/bootstrap</code> / service / <code>--datasource</code> flows. <a href="../API/deployment/">docs</a></li>
+<li><strong>Configuration Docs</strong> - Added datasources, semantic layer, BI platforms, schedulers, and PostgreSQL-backed storage configuration docs. <a href="../configuration/datasources/">docs</a></li>
+<li><strong>Subagent Docs</strong> - Dashboard generation, table generation, scheduler workflow, data pipeline, metrics, semantic model, and SQL summary subagent docs. <a href="../subagent/builtin_subagents/">docs</a></li>
+<li><strong>Adapter, Memory &amp; Reference Template Docs</strong> - Refreshed adapter, memory, reference template, quickstart, benchmark, and docs-deployment documentation. <a href="https://github.com/Datus-ai/Datus-agent/pull/530">#530</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/536">#536</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/549">#549</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/556">#556</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/611">#611</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/622">#622</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/667">#667</a> <a href="../adapters/db_adapters/">docs</a></li>
+</ul>
 <h2 id="02">0.2<a class="headerlink" href="#02" title="Permanent link">&para;</a></h2>
 <h3 id="026">0.2.6<a class="headerlink" href="#026" title="Permanent link">&para;</a></h3>
 <p><strong>New Features</strong></p>
 <ul>
 <li><strong>Ask User Tool</strong> - Introduced an interactive <code>ask_user</code> tool with inline free-text support and batch question capabilities, integrated into GenSQL and GenReport nodes for human-in-the-loop workflows. <a href="https://github.com/Datus-ai/Datus-agent/pull/457">#457</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/460">#460</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/481">#481</a></li>
-<li><strong>Skill Marketplace CLI</strong> - Built-in marketplace for discovering, installing, and managing community skills directly from the CLI. <a href="https://github.com/Datus-ai/Datus-agent/pull/416">#416</a> <a href="https://docs.datus.ai/integration/skills/">docs</a></li>
+<li><strong>Skill Marketplace CLI</strong> - Built-in marketplace for discovering, installing, and managing community skills directly from the CLI. <a href="https://github.com/Datus-ai/Datus-agent/pull/416">#416</a> <a href="../integration/skills/">docs</a></li>
 <li><strong>General Chat Agent</strong> - A general-purpose chat agent for flexible conversational workflows beyond SQL generation. <a href="https://github.com/Datus-ai/Datus-agent/pull/452">#452</a></li>
 <li><strong>Explore Task Tool</strong> - New exploration tool for navigating and managing tasks within the agent. <a href="https://github.com/Datus-ai/Datus-agent/pull/455">#455</a></li>
 <li><strong>Storage Adapter</strong> - Pluggable storage adapter layer for flexible backend integration. <a href="https://github.com/Datus-ai/Datus-agent/pull/446">#446</a></li>
-<li><strong>4 New Database Adapters</strong> - Added ClickHouse, Hive, Spark, and Trino adapters in the <a href="https://github.com/Datus-ai/datus-db-adapters">datus-db-adapters</a> repository, all installable as independent packages via <code>pip install datus-&lt;database&gt;</code>. <a href="https://docs.datus.ai/adapters/db_adapters/">docs</a></li>
+<li><strong>4 New Database Adapters</strong> - Added ClickHouse, Hive, Spark, and Trino adapters in the <a href="https://github.com/Datus-ai/datus-db-adapters">datus-db-adapters</a> repository, all installable as independent packages via <code>pip install datus-&lt;database&gt;</code>. <a href="../adapters/db_adapters/">docs</a></li>
 </ul>
 <p><strong>Enhancements</strong></p>
 <ul>
-<li><strong>Session Resume/Rewind</strong> - Added <code>/resume</code>, <code>/rewind</code>, and <code>.interrupt</code> commands with interactive arrow-key selector for navigating conversation history. <a href="https://github.com/Datus-ai/Datus-agent/pull/438">#438</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/470">#470</a> <a href="https://docs.datus.ai/cli/chat_command/">docs</a></li>
+<li><strong>Session Resume/Rewind</strong> - Added <code>/resume</code>, <code>/rewind</code>, and <code>.interrupt</code> commands with interactive arrow-key selector for navigating conversation history. <a href="https://github.com/Datus-ai/Datus-agent/pull/438">#438</a> <a href="https://github.com/Datus-ai/Datus-agent/pull/470">#470</a> <a href="../cli/chat_command/">docs</a></li>
 <li><strong>Scoped Context Filter</strong> - Filter-based scoped context for more precise knowledge retrieval during SQL generation. <a href="https://github.com/Datus-ai/Datus-agent/pull/441">#441</a></li>
 <li><strong>Direct Subagent Web Access</strong> - New <code>--subagent</code> CLI parameter for launching subagents directly via the web interface. <a href="https://github.com/Datus-ai/Datus-agent/pull/447">#447</a></li>
 <li><strong>CLI Interaction UX</strong> - Improved multiline input support and ellipsis truncation for better readability. <a href="https://github.com/Datus-ai/Datus-agent/pull/468">#468</a></li>
@@ -3864,30 +3982,30 @@
 </ul>
 <p><strong>Documentation</strong></p>
 <ul>
-<li>Added Hive, Spark, ClickHouse, Trino database adapter docs. <a href="https://github.com/Datus-ai/Datus-agent/pull/464">#464</a> <a href="https://docs.datus.ai/adapters/db_adapters/">docs</a></li>
+<li>Added Hive, Spark, ClickHouse, Trino database adapter docs. <a href="https://github.com/Datus-ai/Datus-agent/pull/464">#464</a> <a href="../adapters/db_adapters/">docs</a></li>
 <li>Added resume/rewind command documentation. <a href="https://github.com/Datus-ai/Datus-agent/pull/465">#465</a></li>
 </ul>
 <h3 id="025">0.2.5<a class="headerlink" href="#025" title="Permanent link">&para;</a></h3>
 <p><strong>New Features</strong></p>
 <ul>
 <li><strong>OpenAI Agent SDK 0.7.0 Upgrade with Kimi-2.5 &amp; Gemini-3 Support</strong> - Rebuilt the model layer with <code>litellm_adapter</code> and <code>sdk_patches</code>, enabling seamless integration with the latest Kimi-2.5 and Gemini-3 series models.</li>
-<li><strong>AgentSkills Support</strong> - Introduced a complete Skill system with skill configuration, registration, management, and permission control, supporting both bash and function-based skill tools. <a href="https://docs.datus.ai/integration/skills/">docs</a></li>
-<li><strong>Tools as MCP Server</strong> - Expose Datus database tools and context search as an MCP server, enabling integration with Claude Desktop, Claude Code, and other MCP-compatible clients. <a href="https://docs.datus.ai/integration/mcp/">docs</a></li>
+<li><strong>AgentSkills Support</strong> - Introduced a complete Skill system with skill configuration, registration, management, and permission control, supporting both bash and function-based skill tools. <a href="../integration/skills/">docs</a></li>
+<li><strong>Tools as MCP Server</strong> - Expose Datus database tools and context search as an MCP server, enabling integration with Claude Desktop, Claude Code, and other MCP-compatible clients. <a href="../integration/mcp/">docs</a></li>
 </ul>
 <p><strong>Enhancements</strong></p>
 <ul>
-<li><strong>Knowledge Generation Iteration</strong> - Enhanced the external knowledge node with improved knowledge storage and more accurate context search. <a href="https://docs.datus.ai/knowledge_base/ext_knowledge/">docs</a></li>
+<li><strong>Knowledge Generation Iteration</strong> - Enhanced the external knowledge node with improved knowledge storage and more accurate context search. <a href="../knowledge_base/ext_knowledge/">docs</a></li>
 <li><strong>Semantic Tools Optimization</strong> - Optimized semantic tools and context search for faster, more relevant results in the CLI.</li>
 <li><strong>Generation Prompt String Validation</strong> - Strengthened string validation across multiple prompt templates for more reliable generation output.</li>
 <li><strong>Action-Based User Interaction Model</strong> - Redesigned the CLI interaction layer to use a unified action-based model for execution, generation, and planning.</li>
-<li><strong>Reference SQL Parallelization &amp; Date Support</strong> - Parallelized reference SQL initialization for faster bootstrap, and enhanced date expression parsing. <a href="https://docs.datus.ai/knowledge_base/reference_sql/">docs</a></li>
-<li><strong>Bootstrap Markdown Summary</strong> - Displays a formatted Markdown summary after bootstrap completion for quick review of generated results. <a href="https://docs.datus.ai/getting_started/dashboard_copilot/">docs</a></li>
-<li><strong>Subject Entry Deletion</strong> - Added the ability to delete semantic models, metrics, and SQL summaries directly from the <code>/subject</code> screen. <a href="https://docs.datus.ai/cli/context_command/#subject">docs</a></li>
+<li><strong>Reference SQL Parallelization &amp; Date Support</strong> - Parallelized reference SQL initialization for faster bootstrap, and enhanced date expression parsing. <a href="../knowledge_base/reference_sql/">docs</a></li>
+<li><strong>Bootstrap Markdown Summary</strong> - Displays a formatted Markdown summary after bootstrap completion for quick review of generated results. <a href="../getting_started/dashboard_copilot/">docs</a></li>
+<li><strong>Subject Entry Deletion</strong> - Added the ability to delete semantic models, metrics, and SQL summaries directly from the <code>/subject</code> screen. <a href="../cli/context_command/#subject">docs</a></li>
 </ul>
 <p><strong>Bug Fixes</strong></p>
 <ul>
 <li><strong>Subject Node Race Condition</strong> - Fixed a race condition when creating multiple subject nodes in parallel, improving concurrency safety.</li>
-<li><strong>Multi-Round Benchmark Evaluation</strong> - Resolved issues in agent state, workflow runner, and configuration handling during multi-round evaluations. <a href="https://docs.datus.ai/benchmark/benchmark_manual/">docs</a></li>
+<li><strong>Multi-Round Benchmark Evaluation</strong> - Resolved issues in agent state, workflow runner, and configuration handling during multi-round evaluations. <a href="../benchmark/benchmark_manual/">docs</a></li>
 <li><strong>Attribution Analysis</strong> - Simplified attribution analysis logic for clearer and more reliable results.</li>
 </ul>
 <h3 id="024">0.2.4<a class="headerlink" href="#024" title="Permanent link">&para;</a></h3>
@@ -3931,7 +4049,7 @@
 <h3 id="023">0.2.3<a class="headerlink" href="#023" title="Permanent link">&para;</a></h3>
 <p><strong>New Features</strong></p>
 <ul>
-<li><strong>Embedded Tutorial Dataset</strong> - California Schools dataset now bundled with installation and integrated into <code>datus-agent init</code> workflow for hands-on learning of contextual data engineering. <a href="https://github.com/Datus-ai/Datus-agent/issues/277">#277</a> <a href="https://docs.datus.ai/getting_started/contextual_data_engineering/#part-2--hands-on-tutorial-california-schools">tutorial</a></li>
+<li><strong>Embedded Tutorial Dataset</strong> - California Schools dataset now bundled with installation and integrated into <code>datus-agent init</code> workflow for hands-on learning of contextual data engineering. <a href="https://github.com/Datus-ai/Datus-agent/issues/277">#277</a> <a href="../getting_started/contextual_data_engineering/#part-2--hands-on-tutorial-california-schools">tutorial</a></li>
 <li><strong>Enhanced Evaluation Framework</strong> - New evaluation command with expanded categories: Exact Match, Same Result Count (different values), Schema/Table Usage Match, and Semantic/Metric Layer Correctness. <a href="https://github.com/Datus-ai/Datus-agent/issues/264">#264</a></li>
 <li><strong>Plugin-Based Database Connector</strong> - Refactored database connector to plugin-based architecture for easier extensibility and custom adapter development. <a href="https://github.com/Datus-ai/Datus-agent/issues/284">#284</a></li>
 </ul>
@@ -3957,14 +4075,14 @@
 <h3 id="021">0.2.1<a class="headerlink" href="#021" title="Permanent link">&para;</a></h3>
 <p><strong>New Features</strong></p>
 <ul>
-<li><strong>Web Chatbot Upgrade</strong> - Added feedback collection, issue reporting, stream output, and <code>&amp;hide_sidebar=true</code> parameter for embedding. <a href="https://docs.datus.ai/web_chatbot/introduction/">docs</a></li>
-<li><strong>Context Generation Commands</strong> - New <code>/gen_semantic_model</code>, <code>/gen_metrics</code>, and <code>/gen_sql_summary</code> commands in subagents for dynamic knowledge base enrichment. <a href="https://github.com/Datus-ai/Datus-agent/issues/192">#192</a> <a href="https://docs.datus.ai/subagent/builtin_subagents/">docs</a></li>
-<li><strong>Interactive Context Editing</strong> - Visual editing support for <code>/catalog</code> and <code>/subject</code> commands to modify semantic models, metrics, and SQL summaries. <a href="https://github.com/Datus-ai/Datus-agent/issues/219">#219</a> <a href="https://github.com/Datus-ai/Datus-agent/issues/199">#199</a> <a href="https://github.com/Datus-ai/Datus-agent/issues/175">#175</a> <a href="https://docs.datus.ai/cli/context_command/#subject">docs</a></li>
+<li><strong>Web Chatbot Upgrade</strong> - Added feedback collection, issue reporting, stream output, and <code>&amp;hide_sidebar=true</code> parameter for embedding. <a href="../web_chatbot/introduction/">docs</a></li>
+<li><strong>Context Generation Commands</strong> - New <code>/gen_semantic_model</code>, <code>/gen_metrics</code>, and <code>/gen_sql_summary</code> commands in subagents for dynamic knowledge base enrichment. <a href="https://github.com/Datus-ai/Datus-agent/issues/192">#192</a> <a href="../subagent/builtin_subagents/">docs</a></li>
+<li><strong>Interactive Context Editing</strong> - Visual editing support for <code>/catalog</code> and <code>/subject</code> commands to modify semantic models, metrics, and SQL summaries. <a href="https://github.com/Datus-ai/Datus-agent/issues/219">#219</a> <a href="https://github.com/Datus-ai/Datus-agent/issues/199">#199</a> <a href="https://github.com/Datus-ai/Datus-agent/issues/175">#175</a> <a href="../cli/context_command/#subject">docs</a></li>
 <li><strong>Scoped Knowledge Base</strong> - Subagents now support scoped KB initialization for better context isolation and management. <a href="https://github.com/Datus-ai/Datus-agent/issues/217">#217</a></li>
 </ul>
 <p><strong>Enhancements</strong></p>
 <ul>
-<li><strong>MetricFlow Integration</strong> - Load configuration from <code>env_settings.yml</code>, improved project detection, and cleaner output formatting. <a href="https://github.com/Datus-ai/Datus-agent/issues/214">#214</a> <a href="https://github.com/Datus-ai/Datus-agent/issues/216">#216</a> <a href="https://docs.datus.ai/metricflow/introduction/">docs</a></li>
+<li><strong>MetricFlow Integration</strong> - Load configuration from <code>env_settings.yml</code>, improved project detection, and cleaner output formatting. <a href="https://github.com/Datus-ai/Datus-agent/issues/214">#214</a> <a href="https://github.com/Datus-ai/Datus-agent/issues/216">#216</a> <a href="../metricflow/introduction/">docs</a></li>
 <li><strong>Flexible Model Configuration</strong> - Support for multiple model providers and specifications in agent configuration. <a href="https://github.com/Datus-ai/Datus-agent/issues/195">#195</a></li>
 <li><strong>CLI Display Improvements</strong> - Enhanced table width rendering for better SQL query readability. <a href="https://github.com/Datus-ai/Datus-agent/issues/200">#200</a></li>
 <li><strong>Improved Initialization</strong> - Enhanced <code>datus-agent init</code> command with better error handling and setup flow. <a href="https://github.com/Datus-ai/Datus-agent/issues/194">#194</a></li>

@@ -8,19 +8,19 @@
       
       
       
-        <link rel="canonical" href="https://docs.datus.ai/dev/develop/Contributing/">
+        <link rel="canonical" href="https://docs.datus.ai/dev/configuration/compact/">
       
       
-        <link rel="prev" href="../Architecture/">
+        <link rel="prev" href="../agent/">
       
       
-        <link rel="next" href="../../vscode_extension/introduction/">
+        <link rel="next" href="../workflow/">
       
       
         
           <link rel="alternate" href="./" hreflang="en">
         
-          <link rel="alternate" href="../../zh/develop/Contributing/" hreflang="zh">
+          <link rel="alternate" href="../../zh/configuration/compact/" hreflang="zh">
         
       
       
@@ -29,7 +29,7 @@
     
     
       
-        <title>Contributing - Datus Docs</title>
+        <title>Context Compaction - Datus Docs</title>
       
     
     
@@ -54,16 +54,6 @@
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-8HMXHZDV7F"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-8HMXHZDV7F",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-8HMXHZDV7F",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -84,6 +74,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#context-compaction" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -118,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contributing
+              Context Compaction
             
           </span>
         </div>
@@ -181,7 +176,7 @@
           </li>
         
           <li class="md-select__item">
-            <a href="../../zh/develop/Contributing/" hreflang="zh" class="md-select__link">
+            <a href="../../zh/configuration/compact/" hreflang="zh" class="md-select__link">
               中文
             </a>
           </li>
@@ -359,8 +354,6 @@
       
         
           
-        
-      
         
       
         
@@ -987,6 +980,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1177,6 +1176,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../subagent/ask_metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ask Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../subagent/gen_semantic_model/" class="md-nav__link">
         
   
@@ -1297,6 +1324,62 @@
     
   
     Data Pipeline (ETL + Migration)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../subagent/gen_visual_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTML Report Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../subagent/gen_visual_dashboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTML Dashboard Generation
   
 
     
@@ -1519,8 +1602,6 @@
       
         
       
-        
-      
     
     
     
@@ -1579,34 +1660,6 @@
     
   
     Introduction
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../knowledge_base/ext_knowledge/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    External Knowledge
   
 
     
@@ -2160,8 +2213,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -2179,6 +2234,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -2186,11 +2245,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10" checked>
         
           
           <label class="md-nav__link" for="__nav_1_10" id="__nav_1_10_label" tabindex="0">
@@ -2211,7 +2270,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_10_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_10_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1_10">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2229,7 +2288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         
   
   
@@ -2257,7 +2316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/agent/" class="md-nav__link">
+      <a href="../agent/" class="md-nav__link">
         
   
   
@@ -2282,10 +2341,140 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Compaction
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Compaction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#minor-compact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minor compact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#major-compact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Major compact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-vs-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto vs. manual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/workflow/" class="md-nav__link">
+      <a href="../workflow/" class="md-nav__link">
         
   
   
@@ -2313,7 +2502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/benchmark/" class="md-nav__link">
+      <a href="../benchmark/" class="md-nav__link">
         
   
   
@@ -2321,6 +2510,34 @@
     
   
     Benchmark
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql_policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL Policy
   
 
     
@@ -2362,10 +2579,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10_7" >
         
           
-          <label class="md-nav__link" for="__nav_1_10_5" id="__nav_1_10_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_10_7" id="__nav_1_10_7_label" tabindex="0">
             
   
   
@@ -2383,8 +2600,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_10_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_10_5">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_10_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -2401,7 +2618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/datasources/" class="md-nav__link">
+      <a href="../datasources/" class="md-nav__link">
         
   
   
@@ -2429,7 +2646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/semantic_layer/" class="md-nav__link">
+      <a href="../semantic_layer/" class="md-nav__link">
         
   
   
@@ -2457,7 +2674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/bi_platforms/" class="md-nav__link">
+      <a href="../bi_platforms/" class="md-nav__link">
         
   
   
@@ -2485,7 +2702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/schedulers/" class="md-nav__link">
+      <a href="../schedulers/" class="md-nav__link">
         
   
   
@@ -2521,7 +2738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/storage/" class="md-nav__link">
+      <a href="../storage/" class="md-nav__link">
         
   
   
@@ -2549,7 +2766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/nodes/" class="md-nav__link">
+      <a href="../nodes/" class="md-nav__link">
         
   
   
@@ -2672,9 +2889,31 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../adapters/semantic_adapters/" class="md-nav__link">
+    
+    
+      
         
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_11_2" id="__nav_1_11_2_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -2688,7 +2927,107 @@
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_11_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_11_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Semantic Adapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adapters/semantic_adapters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adapters/metricflow_semantic_adapter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MetricFlow Semantic Adapter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adapters/osi_semantic_adapter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OSI Semantic Adapter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2859,6 +3198,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -2880,7 +3225,7 @@
   <span class="md-ellipsis">
     
   
-    Metricflow
+    Integration
   
 
     
@@ -2893,102 +3238,6 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_13_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_13">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Metricflow
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../metricflow/introduction/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Introduction
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_14" >
-        
-          
-          <label class="md-nav__link" for="__nav_1_14" id="__nav_1_14_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Integration
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_14">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3140,10 +3389,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_14" >
         
           
-          <label class="md-nav__link" for="__nav_1_15" id="__nav_1_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_14" id="__nav_1_14_label" tabindex="0">
             
   
   
@@ -3161,8 +3410,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_15">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_14">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3212,8 +3461,6 @@
                 
   
   
-    
-  
   
   
     
@@ -3225,8 +3472,6 @@
       
         
       
-        
-      
     
     
     
@@ -3234,15 +3479,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_16" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_15" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../develop/" class="md-nav__link ">
               
   
   
@@ -3260,14 +3505,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_1_16" id="__nav_1_16_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_1_15" id="__nav_1_15_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_16_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_1_16">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_15">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3286,14 +3531,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../Architecture/" class="md-nav__link">
+      <a href="../../develop/observability/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Architecture
+    Observability
   
 
     
@@ -3302,42 +3547,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Contributing
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
     </li>
   
 
@@ -3430,6 +3639,71 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#minor-compact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minor compact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#major-compact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Major compact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-vs-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto vs. manual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3446,7 +3720,7 @@
 
 
   
-    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/develop/Contributing.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/configuration/compact.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -3454,7 +3728,135 @@
   
 
 
-  <h1>Contributing</h1>
+<h1 id="context-compaction">Context Compaction<a class="headerlink" href="#context-compaction" title="Permanent link">&para;</a></h1>
+<p>As a chat session grows, its history eventually approaches the model's context window limit. Datus manages this automatically with two complementary compaction passes configured under <code>agent.compact</code>, so you can keep working in one long session without manually clearing it or hitting token limits.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Minor compact</th>
+<th>Major compact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What it does</td>
+<td>Archives old tool I/O to disk</td>
+<td>Summarizes the whole session</td>
+</tr>
+<tr>
+<td>Driven by</td>
+<td>A rule (user-turn count)</td>
+<td>The LLM (a summarization call)</td>
+</tr>
+<tr>
+<td>Execution</td>
+<td>Synchronous, but fast (local, no LLM call)</td>
+<td>Synchronous, blocks the run loop</td>
+</tr>
+<tr>
+<td>Touches recent turns</td>
+<td>No</td>
+<td>Yes — replaces all history</td>
+</tr>
+<tr>
+<td>Recoverable</td>
+<td>Yes (archive files)</td>
+<td>Yes (full-history JSONL)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="minor-compact">Minor compact<a class="headerlink" href="#minor-compact" title="Permanent link">&para;</a></h2>
+<p><strong>What triggers it</strong> — At the start of each user turn, if the session has more than <code>keep_recent_user_turns</code> user turns (default 4), minor compact runs. Its gate — the user-turn count — only changes between turns, so it is evaluated once per turn rather than after every tool call (that per-tool-call check is reserved for major, whose token ratio actually grows mid-turn). It is synchronous but, being a purely local, rule-based archive with no LLM call, finishes quickly and barely delays the agent.</p>
+<p><strong>What it does</strong> — For every turn <em>older</em> than the kept window, any tool-call argument or output longer than <code>archive_threshold</code> characters (default 1000) is moved out of the live conversation and written to an on-disk archive. A short inline preview (<code>archive_preview_chars</code>, default 1000; 2× for error outputs) is left behind with a <code>[DATUS_ARCHIVED]</code> marker.</p>
+<p><strong>Resulting behavior</strong></p>
+<ul>
+<li>The most recent <code>keep_recent_user_turns</code> turns keep their full tool I/O — the active part of the conversation is never degraded.</li>
+<li>Older bulky outputs shrink to a preview plus a pointer; the model can still <code>read_file</code> the archive to recover the full content when it needs the detail.</li>
+<li>Because it only archives (never summarizes), nothing is lost and no LLM call is spent. It is cheap and fast, and runs often.</li>
+</ul>
+<h2 id="major-compact">Major compact<a class="headerlink" href="#major-compact" title="Permanent link">&para;</a></h2>
+<p><strong>What triggers it</strong> — When the input tokens of the most recent model call reach <code>token_threshold</code> of the context window (default <code>0.9</code>, i.e. 90%), a major compact is forced. The check runs at the start of each user turn and after each tool call, so it can fire <strong>mid-turn</strong> — right when the context is about to overflow — instead of waiting for the next turn. <code>/compact</code> triggers it manually at any time.</p>
+<p><strong>What it does</strong> — The model is asked to summarize the <strong>entire</strong> session into a single recap. The session history is then cleared and replaced by that summary as the new starting point, and the conversation continues from there. The complete pre-compact history is dumped to a JSONL file, and a pointer to it is appended to the summary so the agent can <code>read_file</code> it to recover any specific detail.</p>
+<p><strong>Resulting behavior</strong></p>
+<ul>
+<li>It is <strong>synchronous and blocking</strong>: the run loop waits for the summary to be written before continuing, because the next model call must see the compacted history rather than the over-limit one.</li>
+<li>The visible conversation is collapsed — earlier turns are replaced by the recap. In the CLI this shows a <code>Compacting context…</code> hint followed by a summary panel; over the API/print stream it arrives as a <code>compact_summary</code> markdown message.</li>
+<li>Some fidelity is traded for room: the summary is concise, so fine detail now lives only in the JSONL dump (still reachable via <code>read_file</code>).</li>
+<li>A major compact spends one extra LLM call (the summarization), so it is rarer and only triggers near the context limit.</li>
+</ul>
+<h2 id="auto-vs-manual">Auto vs. manual<a class="headerlink" href="#auto-vs-manual" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Automatic</strong> — Both passes run on their own during a session; you don't need to do anything. Major fires near the context limit, minor as the turn count grows.</li>
+<li><strong>Manual <code>/compact</code></strong> — Always runs a <strong>major</strong> pass immediately, regardless of current usage. Useful before starting a big new task when you want a clean, summarized starting point.</li>
+</ul>
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>compact.major.enabled</code></td>
+<td>bool</td>
+<td><code>true</code></td>
+<td>Enable the LLM-driven full-history summarization pass.</td>
+</tr>
+<tr>
+<td><code>compact.major.token_threshold</code></td>
+<td>float</td>
+<td><code>0.9</code></td>
+<td>Fraction of the context window above which a major compact is forced (overrides minor selection in the auto dispatcher).</td>
+</tr>
+<tr>
+<td><code>compact.minor.enabled</code></td>
+<td>bool</td>
+<td><code>true</code></td>
+<td>Enable the rule-based archiving pass.</td>
+</tr>
+<tr>
+<td><code>compact.minor.keep_recent_user_turns</code></td>
+<td>int</td>
+<td><code>4</code></td>
+<td>Keep the original tool I/O of the most recent N user turns intact; older turns are eligible for archiving.</td>
+</tr>
+<tr>
+<td><code>compact.minor.archive_threshold</code></td>
+<td>int</td>
+<td><code>1000</code></td>
+<td>Tool-call arguments/outputs longer than this many characters are offloaded to disk.</td>
+</tr>
+<tr>
+<td><code>compact.minor.archive_preview_chars</code></td>
+<td>int</td>
+<td><code>1000</code></td>
+<td>Inline preview length kept in the archive marker (error outputs get a 2× preview).</td>
+</tr>
+</tbody>
+</table>
+<div class="language-yaml highlight"><span class="filename">agent.yml</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">agent</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">compact</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">major</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">token_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.9</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">minor</span><span class="p">:</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">keep_recent_user_turns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">archive_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">archive_preview_chars</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+</span></code></pre></div>
+<p>To disable automatic compaction entirely, set both <code>major.enabled</code> and <code>minor.enabled</code> to <code>false</code>. You can still run <code>/compact</code> manually even when <code>major.enabled</code> is <code>false</code>.</p>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Major compact's trigger reads the <strong>live</strong> token usage of the current turn (the same figure shown in the CLI status bar). On a brand-new session or right after <code>resume</code>, that signal starts at zero, so a major compact won't fire on the very first turn until at least one model call has reported usage.</li>
+<li>Minor compact reads its eligibility from the session's user-turn count, so it keeps working correctly after a resume.</li>
+<li>Archived tool I/O and the full-history JSONL live under the session's data directory; see <a href="../storage/">Storage</a> for paths.</li>
+</ul>
 
 
 
@@ -3463,10 +3865,6 @@
 
 
 
-
-
-
-  
 
 
 
@@ -3488,7 +3886,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../Architecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Architecture">
+          <a href="../agent/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Agent">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3498,20 +3896,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Architecture
+                Agent
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../vscode_extension/introduction/" class="md-footer__link md-footer__link--next" aria-label="Next: VSCode Extension">
+          <a href="../workflow/" class="md-footer__link md-footer__link--next" aria-label="Next: Workflow">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                VSCode Extension
+                Workflow
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3605,6 +4003,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/analytics.js"></script>
       
     
   </body>

@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="zh" class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -8,35 +8,35 @@
       
       
       
-        <link rel="canonical" href="https://docs.datus.ai/dev/zh/develop/Contributing/">
+        <link rel="canonical" href="https://docs.datus.ai/dev/subagent/gen_visual_dashboard/">
       
       
-        <link rel="prev" href="../Architecture/">
+        <link rel="prev" href="../gen_visual_report/">
       
       
-        <link rel="next" href="../../vscode_extension/introduction/">
+        <link rel="next" href="../../web_chatbot/introduction/">
       
       
         
-          <link rel="alternate" href="../../../develop/Contributing/" hreflang="en">
+          <link rel="alternate" href="./" hreflang="en">
         
-          <link rel="alternate" href="./" hreflang="zh">
+          <link rel="alternate" href="../../zh/subagent/gen_visual_dashboard/" hreflang="zh">
         
       
       
-      <link rel="icon" href="../../../assets/logo-light.png">
+      <link rel="icon" href="../../assets/logo-light.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Contributing - Datus Docs</title>
+        <title>HTML Dashboard Generation - Datus Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,21 +49,11 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-  
-
-
-  
-  
-
-<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-8HMXHZDV7F"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-8HMXHZDV7F",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-8HMXHZDV7F",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
 
     
     
@@ -85,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#html-dashboard-generation-guide" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -98,10 +93,10 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../" title="Datus Docs" class="md-header__button md-logo" aria-label="Datus Docs" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Datus Docs" class="md-header__button md-logo" aria-label="Datus Docs" data-md-component="logo">
       
-  <img src="../../../assets/logo-light.png" alt="logo">
+  <img src="../../assets/logo-light.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -118,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contributing
+              HTML Dashboard Generation
             
           </span>
         </div>
@@ -168,20 +163,20 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="选择当前语言">
+    <button class="md-header__button md-icon" aria-label="Select language">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="../../../develop/Contributing/" hreflang="en" class="md-select__link">
+            <a href="./" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="./" hreflang="zh" class="md-select__link">
+            <a href="../../zh/subagent/gen_visual_dashboard/" hreflang="zh" class="md-select__link">
               中文
             </a>
           </li>
@@ -202,16 +197,16 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="查找">
+      <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -222,7 +217,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            正在初始化搜索引擎
+            Initializing search
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -234,7 +229,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Datus-ai/Datus-agent" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/Datus-ai/Datus-agent" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -255,7 +250,7 @@
         
           
             
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -269,13 +264,13 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
     
   
-  首页
+  Home
 
         </a>
       </li>
@@ -295,7 +290,7 @@
   
     
   
-  发布说明
+  Release Notes
 
       </a>
     </li>
@@ -322,18 +317,18 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../" title="Datus Docs" class="md-nav__button md-logo" aria-label="Datus Docs" data-md-component="logo">
+    <a href="../.." title="Datus Docs" class="md-nav__button md-logo" aria-label="Datus Docs" data-md-component="logo">
       
-  <img src="../../../assets/logo-light.png" alt="logo">
+  <img src="../../assets/logo-light.png" alt="logo">
 
     </a>
     Datus Docs
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Datus-ai/Datus-agent" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/Datus-ai/Datus-agent" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -391,8 +386,6 @@
       
         
       
-        
-      
     
     
     
@@ -411,14 +404,14 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../.." class="md-nav__link ">
               
   
   
   <span class="md-ellipsis">
     
   
-    首页
+    Home
   
 
     
@@ -440,7 +433,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    首页
+    Home
   
 
           </label>
@@ -486,7 +479,7 @@
   <span class="md-ellipsis">
     
   
-    入门指南
+    Getting Started
   
 
     
@@ -502,7 +495,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    入门指南
+    Getting Started
   
 
           </label>
@@ -522,7 +515,7 @@
   <span class="md-ellipsis">
     
   
-    快速开始
+    Quickstart
   
 
     
@@ -550,7 +543,7 @@
   <span class="md-ellipsis">
     
   
-    数据工程快速开始
+    Data Engineering Quickstart
   
 
     
@@ -578,7 +571,7 @@
   <span class="md-ellipsis">
     
   
-    上下文数据工程
+    Contextual Data Engineering
   
 
     
@@ -676,7 +669,7 @@
   <span class="md-ellipsis">
     
   
-    命令行
+    CLI
   
 
     
@@ -692,7 +685,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    命令行
+    CLI
   
 
           </label>
@@ -712,7 +705,7 @@
   <span class="md-ellipsis">
     
   
-    介绍
+    Introduction
   
 
     
@@ -740,7 +733,7 @@
   <span class="md-ellipsis">
     
   
-    聊天命令
+    Chat Command
   
 
     
@@ -768,7 +761,7 @@
   <span class="md-ellipsis">
     
   
-    上下文命令
+    Context Command
   
 
     
@@ -796,7 +789,7 @@
   <span class="md-ellipsis">
     
   
-    执行命令
+    Execution Command
   
 
     
@@ -824,7 +817,7 @@
   <span class="md-ellipsis">
     
   
-    MCP 扩展
+    MCP Extensions
   
 
     
@@ -852,7 +845,7 @@
   <span class="md-ellipsis">
     
   
-    SQL 执行
+    SQL Execution
   
 
     
@@ -880,7 +873,7 @@
   <span class="md-ellipsis">
     
   
-    技能命令
+    Skill Command
   
 
     
@@ -908,7 +901,7 @@
   <span class="md-ellipsis">
     
   
-    参考
+    Reference
   
 
     
@@ -936,7 +929,7 @@
   <span class="md-ellipsis">
     
   
-    计划模式
+    Plan Mode
   
 
     
@@ -962,8 +955,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -987,6 +982,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -994,11 +995,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" checked>
         
           
           <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
@@ -1019,7 +1020,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1037,14 +1038,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    介绍
+    Introduction
   
 
     
@@ -1065,14 +1066,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/builtin_subagents/" class="md-nav__link">
+      <a href="../builtin_subagents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    内置 subagent
+    Built-in subagents
   
 
     
@@ -1093,14 +1094,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/customized_subagent/" class="md-nav__link">
+      <a href="../customized_subagent/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    自定义 subagent
+    Customized subagents
   
 
     
@@ -1121,14 +1122,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_dashboard/" class="md-nav__link">
+      <a href="../gen_dashboard/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    生成 Dashboard
+    Generate Dashboard
   
 
     
@@ -1149,14 +1150,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_metrics/" class="md-nav__link">
+      <a href="../gen_metrics/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    生成指标
+    Generate Metrics
   
 
     
@@ -1177,14 +1178,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_semantic_model/" class="md-nav__link">
+      <a href="../ask_metrics/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    生成语义模型
+    Ask Metrics
   
 
     
@@ -1205,14 +1206,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/scheduler/" class="md-nav__link">
+      <a href="../gen_semantic_model/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    调度器
+    Generate Semantic Model
   
 
     
@@ -1233,7 +1234,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_sql_summary/" class="md-nav__link">
+      <a href="../scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gen_sql_summary/" class="md-nav__link">
         
   
   
@@ -1261,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_table/" class="md-nav__link">
+      <a href="../gen_table/" class="md-nav__link">
         
   
   
@@ -1289,7 +1318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_job/" class="md-nav__link">
+      <a href="../gen_job/" class="md-nav__link">
         
   
   
@@ -1305,6 +1334,197 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gen_visual_report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTML Report Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTML Dashboard Generation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTML Dashboard Generation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-from-a-metric-or-your-own-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start from a Metric or Your Own SQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-a-dashboard-gets-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How a Dashboard Gets Built
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-section-by-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit Section by Section
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-agent-has-access-to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the Agent Has Access To
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-better-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips for Better Prompts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1332,7 +1552,7 @@
   <span class="md-ellipsis">
     
   
-    chatbot
+    Chatbot
   
 
     
@@ -1382,7 +1602,7 @@
   <span class="md-ellipsis">
     
   
-    IM 网关
+    IM Gateway
   
 
     
@@ -1398,7 +1618,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    IM 网关
+    IM Gateway
   
 
           </label>
@@ -1418,7 +1638,7 @@
   <span class="md-ellipsis">
     
   
-    介绍
+    Introduction
   
 
     
@@ -1474,7 +1694,7 @@
   <span class="md-ellipsis">
     
   
-    飞书
+    Feishu
   
 
     
@@ -1519,8 +1739,6 @@
       
         
       
-        
-      
     
     
     
@@ -1542,7 +1760,7 @@
   <span class="md-ellipsis">
     
   
-    知识库
+    Knowledge Base
   
 
     
@@ -1558,7 +1776,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    知识库
+    Knowledge Base
   
 
           </label>
@@ -1578,35 +1796,7 @@
   <span class="md-ellipsis">
     
   
-    介绍
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../knowledge_base/ext_knowledge/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    外部知识
+    Introduction
   
 
     
@@ -1634,7 +1824,7 @@
   <span class="md-ellipsis">
     
   
-    平台文档
+    Platform Documentation
   
 
     
@@ -1662,7 +1852,7 @@
   <span class="md-ellipsis">
     
   
-    元数据
+    Metadata
   
 
     
@@ -1690,7 +1880,7 @@
   <span class="md-ellipsis">
     
   
-    语义模型
+    Semantic Models
   
 
     
@@ -1718,7 +1908,7 @@
   <span class="md-ellipsis">
     
   
-    指标
+    Metrics
   
 
     
@@ -1774,7 +1964,7 @@
   <span class="md-ellipsis">
     
   
-    SQL模板
+    Reference Template
   
 
     
@@ -1834,7 +2024,7 @@
   <span class="md-ellipsis">
     
   
-    工作流
+    Workflow
   
 
     
@@ -1850,7 +2040,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    工作流
+    Workflow
   
 
           </label>
@@ -1870,7 +2060,7 @@
   <span class="md-ellipsis">
     
   
-    介绍
+    Introduction
   
 
     
@@ -1898,7 +2088,7 @@
   <span class="md-ellipsis">
     
   
-    节点
+    Nodes
   
 
     
@@ -1926,7 +2116,7 @@
   <span class="md-ellipsis">
     
   
-    编排
+    Orchestration
   
 
     
@@ -2050,7 +2240,7 @@
   <span class="md-ellipsis">
     
   
-    介绍
+    Introduction
   
 
     
@@ -2078,7 +2268,7 @@
   <span class="md-ellipsis">
     
   
-    部署
+    Deployment
   
 
     
@@ -2134,7 +2324,7 @@
   <span class="md-ellipsis">
     
   
-    知识库 API
+    Knowledge Base API
   
 
     
@@ -2179,6 +2369,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -2200,7 +2394,7 @@
   <span class="md-ellipsis">
     
   
-    配置
+    Configuration
   
 
     
@@ -2216,7 +2410,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    配置
+    Configuration
   
 
           </label>
@@ -2236,7 +2430,7 @@
   <span class="md-ellipsis">
     
   
-    介绍
+    Introduction
   
 
     
@@ -2285,6 +2479,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../configuration/compact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context Compaction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../configuration/workflow/" class="md-nav__link">
         
   
@@ -2292,7 +2514,7 @@
   <span class="md-ellipsis">
     
   
-    工作流
+    Workflow
   
 
     
@@ -2320,7 +2542,35 @@
   <span class="md-ellipsis">
     
   
-    基准测试
+    Benchmark
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configuration/sql_policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL Policy
   
 
     
@@ -2362,17 +2612,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10_7" >
         
           
-          <label class="md-nav__link" for="__nav_1_10_5" id="__nav_1_10_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_10_7" id="__nav_1_10_7_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    服务
+    Services
   
 
     
@@ -2383,12 +2633,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_10_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_10_5">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_10_7">
             <span class="md-nav__icon md-icon"></span>
             
   
-    服务
+    Services
   
 
           </label>
@@ -2436,7 +2686,7 @@
   <span class="md-ellipsis">
     
   
-    语义层
+    Semantic Layer
   
 
     
@@ -2464,7 +2714,7 @@
   <span class="md-ellipsis">
     
   
-    BI 平台
+    BI Platforms
   
 
     
@@ -2492,7 +2742,7 @@
   <span class="md-ellipsis">
     
   
-    调度器
+    Schedulers
   
 
     
@@ -2556,7 +2806,7 @@
   <span class="md-ellipsis">
     
   
-    节点
+    Nodes
   
 
     
@@ -2616,7 +2866,7 @@
   <span class="md-ellipsis">
     
   
-    适配器
+    Adapters
   
 
     
@@ -2632,7 +2882,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    适配器
+    Adapters
   
 
           </label>
@@ -2652,7 +2902,93 @@
   <span class="md-ellipsis">
     
   
-    数据库适配器
+    Database Adapters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_11_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_11_2" id="__nav_1_11_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Semantic Adapters
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_11_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_11_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Semantic Adapters
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adapters/semantic_adapters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
   
 
     
@@ -2673,14 +3009,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adapters/semantic_adapters/" class="md-nav__link">
+      <a href="../../adapters/metricflow_semantic_adapter/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    语义层适配器
+    MetricFlow Semantic Adapter
   
 
     
@@ -2689,6 +3025,42 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adapters/osi_semantic_adapter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OSI Semantic Adapter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2708,7 +3080,7 @@
   <span class="md-ellipsis">
     
   
-    BI 适配器
+    BI Adapters
   
 
     
@@ -2736,7 +3108,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler 适配器
+    Scheduler Adapters
   
 
     
@@ -2790,7 +3162,7 @@
   <span class="md-ellipsis">
     
   
-    基准测试
+    Benchmark
   
 
     
@@ -2806,7 +3178,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    基准测试
+    Benchmark
   
 
           </label>
@@ -2826,7 +3198,7 @@
   <span class="md-ellipsis">
     
   
-    介绍
+    Introduction
   
 
     
@@ -2856,6 +3228,12 @@
   
     
     
+      
+        
+      
+        
+      
+        
       
         
       
@@ -2880,7 +3258,7 @@
   <span class="md-ellipsis">
     
   
-    MetricFlow
+    Integration
   
 
     
@@ -2896,103 +3274,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    MetricFlow
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../metricflow/introduction/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    介绍
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_14" >
-        
-          
-          <label class="md-nav__link" for="__nav_1_14" id="__nav_1_14_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    集成
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_14">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    集成
+    Integration
   
 
           </label>
@@ -3068,7 +3350,7 @@
   <span class="md-ellipsis">
     
   
-    校验
+    Validation
   
 
     
@@ -3096,7 +3378,7 @@
   <span class="md-ellipsis">
     
   
-    自动记忆
+    Auto Memory
   
 
     
@@ -3140,10 +3422,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_14" >
         
           
-          <label class="md-nav__link" for="__nav_1_15" id="__nav_1_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_14" id="__nav_1_14_label" tabindex="0">
             
   
   
@@ -3161,8 +3443,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_15">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_14">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3212,8 +3494,6 @@
                 
   
   
-    
-  
   
   
     
@@ -3225,8 +3505,6 @@
       
         
       
-        
-      
     
     
     
@@ -3234,15 +3512,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_16" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_15" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../develop/" class="md-nav__link ">
               
   
   
@@ -3260,14 +3538,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_1_16" id="__nav_1_16_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_1_15" id="__nav_1_15_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_16_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_1_16">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_15">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -3286,14 +3564,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../Architecture/" class="md-nav__link">
+      <a href="../../develop/observability/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Architecture
+    Observability
   
 
     
@@ -3302,42 +3580,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Contributing
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
     </li>
   
 
@@ -3365,7 +3607,7 @@
   <span class="md-ellipsis">
     
   
-    VSCode 插件
+    VSCode Extension
   
 
     
@@ -3400,7 +3642,7 @@
   <span class="md-ellipsis">
     
   
-    发布说明
+    Release Notes
   
 
     
@@ -3426,10 +3668,108 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="目录">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-from-a-metric-or-your-own-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Start from a Metric or Your Own SQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-a-dashboard-gets-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How a Dashboard Gets Built
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-section-by-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edit Section by Section
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-agent-has-access-to" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the Agent Has Access To
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-better-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips for Better Prompts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3446,7 +3786,7 @@
 
 
   
-    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/develop/Contributing.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/subagent/gen_visual_dashboard.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -3454,7 +3794,139 @@
   
 
 
-  <h1>Contributing</h1>
+<h1 id="html-dashboard-generation-guide">HTML Dashboard Generation Guide<a class="headerlink" href="#html-dashboard-generation-guide" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><code>gen_visual_dashboard</code> turns a question — <em>"build me a store sales overview"</em>, <em>"show the new-user activation funnel"</em> — into a self-contained <strong>HTML dashboard</strong>: an interactive web page with filters, KPI cards, charts, and tables. Change a filter and the SQL re-runs against your database, the view refreshes on the spot. When the run finishes the page opens in your browser, served by a local <code>datus --web</code> backend.</p>
+<p><img alt="Sample HTML dashboard — filter bar, KPI cards, charts cross-linked by region / time" src="../../assets/gen_visual_dsahboard_preview.png" /></p>
+<p>An HTML dashboard is a <strong>live data view</strong> — every change to the date range, region, product line, or any other filter renders the saved SQL template with the new parameters and re-queries the database. That's the key difference from <code>gen_visual_report</code>, which bakes data into the page at build time: reports are for sharing in emails or briefings; dashboards are for the cases where you need to keep exploring or hand the page to someone who'll filter it themselves.</p>
+<p>For interactive BI dashboards on Superset / Grafana, use <a href="../gen_dashboard/"><code>gen_dashboard</code></a> instead.</p>
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<p>First confirm <code>datus --web</code> is running locally — the dashboard's filters need this backend to answer queries:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>uv<span class="w"> </span>run<span class="w"> </span>datus<span class="w"> </span>--datasource<span class="w"> </span>&lt;your_datasource&gt;<span class="w"> </span>--web
+</span></code></pre></div>
+<p>Activate <code>gen_visual_dashboard</code> as your current agent — the legacy <code>/gen_visual_dashboard ...</code> slash invocation was removed in favor of <code>/agent</code>-based selection:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/agent<span class="w"> </span>gen_visual_dashboard
+</span></code></pre></div>
+<p>(Or run <code>/agent</code> with no args to pick it from the unified agent TUI — Enter to edit, <code>s</code> to set as default.) Once active, just describe what you want — state the question, the filter dimensions you want, and the headline metrics:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Build<span class="w"> </span>a<span class="w"> </span>store<span class="w"> </span>sales<span class="w"> </span>overview<span class="w"> </span>dashboard.<span class="w"> </span>Support<span class="w"> </span>filtering<span class="w"> </span>by<span class="w"> </span>region<span class="w"> </span>and<span class="w"> </span>month,<span class="w"> </span>with<span class="w"> </span>GMV,<span class="w"> </span>order<span class="w"> </span>count,<span class="w"> </span>and<span class="w"> </span>AOV<span class="w"> </span>as<span class="w"> </span>the<span class="w"> </span>headline<span class="w"> </span>metrics.
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Build<span class="w"> </span>a<span class="w"> </span>new-user<span class="w"> </span>activation<span class="w"> </span>funnel<span class="w"> </span>dashboard.<span class="w"> </span>Filter<span class="w"> </span>by<span class="w"> </span>acquisition<span class="w"> </span>channel<span class="w"> </span>and<span class="w"> </span>signup<span class="w"> </span>window,<span class="w"> </span>show<span class="w"> </span>signup<span class="w"> </span>→<span class="w"> </span>first-order<span class="w"> </span>→<span class="w"> </span>day-2<span class="w"> </span>retention<span class="w"> </span>conversion.
+</span></code></pre></div>
+<p>To edit an existing dashboard, reference it by display name or by its short id:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Add<span class="w"> </span>an<span class="w"> </span><span class="s2">&quot;AOV range&quot;</span><span class="w"> </span>filter<span class="w"> </span>to<span class="w"> </span>dashboard<span class="w"> </span>store_sales_overview.
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>In<span class="w"> </span><span class="s2">&quot;Store Sales Overview&quot;</span>,<span class="w"> </span>switch<span class="w"> </span>the<span class="w"> </span>monthly<span class="w"> </span>aggregation<span class="w"> </span>to<span class="w"> </span>weekly.
+</span></code></pre></div>
+<p>Once the dashboard is built, the chat panel prints the HTML file's absolute path together with the <code>datus --web --datasource &lt;ds&gt;</code> command anyone else needs to run before opening that file — open the HTML in a browser and the dashboard is live. Closing and reopening it later requires no re-build.</p>
+<h2 id="start-from-a-metric-or-your-own-sql">Start from a Metric or Your Own SQL<a class="headerlink" href="#start-from-a-metric-or-your-own-sql" title="Permanent link">&para;</a></h2>
+<p><code>gen_visual_dashboard</code> accepts two equally valid starting points:</p>
+<ul>
+<li>
+<p><strong>From metrics</strong> — reference an existing metric with <code>@Metrics &lt;subject&gt;.&lt;group&gt;.&lt;metric&gt;</code> (three segments — subject tree path + metric name). The agent will pull its definition, dimensions, and time windows from your semantic layer, and turn the dimensions into filters. Best when your project already has a curated metric registry (see <a href="../gen_metrics/">Generate Metrics</a> for how to create them).
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Build<span class="w"> </span>an<span class="w"> </span>ops<span class="w"> </span>overview<span class="w"> </span>around<span class="w"> </span>@Metrics<span class="w"> </span>revenue.daily.dau<span class="w"> </span>and<span class="w"> </span>@Metrics<span class="w"> </span>conversion.weekly.signup_rate,<span class="w"> </span>with<span class="w"> </span>region<span class="w"> </span>and<span class="w"> </span>date-range<span class="w"> </span>filters.
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>From SQL</strong> — paste the SQL you want the dashboard built on. The agent identifies the parameterizable conditions in it (date ranges, enum values, ID lists, …), promotes them to filters, and composes charts around the rest. Best for ad-hoc exploration or when the metric you need doesn't exist yet.
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Build<span class="w"> </span>a<span class="w"> </span>merchant<span class="w"> </span>reconciliation<span class="w"> </span>dashboard<span class="w"> </span>using<span class="w"> </span>this<span class="w"> </span>SQL,<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>date<span class="w"> </span>range<span class="w"> </span>and<span class="w"> </span>store_id<span class="w"> </span>exposed<span class="w"> </span>as<span class="w"> </span>filters:
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span>SELECT<span class="w"> </span>trade_date,<span class="w"> </span>store_id,<span class="w"> </span>SUM<span class="o">(</span>amount<span class="o">)</span><span class="w"> </span>AS<span class="w"> </span>gmv,<span class="w"> </span>COUNT<span class="o">(</span>*<span class="o">)</span><span class="w"> </span>AS<span class="w"> </span>orders
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span>FROM<span class="w"> </span>mart.merchant_daily
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span>WHERE<span class="w"> </span>trade_date<span class="w"> </span>BETWEEN<span class="w"> </span><span class="s1">&#39;2025-01-01&#39;</span><span class="w"> </span>AND<span class="w"> </span><span class="s1">&#39;2025-12-31&#39;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span>GROUP<span class="w"> </span>BY<span class="w"> </span>trade_date,<span class="w"> </span>store_id
+</span></code></pre></div></p>
+</li>
+</ul>
+<p>You can also mix the two — point at a metric for the headline KPI and supply ad-hoc SQL for a specific drilldown or filter.</p>
+<h2 id="how-a-dashboard-gets-built">How a Dashboard Gets Built<a class="headerlink" href="#how-a-dashboard-gets-built" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph LR
+    A[Your question] --&gt; B[Identify filters&lt;br/&gt;and headline metrics]
+    B --&gt; C[Write SQL as&lt;br/&gt;parameterized templates]
+    C --&gt; D[Compose the&lt;br/&gt;view + charts]
+    D --&gt; E[Compile HTML&lt;br/&gt;+ start backend]
+    E --&gt; F[Open in browser&lt;br/&gt;live filter queries]</code></pre>
+<p>The agent reads your question, figures out which dimensions are filters and which signals are the headline metrics, writes each query as a parameterized Jinja2 template (a params declaration + the template body), and saves them under <code>dashboards/&lt;slug&gt;/</code> in your project. Once the HTML opens in the browser, every filter change POSTs to the local <code>datus --web</code> backend at <code>/api/v1/dashboard/query</code> — the backend renders the template into SQL, executes it, and the result hydrates the charts. The whole loop stays inside your environment; no data leaves it.</p>
+<p>You can re-invoke <code>gen_visual_dashboard</code> later to edit the same dashboard in place.</p>
+<h2 id="edit-section-by-section">Edit Section by Section<a class="headerlink" href="#edit-section-by-section" title="Permanent link">&para;</a></h2>
+<p>Every dashboard is built out of independent modules — filters, individual charts, KPI cards, data tables. You can iterate on <strong>just one</strong> without touching anything else:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Change<span class="w"> </span>the<span class="w"> </span>AOV<span class="w"> </span>chart<span class="w"> </span><span class="k">in</span><span class="w"> </span>store_sales_overview<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>region-grouped<span class="w"> </span>bar<span class="w"> </span>chart
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Add<span class="w"> </span>a<span class="w"> </span><span class="s2">&quot;product category&quot;</span><span class="w"> </span>filter<span class="w"> </span>to<span class="w"> </span>store_sales_overview
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Drop<span class="w"> </span>the<span class="w"> </span>customer<span class="w"> </span>composition<span class="w"> </span>pie<span class="w"> </span>chart,<span class="w"> </span>it<span class="err">&#39;</span>s<span class="w"> </span>not<span class="w"> </span>needed
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Reorder<span class="w"> </span>the<span class="w"> </span>KPI<span class="w"> </span>cards<span class="w"> </span>so<span class="w"> </span>GMV<span class="w"> </span>comes<span class="w"> </span>first
+</span></code></pre></div>
+<p>Each call is a surgical change. The agent locates the affected module, edits it, rewrites only the SQL templates that changed, and leaves the rest of the layout, filters, and charts exactly as you reviewed them.</p>
+<h2 id="what-the-agent-has-access-to">What the Agent Has Access To<a class="headerlink" href="#what-the-agent-has-access-to" title="Permanent link">&para;</a></h2>
+<p>To build the dashboard, <code>gen_visual_dashboard</code> uses everything that's already wired into your project:</p>
+<ul>
+<li><strong>Your semantic layer</strong> — defined metrics and dimensions take precedence over ad-hoc SQL whenever they fit the question; dimensions become filters directly.</li>
+<li><strong>Your databases</strong> — the agent reads schema, samples values, and trial-runs the parameterized templates against your configured datasources to confirm they execute cleanly.</li>
+<li><strong>Your knowledge base</strong> — curated reference SQL and business glossary entries are consulted before the agent writes anything from scratch.</li>
+<li><strong>Previous dashboards</strong> — when you ask the agent to use an existing dashboard as inspiration, it can read that dashboard's filter layout and chart configuration.</li>
+</ul>
+<p>You don't call any of this yourself — just write the prompt.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p><code>gen_visual_dashboard</code> works out of the box; no configuration is required. The settings below are optional overrides in <code>agent.yml</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">agent</span><span class="p">:</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">agentic_nodes</span><span class="p">:</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">gen_visual_dashboard</span><span class="p">:</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">      </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">claude</span><span class="w">              </span><span class="c1"># Optional: defaults to the configured model</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">      </span><span class="nt">max_turns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w">              </span><span class="c1"># Optional: defaults to 30</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">      </span><span class="nt">web_host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">localhost</span><span class="w">        </span><span class="c1"># Optional: host baked into the HTML&#39;s query endpoint</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">      </span><span class="nt">web_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8501</span><span class="w">             </span><span class="c1"># Optional: port baked into the HTML&#39;s query endpoint</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model</code></td>
+<td>No</td>
+<td>LLM model to use</td>
+<td>Configured default</td>
+</tr>
+<tr>
+<td><code>max_turns</code></td>
+<td>No</td>
+<td>Maximum agent iterations before the run stops</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>web_host</code></td>
+<td>No</td>
+<td>Host baked into the HTML's filter-query endpoint</td>
+<td><code>localhost</code></td>
+</tr>
+<tr>
+<td><code>web_port</code></td>
+<td>No</td>
+<td>Port baked into the HTML's filter-query endpoint</td>
+<td><code>8501</code></td>
+</tr>
+<tr>
+<td><code>query_endpoint</code></td>
+<td>No</td>
+<td>Full URL override; takes precedence over <code>web_host</code> + <code>web_port</code> composition</td>
+<td>Composed from <code>web_host</code> + <code>web_port</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>When you share the generated HTML with someone else, they'll need to start the backend locally with the same <code>datus --web --datasource &lt;ds&gt;</code> command. If the host or port differs, update <code>web_host</code> / <code>web_port</code> in <code>agent.yml</code> accordingly — or set <code>query_endpoint</code> directly — so the URL baked into the HTML matches the actual backend.</p>
+</blockquote>
+<h2 id="tips-for-better-prompts">Tips for Better Prompts<a class="headerlink" href="#tips-for-better-prompts" title="Permanent link">&para;</a></h2>
+<p>You'll get a sharper dashboard when your prompt includes:</p>
+<ul>
+<li><strong>The scenario</strong> — <em>"store sales overview"</em>, <em>"new-user activation funnel"</em>, <em>"merchant reconciliation"</em>.</li>
+<li><strong>The headline metrics</strong> — <em>"GMV, order count, AOV"</em>, <em>"activation rate, retention rate"</em>.</li>
+<li><strong>The filter dimensions</strong> — <em>"by region / by month"</em>, <em>"by channel / by signup window"</em>, <em>"by store_id"</em>.</li>
+<li><strong>The time window</strong> — <em>"last 90 days"</em>, <em>"all of 2025"</em> (this also becomes the default value of the date-range filter).</li>
+</ul>
+<p>If you skip any of these the agent will guess from your project's metrics and the SQL you gave it, and will only ask when intent is genuinely ambiguous.</p>
 
 
 
@@ -3463,10 +3935,6 @@
 
 
 
-
-
-
-  
 
 
 
@@ -3485,33 +3953,33 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../Architecture/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Architecture">
+          <a href="../gen_visual_report/" class="md-footer__link md-footer__link--prev" aria-label="Previous: HTML Report Generation">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                上一页
+                Previous
               </span>
               <div class="md-ellipsis">
-                Architecture
+                HTML Report Generation
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../vscode_extension/introduction/" class="md-footer__link md-footer__link--next" aria-label="下一页: VSCode 插件">
+          <a href="../../web_chatbot/introduction/" class="md-footer__link md-footer__link--next" aria-label="Next: Chatbot">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                下一页
+                Next
               </span>
               <div class="md-ellipsis">
-                VSCode 插件
+                Chatbot
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -3601,10 +4069,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.footer", "navigation.tabs", "navigation.tracking", "navigation.indexes", "content.code.copy", "content.code.select", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tabs", "navigation.tracking", "navigation.indexes", "content.code.copy", "content.code.select", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/analytics.js"></script>
       
     
   </body>

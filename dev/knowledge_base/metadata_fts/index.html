@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.datus.ai/dev/dev/knowledge_base/reference_template/">
+        <link rel="canonical" href="https://docs.datus.ai/dev/dev/knowledge_base/metadata_fts/">
       
       
-        <link rel="prev" href="../reference_sql/">
+        <link rel="prev" href="../metadata/">
       
       
-        <link rel="next" href="../../workflow/introduction/">
+        <link rel="next" href="../semantic_model/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Reference Template - Datus Docs</title>
+        <title>Metadata Full-text Search - Datus Docs</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#reference-template-intelligence" class="md-skip">
+        <a href="#metadata-full-text-search" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reference Template
+              Metadata Full-text Search
             
           </span>
         </div>
@@ -2223,10 +2223,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../metadata_fts/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata Full-text Search
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2242,6 +2269,175 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fts-and-vector-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FTS and vector modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-fts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable FTS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-initial-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build the initial index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-the-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify the index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-metadata-current" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep metadata current
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switch-back-to-vector-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Switch back to vector search
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-backend-does-not-support-fts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The backend does not support FTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-index-is-missing-or-incompatible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The index is missing or incompatible
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incremental-update-fails-on-a-new-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incremental update fails on a new installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bootstrap-used-fts-but-normal-sessions-still-use-vector-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bootstrap used FTS but normal sessions still use vector search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-miss-conceptually-related-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results miss conceptually related tables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2335,37 +2531,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reference Template
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../reference_template/" class="md-nav__link">
         
   
   
@@ -2381,348 +2550,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Value
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Value">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#what-problem-does-it-solve" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What Problem Does It Solve?
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#what-value-does-it-provide" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What Value Does It Provide?
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-command" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic Command
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Parameters
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#subject-tree-categorization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Subject Tree Categorization
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#template-file-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Template File Format
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Template File Format">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Supported Extensions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#single-template-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Single Template File
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multi-template-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Multi-Template File
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jinja2-syntax-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Jinja2 Syntax Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#format-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Format Requirements
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameter-type-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parameter Type System
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Parameter Type System">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parameter-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parameter Types
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#search_reference_template" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        search_reference_template
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get_reference_template" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        get_reference_template
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#render_reference_template" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        render_reference_template
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#execute_reference_template" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        execute_reference_template
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#template-only-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Template-Only Mode
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data Flow
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Data Flow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#processing-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Processing Pipeline
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4462,10 +4289,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#fts-and-vector-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        FTS and vector modes
       
     </span>
   </a>
@@ -4473,22 +4300,88 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#core-value" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Core Value
+        Prerequisites
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Core Value">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-fts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable FTS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-initial-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build the initial index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-the-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify the index
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-metadata-current" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep metadata current
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switch-back-to-vector-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Switch back to vector search
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#what-problem-does-it-solve" class="md-nav__link">
+  <a href="#the-backend-does-not-support-fts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What Problem Does It Solve?
+        The backend does not support FTS
       
     </span>
   </a>
@@ -4496,10 +4389,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#what-value-does-it-provide" class="md-nav__link">
+  <a href="#the-index-is-missing-or-incompatible" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What Value Does It Provide?
+        The index is missing or incompatible
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incremental-update-fails-on-a-new-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incremental update fails on a new installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bootstrap-used-fts-but-normal-sessions-still-use-vector-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bootstrap used FTS but normal sessions still use vector search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#results-miss-conceptually-related-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results miss conceptually related tables
       
     </span>
   </a>
@@ -4508,278 +4434,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-command" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic Command
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Parameters
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#subject-tree-categorization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Subject Tree Categorization
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#template-file-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Template File Format
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Template File Format">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#supported-extensions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Supported Extensions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#single-template-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Single Template File
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#multi-template-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Multi-Template File
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jinja2-syntax-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Jinja2 Syntax Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#format-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Format Requirements
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameter-type-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parameter Type System
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Parameter Type System">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parameter-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parameter Types
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#search_reference_template" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        search_reference_template
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get_reference_template" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        get_reference_template
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#render_reference_template" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        render_reference_template
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#execute_reference_template" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        execute_reference_template
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#template-only-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Template-Only Mode
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#data-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data Flow
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Data Flow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#processing-pipeline" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Processing Pipeline
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Summary
-      
-    </span>
-  </a>
   
 </li>
       
@@ -4800,7 +4454,7 @@
 
 
   
-    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/knowledge_base/reference_template.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/knowledge_base/metadata_fts.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -4808,273 +4462,131 @@
   
 
 
-<h1 id="reference-template-intelligence">Reference Template Intelligence<a class="headerlink" href="#reference-template-intelligence" title="Permanent link">&para;</a></h1>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Bootstrap-KB Reference Template is a knowledge base component that processes, analyzes, and indexes parameterized Jinja2 SQL templates. It transforms raw <code>.j2</code> template files into a searchable repository with semantic search, parameter metadata extraction, and server-side rendering capabilities.</p>
-<h2 id="core-value">Core Value<a class="headerlink" href="#core-value" title="Permanent link">&para;</a></h2>
-<h3 id="what-problem-does-it-solve">What Problem Does It Solve?<a class="headerlink" href="#what-problem-does-it-solve" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>SQL Stability</strong>: LLM-generated SQL can vary between runs, causing production inconsistencies</li>
-<li><strong>Parameterized Queries</strong>: Repetitive queries that differ only by parameters (dates, regions, thresholds)</li>
-<li><strong>Template Discovery</strong>: No efficient way to find existing templates by business intent</li>
-<li><strong>Controlled Output</strong>: Need to constrain SQL generation to pre-approved query patterns</li>
-<li><strong>Parameter Ambiguity</strong>: LLM doesn't know what values are valid for each parameter</li>
-</ul>
-<h3 id="what-value-does-it-provide">What Value Does It Provide?<a class="headerlink" href="#what-value-does-it-provide" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Stable SQL Output</strong>: Render pre-defined templates with parameters instead of generating SQL from scratch</li>
-<li><strong>Parameter Intelligence</strong>: Automatically infers parameter types, resolves column references, and provides sample values from the database</li>
-<li><strong>Semantic Search</strong>: Find templates using natural language descriptions</li>
-<li><strong>Server-Side Rendering</strong>: Jinja2 rendering happens server-side with strict undefined checking</li>
-</ul>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<h3 id="basic-command">Basic Command<a class="headerlink" href="#basic-command" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Initialize Reference Template component</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>datus-agent<span class="w"> </span>bootstrap-kb<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span>--datasource<span class="w"> </span>&lt;your_datasource&gt;<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span>--components<span class="w"> </span>reference_template<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span>--template_dir<span class="w"> </span>/path/to/template/directory<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span>--kb_update_strategy<span class="w"> </span>overwrite
-</span></code></pre></div>
-<h3 id="key-parameters">Key Parameters<a class="headerlink" href="#key-parameters" title="Permanent link">&para;</a></h3>
+<h1 id="metadata-full-text-search">Metadata Full-text Search<a class="headerlink" href="#metadata-full-text-search" title="Permanent link">&para;</a></h1>
+<p>Metadata full-text search (FTS) is an opt-in alternative to vector retrieval for finding relevant tables. It searches the text already present in table metadata and does not generate embeddings for that metadata.</p>
+<p>FTS is useful when questions contain recognizable business terms, table or column names, SQL fragments, or other exact text. Keep the default vector mode when users commonly describe a concept with words that do not appear in the metadata.</p>
+<div class="admonition note">
+<p class="admonition-title">Scope</p>
+<p>The setting only changes <strong>metadata retrieval</strong> used for table discovery and schema linking. Metrics, reference SQL, reference templates, platform documents, and other knowledge-base components keep their own retrieval behavior. FTS also searches only sample rows captured during bootstrap; it does not query every source-table row.</p>
+</div>
+<h2 id="fts-and-vector-modes">FTS and vector modes<a class="headerlink" href="#fts-and-vector-modes" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Parameter</th>
-<th>Required for reference_template</th>
-<th>Description</th>
-<th>Example</th>
+<th></th>
+<th><code>fts</code></th>
+<th><code>vector</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>--datasource</code></td>
+<td>Best for</td>
+<td>Keywords, identifiers, SQL text, and exact business terms</td>
+<td>Semantic similarity and paraphrased questions</td>
+</tr>
+<tr>
+<td>Metadata embeddings</td>
+<td>Not generated</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>No</td>
 <td>Yes</td>
-<td>Database datasource</td>
-<td><code>analytics_db</code></td>
 </tr>
 <tr>
-<td><code>--components</code></td>
-<td>Yes</td>
-<td>Components to initialize. Set this to <code>reference_template</code>; otherwise the reference template component is not initialized.</td>
-<td><code>reference_template</code></td>
-</tr>
-<tr>
-<td><code>--template_dir</code></td>
-<td>Yes</td>
-<td>Directory or single file containing J2 template files. If omitted, the reference template store is initialized empty and no template entries are loaded.</td>
-<td><code>/templates/queries</code></td>
-</tr>
-<tr>
-<td><code>--kb_update_strategy</code></td>
-<td>No</td>
-<td>Update strategy. Defaults to <code>check</code>; use <code>overwrite</code> or <code>incremental</code> when loading templates intentionally.</td>
-<td><code>overwrite</code>/<code>incremental</code></td>
-</tr>
-<tr>
-<td><code>--validate-only</code></td>
-<td>No</td>
-<td>Only validate, don't store</td>
-<td></td>
-</tr>
-<tr>
-<td><code>--pool_size</code></td>
-<td>No</td>
-<td>Concurrent processing threads. CLI default is <code>4</code>; learning mode without <code>--subject_tree</code> forces effective concurrency to <code>1</code>.</td>
-<td><code>8</code></td>
-</tr>
-<tr>
-<td><code>--subject_tree</code></td>
-<td>No</td>
-<td>Predefined subject tree categories</td>
-<td><code>Analytics/User/Activity,Reporting/Sales/Monthly</code></td>
+<td>Fallback</td>
+<td>Does not fall back to vector search</td>
+<td>Not applicable</td>
 </tr>
 </tbody>
 </table>
-<h3 id="subject-tree-categorization">Subject Tree Categorization<a class="headerlink" href="#subject-tree-categorization" title="Permanent link">&para;</a></h3>
-<p>Subject tree provides a hierarchical taxonomy for organizing templates by domain. This is the same mechanism used by Reference SQL.</p>
-<p><strong>Predefined Mode</strong> (with <code>--subject_tree</code>):</p>
+<p>FTS indexes the following metadata text:</p>
+<ul>
+<li>Table name, qualified name, identifier, and table type</li>
+<li>Table or view definition (DDL)</li>
+<li>Sample rows collected by <code>bootstrap-kb</code></li>
+<li>Attached table semantic profiles, when available, including descriptions, columns, relationships, and AI context</li>
+</ul>
+<p>Search results remain scoped to the active datasource and any catalog, database, schema, table type, or subagent restrictions applied by Datus Agent.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Configure the datasource and give its database user permission to read metadata and sample rows.</li>
+<li>Use an FTS-capable vector storage backend. The built-in LanceDB backend works without additional configuration.</li>
+<li>If <code>storage.vector</code> selects an external adapter, make sure that adapter version supports the Datus FTS contract. Unsupported backends fail explicitly instead of silently using vector search.</li>
+</ul>
+<h2 id="enable-fts">Enable FTS<a class="headerlink" href="#enable-fts" title="Permanent link">&para;</a></h2>
+<p>Add the following setting to the <code>agent.yml</code> used by both bootstrap and normal Datus Agent sessions:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">kb</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">search</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fts</span>
+</span></code></pre></div>
+<p>The default is <code>vector</code> when this section is omitted.</p>
+<p><code>bootstrap-kb</code> also accepts <code>--kb_search_mode fts</code>, but that option overrides the mode only for the current command and is not saved. Persist the YAML setting before using the rebuilt metadata in chat, API, background sync, or agent runs.</p>
+<h2 id="build-the-initial-index">Build the initial index<a class="headerlink" href="#build-the-initial-index" title="Permanent link">&para;</a></h2>
+<p>The first FTS build, or a switch from vector mode, requires a full metadata rebuild:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>datus-agent<span class="w"> </span>bootstrap-kb<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span>--datasource<span class="w"> </span>analytics_db<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span>--components<span class="w"> </span>reference_template<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span>--template_dir<span class="w"> </span>/path/to/templates<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span>--kb_update_strategy<span class="w"> </span>overwrite<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span>--subject_tree<span class="w"> </span><span class="s2">&quot;Analytics/User/Activity,Reporting/Sales/Monthly&quot;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--datasource<span class="w"> </span>&lt;your_datasource&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>--components<span class="w"> </span>metadata<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>--kb_update_strategy<span class="w"> </span>overwrite
 </span></code></pre></div>
-<p><strong>Learning Mode</strong> (without <code>--subject_tree</code>):</p>
-<p>The system reuses existing categories and creates new ones as needed.</p>
-<h2 id="template-file-format">Template File Format<a class="headerlink" href="#template-file-format" title="Permanent link">&para;</a></h2>
-<h3 id="supported-extensions">Supported Extensions<a class="headerlink" href="#supported-extensions" title="Permanent link">&para;</a></h3>
+<p><code>overwrite</code> replaces metadata only for the selected datasource and creates the FTS index with the current index format. It does not rebuild unrelated knowledge-base components.</p>
+<p>To apply a one-time command-line override while testing, add <code>--kb_search_mode fts</code> to the command. Remember that subsequent sessions still read the mode from <code>agent.yml</code>.</p>
+<h2 id="verify-the-index">Verify the index<a class="headerlink" href="#verify-the-index" title="Permanent link">&para;</a></h2>
+<p>Run a read-only check with the same configuration:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>datus-agent<span class="w"> </span>bootstrap-kb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--datasource<span class="w"> </span>&lt;your_datasource&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>--components<span class="w"> </span>metadata<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>--kb_update_strategy<span class="w"> </span>check
+</span></code></pre></div>
+<p>A successful result reports <code>search_mode=fts</code> together with <code>schema_size</code> and <code>value_size</code>. The check also verifies that the FTS index exists and matches the current index specification.</p>
+<p>After that, use Datus normally. For example, start the CLI, select the datasource, and ask a table-discovery question:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>datus
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>/datasource &lt;your_datasource&gt;
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Which table contains customer order status?
+</span></code></pre></div>
+<p>Metadata tools and schema linking automatically use the configured FTS path.</p>
+<h2 id="keep-metadata-current">Keep metadata current<a class="headerlink" href="#keep-metadata-current" title="Permanent link">&para;</a></h2>
+<p>After a successful full build, use an incremental update for routine schema changes:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>datus-agent<span class="w"> </span>bootstrap-kb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--datasource<span class="w"> </span>&lt;your_datasource&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--components<span class="w"> </span>metadata<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>--kb_update_strategy<span class="w"> </span>incremental
+</span></code></pre></div>
+<p>Incremental mode upserts new or changed metadata and updates the existing index. It requires an already-ready FTS index and does not create or repair a missing index.</p>
+<p>Run <code>overwrite</code> again when:</p>
 <ul>
-<li><code>.j2</code> — Standard Jinja2 template extension</li>
-<li><code>.jinja2</code> — Alternative Jinja2 extension</li>
+<li>Enabling FTS for the first time or switching storage backends</li>
+<li>Datus reports an index status of <code>missing</code>, <code>legacy</code>, or <code>version_mismatch</code></li>
+<li>An earlier build was interrupted or the index is incomplete</li>
+<li>An upgrade explicitly requires rebuilding the FTS index</li>
 </ul>
-<h3 id="single-template-file">Single Template File<a class="headerlink" href="#single-template-file" title="Permanent link">&para;</a></h3>
-<p>Each <code>.j2</code> file can contain a single SQL template with Jinja2 parameters:</p>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">`</span><span class="k">Free</span><span class="w"> </span><span class="n">Meal</span><span class="w"> </span><span class="k">Count</span><span class="w"> </span><span class="p">(</span><span class="n">Ages</span><span class="w"> </span><span class="mi">5</span><span class="o">-</span><span class="mi">17</span><span class="p">)</span><span class="o">`</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">`</span><span class="n">Enrollment</span><span class="w"> </span><span class="p">(</span><span class="n">Ages</span><span class="w"> </span><span class="mi">5</span><span class="o">-</span><span class="mi">17</span><span class="p">)</span><span class="o">`</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">free_rate</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">frpm</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="o">`</span><span class="n">Educational</span><span class="w"> </span><span class="k">Option</span><span class="w"> </span><span class="k">Type</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;{{school_type}}&#39;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="o">`</span><span class="k">Free</span><span class="w"> </span><span class="n">Meal</span><span class="w"> </span><span class="k">Count</span><span class="w"> </span><span class="p">(</span><span class="n">Ages</span><span class="w"> </span><span class="mi">5</span><span class="o">-</span><span class="mi">17</span><span class="p">)</span><span class="o">`</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">`</span><span class="n">Enrollment</span><span class="w"> </span><span class="p">(</span><span class="n">Ages</span><span class="w"> </span><span class="mi">5</span><span class="o">-</span><span class="mi">17</span><span class="p">)</span><span class="o">`</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">free_rate</span><span class="w"> </span><span class="err">{{</span><span class="n">sort_order</span><span class="err">}}</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">LIMIT</span><span class="w"> </span><span class="err">{{</span><span class="k">limit</span><span class="err">}}</span>
+<h2 id="switch-back-to-vector-search">Switch back to vector search<a class="headerlink" href="#switch-back-to-vector-search" title="Permanent link">&para;</a></h2>
+<p>Change the configuration and rebuild metadata so the vector store and embeddings are current:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">kb</span><span class="p">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">search</span><span class="p">:</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vector</span>
 </span></code></pre></div>
-<h3 id="multi-template-file">Multi-Template File<a class="headerlink" href="#multi-template-file" title="Permanent link">&para;</a></h3>
-<p>Multiple templates in one file, separated by semicolons (<code>;</code>):</p>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">T2</span><span class="p">.</span><span class="n">Zip</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">frpm</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">T1</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">schools</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">CDSCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T2</span><span class="p">.</span><span class="n">CDSCode</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="o">`</span><span class="n">District</span><span class="w"> </span><span class="n">Name</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;{{district_name}}&#39;</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="o">`</span><span class="n">Charter</span><span class="w"> </span><span class="n">School</span><span class="w"> </span><span class="p">(</span><span class="n">Y</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">Phone</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">schools</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">T1</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">satscores</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">T2</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">CDSCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T2</span><span class="p">.</span><span class="n">cds</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">T1</span><span class="p">.</span><span class="n">County</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;{{county}}&#39;</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">T2</span><span class="p">.</span><span class="n">NumTstTakr</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="err">{{</span><span class="n">max_test_takers</span><span class="err">}}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>datus-agent<span class="w"> </span>bootstrap-kb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>--datasource<span class="w"> </span>&lt;your_datasource&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>--components<span class="w"> </span>metadata<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>--kb_update_strategy<span class="w"> </span>overwrite
 </span></code></pre></div>
-<h3 id="jinja2-syntax-support">Jinja2 Syntax Support<a class="headerlink" href="#jinja2-syntax-support" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Variables</strong>: <code>{{ variable_name }}</code> — extracted as template parameters</li>
-<li><strong>Conditionals</strong>: <code>{% if condition %}...{% endif %}</code></li>
-<li><strong>Loops</strong>: <code>{% for item in items %}...{% endfor %}</code></li>
-<li><strong>Comments</strong>: <code>{# comment #}</code></li>
-</ul>
-<p>Semicolons inside Jinja2 block structures (<code>{% if %}</code>, <code>{% for %}</code>, etc.) are not treated as template delimiters.</p>
-<h3 id="format-requirements">Format Requirements<a class="headerlink" href="#format-requirements" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Semicolon Delimiter</strong>: Templates in a multi-template file must be separated by <code>;</code>. Put each template delimiter at the end of a statement line; multiple templates on the same physical line are not reliably split.</li>
-<li><strong>Valid Jinja2</strong>: Templates must pass Jinja2 syntax validation</li>
-<li><strong>SQL Content</strong>: Templates should produce valid SQL when rendered</li>
-</ol>
-<h2 id="parameter-type-system">Parameter Type System<a class="headerlink" href="#parameter-type-system" title="Permanent link">&para;</a></h2>
-<p>During bootstrap, each <code>{{ variable }}</code> placeholder is automatically analyzed to determine its type and context within the SQL. Table aliases (e.g., <code>T1</code>, <code>T2</code>) are resolved to real table names.</p>
-<h3 id="parameter-types">Parameter Types<a class="headerlink" href="#parameter-types" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Detection</th>
-<th>Enrichment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dimension</code></td>
-<td>Appears in <code>WHERE col = '{{param}}'</code></td>
-<td><code>column_ref</code> with real table.column; <code>sample_values</code> with top 10 most common values from the database</td>
-</tr>
-<tr>
-<td><code>column</code></td>
-<td>Appears in <code>GROUP BY {{param}}</code> or <code>SELECT {{param}}</code></td>
-<td><code>table_refs</code> listing involved tables; <code>sample_values</code> with available column names</td>
-</tr>
-<tr>
-<td><code>keyword</code></td>
-<td>Appears in <code>ORDER BY expr {{param}}</code></td>
-<td><code>allowed_values</code> with valid keywords (e.g., <code>["ASC", "DESC"]</code>)</td>
-</tr>
-<tr>
-<td><code>number</code></td>
-<td>Appears in <code>LIMIT {{param}}</code> or comparison operators</td>
-<td>—</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
-<p>Given this template:</p>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="err">{{</span><span class="n">group_column</span><span class="err">}}</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">school_count</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">FROM</span><span class="w"> </span><span class="n">frpm</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">WHERE</span><span class="w"> </span><span class="o">`</span><span class="n">Educational</span><span class="w"> </span><span class="k">Option</span><span class="w"> </span><span class="k">Type</span><span class="o">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;{{school_type}}&#39;</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">{{</span><span class="n">group_column</span><span class="err">}}</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">school_count</span><span class="w"> </span><span class="err">{{</span><span class="n">sort_order</span><span class="err">}}</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">LIMIT</span><span class="w"> </span><span class="err">{{</span><span class="k">limit</span><span class="err">}}</span>
-</span></code></pre></div>
-<p>The bootstrap process produces:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">[</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="p">{</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;group_column&quot;</span><span class="p">,</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;column&quot;</span><span class="p">,</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">&quot;table_refs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;frpm&quot;</span><span class="p">],</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nt">&quot;sample_values&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;CDSCode&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;County Name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;District Name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;School Name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Column name to group results by&quot;</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="p">{</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;school_type&quot;</span><span class="p">,</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="nt">&quot;column_ref&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;frpm.`Educational Option Type`&quot;</span><span class="p">,</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="nt">&quot;sample_values&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Traditional&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Continuation School&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Charter School&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">],</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Type of educational option to filter by&quot;</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span><span class="p">{</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sort_order&quot;</span><span class="p">,</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;keyword&quot;</span><span class="p">,</span>
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="nt">&quot;allowed_values&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ASC&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;DESC&quot;</span><span class="p">],</span>
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sort direction for results&quot;</span>
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">  </span><span class="p">{</span>
-</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;limit&quot;</span><span class="p">,</span>
-</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
-</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Maximum number of rows to return&quot;</span>
-</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="p">]</span>
-</span></code></pre></div>
-<p>When a parameter's SQL context can be resolved, this gives the LLM concrete candidate values or allowed keywords to use when calling <code>execute_reference_template</code>. Parameters whose context cannot be inferred are still stored, but may not include sample values.</p>
-<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
-<p>After bootstrapping, template tools are available only when the reference template store contains entries. The complete tool set is:</p>
-<h3 id="search_reference_template"><code>search_reference_template</code><a class="headerlink" href="#search_reference_template" title="Permanent link">&para;</a></h3>
-<p>Search templates by natural language query. Returns matching templates with name, raw template body, parameter metadata, summary, and tags.</p>
-<h3 id="get_reference_template"><code>get_reference_template</code><a class="headerlink" href="#get_reference_template" title="Permanent link">&para;</a></h3>
-<p>Retrieve a specific template by <code>subject_path</code> + <code>name</code>. Returns full template content, enriched parameters with <code>sample_values</code>, and summary.</p>
-<h3 id="render_reference_template"><code>render_reference_template</code><a class="headerlink" href="#render_reference_template" title="Permanent link">&para;</a></h3>
-<p>Render a template with provided parameter values using Jinja2. Returns the final SQL string without executing it. Uses <code>StrictUndefined</code> mode — missing parameters produce actionable error messages listing expected vs. provided parameters.</p>
-<h3 id="execute_reference_template"><code>execute_reference_template</code><a class="headerlink" href="#execute_reference_template" title="Permanent link">&para;</a></h3>
-<p>Render a template and immediately execute the resulting SQL (read-only). Combines <code>render_reference_template</code> + <code>read_query</code> in a single step. Returns both the rendered SQL and the query result rows.</p>
-<p>Note: <code>execute_reference_template</code> is exposed only when the tool instance has a database function tool. Chat and GenSQL nodes create or reuse a DB tool when wiring reference template tools, so they normally expose <code>execute_reference_template</code> when templates exist. Direct <code>ReferenceTemplateTools</code> instances without <code>db_func_tool</code> expose only search/get/render.</p>
-<h2 id="template-only-mode">Template-Only Mode<a class="headerlink" href="#template-only-mode" title="Permanent link">&para;</a></h2>
-<p>For use cases where the agent should only execute pre-approved templates (no ad-hoc SQL), a dedicated system prompt <code>ref_tpl</code> is available:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">agentic_nodes</span><span class="p">:</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">template_executor</span><span class="p">:</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deepseek-v3</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">system_prompt</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ref_tpl</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nt">prompt_version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1.0&#39;</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">max_turns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="nt">tools</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">context_search_tools.list_subject_tree, reference_template_tools.search_reference_template, reference_template_tools.get_reference_template, reference_template_tools.execute_reference_template</span>
-</span></code></pre></div>
-<p>In this mode, the agent:</p>
-<ul>
-<li><strong>MUST</strong> search templates first for every question</li>
-<li><strong>MUST</strong> use <code>execute_reference_template</code> when a match is found — never writes SQL manually</li>
-<li>Reports "no matching template found" if no template matches, and stops</li>
-</ul>
-<h2 id="data-flow">Data Flow<a class="headerlink" href="#data-flow" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Template Files (.j2)  →  File Processor  →  LLM Analysis  →  Parameter Analysis  →  Storage  →  Tools
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>       |                       |                  |                    |                |           |
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>   Parse blocks          Validate J2         Generate summary,   Infer types,       Vector DB   search/
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>   Extract params        Extract params      search_text,        merge descriptions + Indices  get/render/
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>   Split by ;            Filter invalid      subject_tree        query sample values            execute
-</span></code></pre></div>
-<h3 id="processing-pipeline">Processing Pipeline<a class="headerlink" href="#processing-pipeline" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>File Discovery</strong>: Find <code>.j2</code>/<code>.jinja2</code> files in the template directory</li>
-<li><strong>Block Splitting</strong>: Split multi-template files by semicolons (respecting Jinja2 blocks)</li>
-<li><strong>Validation</strong>: Validate Jinja2 syntax for each template block</li>
-<li><strong>Parameter Extraction</strong>: Extract undeclared variables via <code>jinja2.meta.find_undeclared_variables()</code></li>
-<li><strong>LLM Analysis</strong>: Generate business summary, search text, subject tree, tags, and parameter descriptions using <code>SqlSummaryAgenticNode</code> in workflow mode with <code>storage_type="reference_template"</code></li>
-<li><strong>Parameter Analysis</strong>: Infer parameter types, resolve table aliases to real table names, and query sample values from the database</li>
-<li><strong>Merge</strong>: Combine statically-analyzed parameter types with LLM-generated descriptions and keyword allowed values</li>
-<li><strong>Storage</strong>: Store enriched template data in vector store</li>
-<li><strong>Indexing</strong>: Create search indices for efficient retrieval</li>
-</ol>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>Reference Template transforms parameterized SQL templates into an intelligent, searchable knowledge base. It bridges the gap between flexible LLM-driven SQL generation and the stability requirements of production environments.</p>
-<p><strong>Key Features:</strong></p>
-<ul>
-<li><strong>Parameterized SQL</strong>: Define query patterns with Jinja2 variables</li>
-<li><strong>Parameter Intelligence</strong>: Automatically infers types (<code>dimension</code>, <code>column</code>, <code>keyword</code>, <code>number</code>), resolves column references, and provides sample values</li>
-<li><strong>Semantic Search</strong>: Find templates by business intent</li>
-<li><strong>One-Step Execution</strong>: Search, render, and execute templates in a single tool call</li>
-<li><strong>Template-Only Mode</strong>: Dedicated system prompt to restrict agents to pre-approved templates only</li>
-<li><strong>Subject Tree Organization</strong>: Hierarchical classification for template discoverability</li>
-</ul>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="the-backend-does-not-support-fts">The backend does not support FTS<a class="headerlink" href="#the-backend-does-not-support-fts" title="Permanent link">&para;</a></h3>
+<p>An error mentioning an <code>FTS-capable vector backend</code> means the backend selected by <code>storage.vector</code> does not expose the required FTS operations. Use the built-in LanceDB backend, install an adapter version with FTS support, or keep <code>kb.search.mode: vector</code>.</p>
+<h3 id="the-index-is-missing-or-incompatible">The index is missing or incompatible<a class="headerlink" href="#the-index-is-missing-or-incompatible" title="Permanent link">&para;</a></h3>
+<p>Errors containing <code>missing</code>, <code>legacy</code>, or <code>version_mismatch</code> are intentionally not hidden by a vector fallback. Rebuild metadata with <code>--kb_update_strategy overwrite</code>.</p>
+<h3 id="incremental-update-fails-on-a-new-installation">Incremental update fails on a new installation<a class="headerlink" href="#incremental-update-fails-on-a-new-installation" title="Permanent link">&para;</a></h3>
+<p>Incremental mode only maintains an existing healthy index. Run one <code>overwrite</code> build first, then use <code>incremental</code> for later changes.</p>
+<h3 id="bootstrap-used-fts-but-normal-sessions-still-use-vector-search">Bootstrap used FTS but normal sessions still use vector search<a class="headerlink" href="#bootstrap-used-fts-but-normal-sessions-still-use-vector-search" title="Permanent link">&para;</a></h3>
+<p>If the build command used <code>--kb_search_mode fts</code> without updating <code>agent.yml</code>, only that command used FTS. Add <code>kb.search.mode: fts</code> to the persistent configuration and run the read-only check again.</p>
+<h3 id="results-miss-conceptually-related-tables">Results miss conceptually related tables<a class="headerlink" href="#results-miss-conceptually-related-tables" title="Permanent link">&para;</a></h3>
+<p>FTS ranks text matches; it does not infer semantic similarity. Add clearer business descriptions or semantic profiles to the metadata, search with terms that appear in the schema, or switch back to vector mode for paraphrase-heavy workloads.</p>
+<div class="admonition tip">
+<p class="admonition-title">Embeddings for other components</p>
+<p>FTS avoids embeddings for metadata only. If you also build metrics, reference SQL, documents, or other vector-backed components, keep their embedding configuration and credentials available.</p>
+</div>
 
 
 
@@ -5104,7 +4616,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../reference_sql/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Reference SQL">
+          <a href="../metadata/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Metadata">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5114,20 +4626,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Reference SQL
+                Metadata
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../workflow/introduction/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction">
+          <a href="../semantic_model/" class="md-footer__link md-footer__link--next" aria-label="Next: Semantic Models">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Introduction
+                Semantic Models
               </div>
             </div>
             <div class="md-footer__button md-icon">

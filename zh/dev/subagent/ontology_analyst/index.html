@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.datus.ai/zh/dev/dev/adapters/metricflow_semantic_adapter/">
+        <link rel="canonical" href="https://docs.datus.ai/zh/dev/dev/subagent/ontology_analyst/">
       
       
-        <link rel="prev" href="../semantic_adapters/">
+        <link rel="prev" href="../ask_metrics/">
       
       
-        <link rel="next" href="../osi_semantic_adapter/">
+        <link rel="next" href="../gen_sql_summary/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>MetricFlow 语义适配器 - Datus Docs</title>
+        <title>Ontology 分析 - Datus Docs</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#metricflow" class="md-skip">
+        <a href="#ontologyanalyst" class="md-skip">
           跳转至
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MetricFlow 语义适配器
+              Ontology 分析
             
           </span>
         </div>
@@ -354,6 +354,8 @@
       
         
           
+        
+      
         
       
         
@@ -1094,8 +1096,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1119,6 +1123,8 @@
       
         
       
+        
+      
     
     
     
@@ -1126,11 +1132,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" checked>
         
           
           <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
@@ -1151,7 +1157,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1169,7 +1175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         
   
   
@@ -1197,7 +1203,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/builtin_subagents/" class="md-nav__link">
+      <a href="../builtin_subagents/" class="md-nav__link">
         
   
   
@@ -1225,7 +1231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/customized_subagent/" class="md-nav__link">
+      <a href="../customized_subagent/" class="md-nav__link">
         
   
   
@@ -1253,7 +1259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/semantic_modeling/" class="md-nav__link">
+      <a href="../semantic_modeling/" class="md-nav__link">
         
   
   
@@ -1281,7 +1287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/ask_metrics/" class="md-nav__link">
+      <a href="../ask_metrics/" class="md-nav__link">
         
   
   
@@ -1306,10 +1312,273 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology 分析
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ontology 分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        概述
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前置条件
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速上手：航空示例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="快速上手：航空示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 准备项目目录和数据库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 注册数据源
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ontologyanalyst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 启动并切换到 OntologyAnalyst
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 提问并核对答案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 观察代理的过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 常见问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用方式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        工作方式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        默认工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ontologyanalyst_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自定义 OntologyAnalyst 代理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        限制
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#askmetrics-ontologyanalyst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AskMetrics 还是 OntologyAnalyst
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_sql_summary/" class="md-nav__link">
+      <a href="../gen_sql_summary/" class="md-nav__link">
         
   
   
@@ -1337,7 +1606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_table/" class="md-nav__link">
+      <a href="../gen_table/" class="md-nav__link">
         
   
   
@@ -1365,7 +1634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_job/" class="md-nav__link">
+      <a href="../gen_job/" class="md-nav__link">
         
   
   
@@ -1393,7 +1662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_visual_report/" class="md-nav__link">
+      <a href="../gen_visual_report/" class="md-nav__link">
         
   
   
@@ -1421,7 +1690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../subagent/gen_visual_dashboard/" class="md-nav__link">
+      <a href="../gen_visual_dashboard/" class="md-nav__link">
         
   
   
@@ -4098,10 +4367,36 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semantic/dosi_engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
+  
+    语义引擎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
   
   
   
+  
     
     
       
@@ -4111,8 +4406,6 @@
       
         
       
-        
-      
     
     
     
@@ -4120,14 +4413,14 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_13" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_14" >
         
           
-          <label class="md-nav__link" for="__nav_1_13" id="__nav_1_13_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_14" id="__nav_1_14_label" tabindex="0">
             
   
   
@@ -4145,8 +4438,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_13_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_1_13">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_14">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4163,7 +4456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../db_adapters/" class="md-nav__link">
+      <a href="../../adapters/db_adapters/" class="md-nav__link">
         
   
   
@@ -4188,316 +4481,10 @@
                 
   
   
-    
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_13_2" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_1_13_2" id="__nav_1_13_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    语义层适配器
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_13_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_1_13_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    语义层适配器
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
-      <a href="../semantic_adapters/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    概览
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MetricFlow 语义适配器
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    MetricFlow 语义适配器
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        安装
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        配置
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        语义模型目录
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        旧格式源模型
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        查询流程
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        支持的查询能力
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        其他语义格式
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../osi_semantic_adapter/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    OSI 语义适配器
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../dosi_semantic_adapter/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dosi Semantic Adapter
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../bi_adapters/" class="md-nav__link">
+      <a href="../../adapters/bi_adapters/" class="md-nav__link">
         
   
   
@@ -4525,7 +4512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scheduler_adapters/" class="md-nav__link">
+      <a href="../../adapters/scheduler_adapters/" class="md-nav__link">
         
   
   
@@ -4576,10 +4563,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_14" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_15" >
         
           
-          <label class="md-nav__link" for="__nav_1_14" id="__nav_1_14_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_15" id="__nav_1_15_label" tabindex="0">
             
   
   
@@ -4597,8 +4584,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_14_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_14">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_15">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4670,10 +4657,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_15" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_16" >
         
           
-          <label class="md-nav__link" for="__nav_1_15" id="__nav_1_15_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_16" id="__nav_1_16_label" tabindex="0">
             
   
   
@@ -4691,8 +4678,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_15_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_15">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_16">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4816,10 +4803,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_16" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_17" >
         
           
-          <label class="md-nav__link" for="__nav_1_16" id="__nav_1_16_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_1_17" id="__nav_1_17_label" tabindex="0">
             
   
   
@@ -4837,8 +4824,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_16_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_16">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_17">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4910,7 +4897,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_17" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_18" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -4932,14 +4919,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_1_17" id="__nav_1_17_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_1_18" id="__nav_1_18_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_17_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_1_17">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_18">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -5079,7 +5066,7 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        安装
+        概述
       
     </span>
   </a>
@@ -5090,7 +5077,7 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        配置
+        前置条件
       
     </span>
   </a>
@@ -5101,10 +5088,82 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        语义模型目录
+        快速上手：航空示例
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="快速上手：航空示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 准备项目目录和数据库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 注册数据源
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ontologyanalyst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 启动并切换到 OntologyAnalyst
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 提问并核对答案
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 观察代理的过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 常见问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -5112,7 +5171,7 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        旧格式源模型
+        使用方式
       
     </span>
   </a>
@@ -5123,7 +5182,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        查询流程
+        工作方式
       
     </span>
   </a>
@@ -5134,7 +5193,7 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        支持的查询能力
+        默认工具
       
     </span>
   </a>
@@ -5145,7 +5204,46 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        其他语义格式
+        配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ontologyanalyst_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自定义 OntologyAnalyst 代理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        限制
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#askmetrics-ontologyanalyst" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AskMetrics 还是 OntologyAnalyst
       
     </span>
   </a>
@@ -5169,7 +5267,7 @@
 
 
   
-    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/adapters/metricflow_semantic_adapter.zh.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/subagent/ontology_analyst.zh.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -5177,90 +5275,328 @@
   
 
 
-<h1 id="metricflow">MetricFlow 语义适配器<a class="headerlink" href="#metricflow" title="Permanent link">&para;</a></h1>
-<p>MetricFlow 语义适配器把 Datus Agent 连接到已有的 MetricFlow 原生 semantic model 和 metric YAML 文件。</p>
-<blockquote>
-<p><strong>仅查询兼容：</strong>已有 MetricFlow 项目仍可查询，但 Datus 不再生成或编辑 MetricFlow 语义 YAML。
-新的语义创作只允许在 Dosi 项目中通过 <code>semantic_modeling</code> 完成。</p>
-</blockquote>
-<p>当团队仍通过外部工具或流程维护 MetricFlow 源文件时，适合使用这个适配器。
-MetricFlow 不再默认安装或选择，需要显式配置。</p>
-<h2 id="_1">安装<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>datus-semantic-metricflow
-</span></code></pre></div>
-<p>从源码安装：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>../datus-semantic-adapter/datus-semantic-core
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>../datus-semantic-adapter/datus-semantic-metricflow
-</span></code></pre></div>
-<h2 id="_2">配置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">agent</span><span class="p">:</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">semantic_layer</span><span class="p">:</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">metricflow</span><span class="p">:</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="nt">config_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./conf/agent.yml</span><span class="w">   </span><span class="c1"># 可选高级覆盖项</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                   </span><span class="c1"># 多个 adapter 并存时显式选择</span>
-</span></code></pre></div>
-<p><code>config_path</code> 是可选项。正常情况下，Datus 会从以下信息构造 MetricFlow 运行时配置：</p>
-<ol>
-<li><code>services.datasources</code> 中选中的数据源</li>
-<li>当前项目的 semantic model 目录</li>
-<li>当前生效的 <code>agent.home</code></li>
-</ol>
-<h2 id="_3">语义模型目录<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>默认情况下，Datus 会把 MetricFlow 指向当前项目的语义模型目录：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>{project_root}/subject/semantic_models/
-</span></code></pre></div>
-<p>该目录下已有的 YAML 都会参与验证，即使这些文件是项目本地文件或被 gitignore 忽略。</p>
-<h2 id="_4">旧格式源模型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>MetricFlow 项目直接加载 MetricFlow YAML。</p>
-<p>语义模型文件使用 <code>data_source</code> 文档：</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">data_source</span><span class="p">:</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">orders</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">sql_table</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public.orders</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">identifiers</span><span class="p">:</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">order_id</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">primary</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">order_id</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nt">dimensions</span><span class="p">:</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">order_date</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">time</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="nt">type_params</span><span class="p">:</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="nt">is_primary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="nt">time_granularity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">day</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span><span class="nt">measures</span><span class="p">:</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">revenue_sum</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">      </span><span class="nt">agg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sum</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">      </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">amount</span>
-</span></code></pre></div>
-<p>指标文件使用 <code>metric</code> 文档：</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">metric</span><span class="p">:</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">revenue</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">measure_proxy</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">type_params</span><span class="p">:</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">measures</span><span class="p">:</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">revenue_sum</span>
-</span></code></pre></div>
-<h2 id="_5">查询流程<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>当 MetricFlow 是 active semantic layer 时，已有资产继续支持：</p>
-<ol>
-<li><code>validate_semantic()</code> 校验完整 MetricFlow model。</li>
-<li><code>query_metrics(...)</code> 编译并执行已有指标。</li>
-<li><code>ask_metrics</code>、指标预览、API 指标查询、report 和 dashboard 复用同一查询链路。</li>
-</ol>
-<p>已退役的 <code>gen_semantic_model</code> 和 <code>gen_metrics</code> 会返回明确错误，提示迁移到 Dosi 并使用 <code>semantic_modeling</code>。</p>
-<h2 id="_6">支持的查询能力<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>该适配器支持通用 semantic adapter 方法：</p>
+<h1 id="ontologyanalyst">OntologyAnalyst 指南<a class="headerlink" href="#ontologyanalyst" title="Permanent link">&para;</a></h1>
+<h2 id="_1">概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><code>ontology_analyst</code> 是内置子代理，用于回答带有 <a href="https://github.com/apache/ossie">Apache Ossie</a> ontology 的数据源上的数据问题。它和 <a href="../ask_metrics/">AskMetrics</a> 一样只走语义层、不写裸 SQL，但还会读取 ontology，从中获得语义模型本身没有的四类信息：</p>
 <ul>
-<li><code>list_metrics</code></li>
-<li><code>get_dimensions</code></li>
-<li><code>query_metrics</code></li>
-<li><code>validate_semantic</code></li>
+<li><strong>主语概念</strong>：概念目录（Flight、Airport、FlightAlert……）从第一轮起就在上下文里，不用猜问题落在哪张表。</li>
+<li><strong>允许的过滤值</strong>：<code>FlightAlert.status</code> 这类属性带有封闭值域（<code>OPEN</code>、<code>RESOLVED</code>）。猜错的字面量（如 <code>'unresolved'</code>）会在编译前被 Dosi 拒绝，并返回允许值。</li>
+<li><strong>关系角色</strong>：航班通过 <code>arrives_at</code>（目的地）和 <code>departs_from</code>（出发地）两种方式到达机场。代理会列出所有路径、查看 ontology 声明哪些等价，再按问题选择对应角色。</li>
+<li><strong>指标从哪里分组</strong>：指标从错误的概念分组时，Dosi 会给出正确的根路径，例如用 <code>Delay.flight.arrives_at.code</code> 代替 <code>Flight.arrives_at.code</code>。</li>
 </ul>
-<p>MetricFlow 按自身模型处理 SQL 生成、join、时间粒度、metric constraint、cumulative metric、ratio metric、expression metric 和 derived metric。</p>
-<p>底层 MetricFlow 引擎概念和支持的数据仓库见 <a href="../../metricflow/introduction/">Datus-MetricFlow 介绍</a>。</p>
-<h2 id="_7">其他语义格式<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p>如需查询已有 strict OSI core YAML，请使用 <a href="../osi_semantic_adapter/">OSI 语义适配器</a>。新的语义创作请使用 Dosi。</p>
+<p>OntologyAnalyst 还能返回<strong>明细记录</strong>，例如“列出飞往 JFK 的航班上未关闭的 P1 告警”，这是 AskMetrics 做不到的。</p>
+<h2 id="_2">前置条件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>数据源在 <code>subject/semantic_models/&lt;datasource&gt;/</code> 下有可执行的语义模型（与 AskMetrics 相同）。唯一的例外是把模型内联在映射文档里的写法（见下文），这时不需要模型文件。</li>
+<li>
+<p>ontology 放在 <code>subject/semantic_models/ontology/&lt;datasource&gt;/</code> 下，并配一份 Apache Ossie <strong>映射文档</strong>（mapping document），说明它绑定哪个模型：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>subject/semantic_models/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── aviation/
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│   └── aviation.yaml            # OSI 语义模型，名为 "aviation"
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>└── ontology/
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    └── aviation/
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        ├── ontology.yaml        # Ossie ontology
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        └── mapping.yaml         # ontology_ref → ontology.yaml，semantic_model_ref → "aviation"
+</span></code></pre></div>
+<p>映射文档的 <code>semantic_model_ref.name</code> 决定配对哪个模型文件：语义模型名字相同的那个。<code>ontology_ref</code> 通过 <code>iri</code>（相对映射文档所在目录）找到 ontology；没写 <code>iri</code> 时，按名字在目录里的文件中查找。映射文档也可以把 ontology 和模型都内联在 <code>document:</code> 下，这时完全不需要模型文件。</p>
+<p>旧写法仍然可用：一个 ontology 文件在 <code>ontology_mappings</code> 里内嵌映射，文件名与它描述的模型文件相同。数据源只有一个模型文件和一个 ontology 文件时，文件名可以不同。</p>
+<p>配不上任何东西的文件、两份映射指向同一个模型，都会被报告出来，不会自动猜测。文件类型按内容区分，与文件名无关。数据源不能命名为 <code>ontology</code>。</p>
+</li>
+<li>
+<p>安装的 <code>dosi-engine</code> 需要提供 ontology API（<code>Engine.describe</code> / <code>Engine.paths</code>）。使用映射文档时，还需要 <code>Engine</code> 支持 <code>mapping_path</code> 参数的版本（<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/Datus-ai/osi-engine/issues/303" title="GitHub Issue: Datus-ai/osi-engine #303">osi-engine#303</a> 及之后）。旧的内嵌写法在两种版本上都能用。</p>
+</li>
+</ol>
+<p>只有 OntologyAnalyst 会加载 ontology，AskMetrics 和其他代理继续使用原模型。</p>
+<p>缺少任何前置条件时，OntologyAnalyst 会在第一轮拒绝执行，说明缺了什么，并引导使用 <code>ask_metrics</code>；它不会在没有提示的情况下退化成普通指标问答。只有当前数据源的 ontology 目录里至少有一个文件时，主代理才会提供 <code>ontology_analyst</code> 作为可委派的子代理。</p>
+<h2 id="_3">快速上手：航空示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>本节用 Datus-agent 仓库自带的航空示例（Dosi aviation 场景）完整体验一遍。数据很小，每个答案都可以手工核对：</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tests/data/semantic_models/aviation/aviation.yaml</code></td>
+<td>OSI 语义模型 <code>aviation</code>：9 张表，以及延误、告警、载客等指标</td>
+</tr>
+<tr>
+<td><code>tests/data/semantic_models/ontology/aviation-mapping-document/ontology.yaml</code></td>
+<td>Ossie ontology：Flight、Airport、FlightAlert、Delay 等概念，以及它们之间的角色和值域</td>
+</tr>
+<tr>
+<td><code>tests/data/semantic_models/ontology/aviation-mapping-document/mapping.yaml</code></td>
+<td>映射文档，把上面的 ontology 绑定到 <code>aviation</code> 模型</td>
+</tr>
+<tr>
+<td><code>tests/data/semantic_models/ontology/aviation/aviation.yaml</code></td>
+<td>同一个 ontology 的旧内嵌写法（ontology 和映射在同一个文件里）</td>
+</tr>
+<tr>
+<td><code>tests/data/semantic_models/aviation/seed.sql</code></td>
+<td>种子数据：13 个航班、延误和告警记录</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1">1. 准备项目目录和数据库<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>Datus 以启动时的当前目录作为项目根目录，<code>subject/</code> 也放在这个目录下。把下面的 <code>DATUS_REPO</code> 换成你本地 Datus-agent 仓库的路径：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DATUS_REPO</span><span class="o">=</span>~/src/Datus-agent
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ontology-demo<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/ontology-demo
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># 语义模型、ontology 和映射文档，按约定的目录放置</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>subject/semantic_models/aviation<span class="w"> </span>subject/semantic_models/ontology/aviation
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>cp<span class="w"> </span><span class="nv">$DATUS_REPO</span>/tests/data/semantic_models/aviation/aviation.yaml<span class="w"> </span>subject/semantic_models/aviation/
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>cp<span class="w"> </span><span class="nv">$DATUS_REPO</span>/tests/data/semantic_models/ontology/aviation-mapping-document/<span class="o">{</span>ontology,mapping<span class="o">}</span>.yaml<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">   </span>subject/semantic_models/ontology/aviation/
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># 用种子数据生成 DuckDB 数据库（duckdb 随 Datus 一起安装）</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import duckdb, pathlib; duckdb.connect('aviation.duckdb').execute(pathlib.Path('</span><span class="nv">$DATUS_REPO</span><span class="s2">/tests/data/semantic_models/aviation/seed.sql').read_text())"</span>
+</span></code></pre></div>
+<p>完成后的目录结构：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>~/ontology-demo/
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── aviation.duckdb
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>└── subject/semantic_models/
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    ├── aviation/aviation.yaml
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    └── ontology/aviation/
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        ├── ontology.yaml
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        └── mapping.yaml
+</span></code></pre></div>
+<p><code>mapping.yaml</code> 用 <code>semantic_model_ref.name: aviation</code> 指定模型，对应的是 <code>aviation.yaml</code> 里的 <code>name</code>，与文件名无关。它的 <code>semantic_model_ref.iri</code>（<code>./model.yaml</code>）在这里用不到，因为 Datus 会把匹配到的模型文件直接交给引擎。</p>
+<p>想试旧的内嵌写法，就把 <code>tests/data/semantic_models/ontology/aviation/aviation.yaml</code> 这一个文件放进 <code>subject/semantic_models/ontology/aviation/</code>，替代上面两个文件。下面的答案不变。</p>
+<div class="admonition tip">
+<p class="admonition-title">单文件写法</p>
+<p>映射文档也可以把 ontology 和模型都内联在 <code>document:</code> 下。这时数据源只有 <code>subject/semantic_models/ontology/&lt;datasource&gt;/mapping.yaml</code>，不需要模型目录。<code>tests/data/semantic_models/ontology/mini-flights-inline/</code> 是一个小例子，自带 <code>seed.sql</code>。</p>
+</div>
+<h3 id="2">2. 注册数据源<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>在 <code>agent.yml</code>（默认位于 <code>~/.datus/conf/agent.yml</code>）中添加数据源。<strong>数据源名必须与目录名 <code>aviation</code> 一致</strong>：</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">agent</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">datasources</span><span class="p">:</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span><span class="nt">aviation</span><span class="p">:</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">duckdb</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/ontology-demo/aviation.duckdb</span>
+</span></code></pre></div>
+<h3 id="3-ontologyanalyst">3. 启动并切换到 OntologyAnalyst<a class="headerlink" href="#3-ontologyanalyst" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>~/ontology-demo
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>datus<span class="w"> </span>--datasource<span class="w"> </span>aviation
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>/agent ontology_analyst
+</span></code></pre></div>
+<p>也可以留在主对话中，主代理检测到该数据源有 ontology 后会自动委派；或者在单个问题末尾加 <code>@Agent ontology_analyst</code>。</p>
+<h3 id="4">4. 提问并核对答案<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>以下问题都按业务人员的口吻提出，不包含指标名或字段名。“考察点”一列说明 ontology 在其中起什么作用。</p>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>预期答案</th>
+<th>考察点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>飞往 JFK 的航班里，有哪些未关闭的 P1 告警？给出告警号、类型、航班号和机场名。</td>
+<td>A007（WEATHER，SK202）和 A011（AIR_TRAFFIC，UA402），机场为 John F. Kennedy International Airport</td>
+<td>明细查询；两跳 + 到达角色；“未关闭”需要映射到值域里的 <code>OPEN</code></td>
+</tr>
+<tr>
+<td>现在还有多少未解决的告警？按优先级分。</td>
+<td>P0 1 条、P1 3 条、P2 4 条，共 8 条</td>
+<td>“未解决”不是合法值，需要映射到 <code>OPEN</code></td>
+</tr>
+<tr>
+<td>哪个目的地机场的延误航班最多？列出各目的地机场的延误航班数。</td>
+<td>LAX 3、JFK 2、SFO 2、SEA 1</td>
+<td>指标要以 <code>Delay</code> 为根分组，经由 <code>arrives_at</code> 角色</td>
+</tr>
+<tr>
+<td>按出发机场统计，哪个机场的延误航班最多？列出各出发机场的延误航班数。</td>
+<td>SFO 6、JFK 1、LAS 1</td>
+<td>同一个指标换成 <code>departs_from</code> 角色。如果答案和上一题相同，说明角色混淆了</td>
+</tr>
+<tr>
+<td>只看计划在 2026-08-14 和 2026-08-15 这两天起飞的航班，各目的地机场分别有多少延误航班？</td>
+<td>JFK 1、LAX 1、SFO 1，不应出现 SEA</td>
+<td>时间轴来自 <code>Delay.flight.scheduled_departure</code></td>
+</tr>
+<tr>
+<td>哪些延误的航班同时有告警？列出航班号、延误分钟数和告警数。</td>
+<td>SK202 95/2、SK103 60/2、SK201 55/1、SK102 42/2、UA303 30/1、UA401 29/1、UA302 25/1</td>
+<td>两个子集合（延误、告警）挂在同一航班下，必须按航班分组，不能做明细 join（否则分钟数会被放大）</td>
+</tr>
+</tbody>
+</table>
+<p>每个问题建议开一个新会话（<code>/clear</code>），避免上一题的发现影响下一题。</p>
+<h3 id="5">5. 观察代理的过程<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>工具调用会显示在对话中，重点看下面几项：</p>
+<ul>
+<li><code>describe_concept("FlightAlert")</code> 返回的 <code>FlightAlert.status</code> 带有 <code>domain: [OPEN, RESOLVED]</code>；</li>
+<li><code>find_concept_paths("Flight", "Airport")</code> 返回 4 条路径和 2 组等价关系，说明“机场”实际只有两种含义；</li>
+<li>如果代理先用了 <code>'unresolved'</code> 这样的字面量，会收到 <code>value_not_in_domain</code> 和允许值列表，随后改用 <code>OPEN</code> 重试；</li>
+<li>如果代理用 <code>Flight.arrives_at.code</code> 对 <code>delayed_flights</code> 分组，会收到 <code>invalid_relationship_path</code>，<code>candidates</code> 中给出 <code>Delay.flight.arrives_at.code</code>，代理随后按它重试。</li>
+</ul>
+<h3 id="6">6. 常见问题<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>提示信息</th>
+<th>原因和处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ontology_analyst is unavailable: no ontology for datasource 'aviation'</code></td>
+<td><code>subject/semantic_models/ontology/aviation/</code> 不存在或为空；检查目录名与数据源名一致，以及是否在项目根目录启动</td>
+</tr>
+<tr>
+<td><code>... pair with no semantic model file</code></td>
+<td>映射文档的 <code>semantic_model_ref.name</code> 对不上任何模型（或两份映射指向同一个模型），旧写法的 ontology 没有同名的模型文件，或者该文件既不是 ontology 也不是映射文档（语义模型应放在 <code>subject/semantic_models/&lt;datasource&gt;/</code> 下）；修正映射文档里的名字、把 ontology 改成与对应模型同名，或把该文件移出目录</td>
+</tr>
+<tr>
+<td><code>the installed dosi-engine binding cannot describe ontologies</code></td>
+<td>安装的 <code>dosi-engine</code> 版本过旧，升级到提供 <code>Engine.describe</code> / <code>Engine.paths</code> 的版本</td>
+</tr>
+<tr>
+<td><code>... ontology_federation_unsupported</code></td>
+<td>旧写法的 ontology 内嵌了多个 <code>ontology_mappings</code>；拆成映射文档，每个模型一份</td>
+</tr>
+<tr>
+<td><code>... is an Ossie mapping document, and the installed dosi-engine cannot load one</code></td>
+<td>安装的 <code>dosi-engine</code> 不支持映射文档，请升级</td>
+</tr>
+<tr>
+<td>主代理不委派给 <code>ontology_analyst</code></td>
+<td>只有当前数据源有 ontology 文件时才会提供；可以用 <code>/agent ontology_analyst</code> 或 <code>@Agent ontology_analyst</code> 显式指定</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_4">使用方式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>直接在主对话中提问。数据源有 ontology 时，主代理会自动委派合适的问题：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>飞往 JFK 的航班里，有哪些未关闭的 P1 告警？给出告警号、航班号和机场名。
+</span></code></pre></div>
+<p>显式路由单个问题：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>哪个目的地机场的延误航班最多？ @Agent ontology_analyst
+</span></code></pre></div>
+<p>连续提问：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>/agent ontology_analyst
+</span></code></pre></div>
+<p>Web/API 调用方使用 <code>subagent_id: "ontology_analyst"</code>。</p>
+<h2 id="_5">工作方式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph LR
+    A[问题] --&gt; B[从目录选主语概念]
+    B --&gt; C[describe_concept]
+    C --&gt; D{有多种方式到达同一概念?}
+    D --&gt;|是| E[find_concept_paths 按角色选择]
+    D --&gt;|否| F{聚合还是明细?}
+    E --&gt; F
+    F --&gt;|聚合| G[query_metrics 以指标所在概念为根]
+    F --&gt;|明细| H[select_records]
+    G --&gt; I[Markdown 回答]
+    H --&gt; I</code></pre>
+<p><code>FlightAlert.flight.arrives_at.name</code> 这样的概念路径可以用在任何接受字段的地方：<code>query_metrics</code> 的维度和过滤条件，以及 <code>select_records</code> 的字段和过滤条件。Dosi 编译出的 SQL 与 dataset 写法相同。<code>value_not_in_domain</code>、<code>invalid_relationship_path</code>、<code>unknown_concept</code> 等拒绝会作为结构化工具结果返回，附带 <code>candidates</code>、<code>hint</code>、<code>detail</code>，代理据此重试。</p>
+<h2 id="_6">默认工具<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>semantic_tools.describe_concept</code></td>
+<td>概念目录，或单个概念的属性、值域、链接、可分组指标和时间轴</td>
+</tr>
+<tr>
+<td><code>semantic_tools.find_concept_paths</code></td>
+<td>两个概念之间的所有命名路径（最多 3 跳），附角色和等价关系</td>
+</tr>
+<tr>
+<td><code>semantic_tools.select_records</code></td>
+<td>以某个概念为根的明细查询（默认 200 行，完整结果会缓存）</td>
+</tr>
+<tr>
+<td><code>semantic_tools.list_metrics</code></td>
+<td>列出可执行指标</td>
+</tr>
+<tr>
+<td><code>semantic_tools.get_metric</code></td>
+<td>描述单个指标</td>
+</tr>
+<tr>
+<td><code>semantic_tools.query_metrics</code></td>
+<td>查询指标值</td>
+</tr>
+<tr>
+<td><code>semantic_tools.attribution_analyze</code></td>
+<td>跨维度解释指标变化</td>
+</tr>
+<tr>
+<td><code>context_search_tools.search_metrics</code></td>
+<td>按措辞查找候选指标</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">配置<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">agent</span><span class="p">:</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">agentic_nodes</span><span class="p">:</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">ontology_analyst</span><span class="p">:</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">      </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">claude</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">      </span><span class="nt">max_turns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">      </span><span class="c1"># 启动时内联到提示词的概念数上限，超过后只列概念名</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">      </span><span class="nt">concept_catalog_prompt_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60</span>
+</span></code></pre></div>
+<h3 id="ontologyanalyst_1">自定义 OntologyAnalyst 代理<a class="headerlink" href="#ontologyanalyst_1" title="Permanent link">&para;</a></h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">agent</span><span class="p">:</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">agentic_nodes</span><span class="p">:</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="nt">flight_ops</span><span class="p">:</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ontology_analyst</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">      </span><span class="nt">agent_description</span><span class="p">:</span><span class="w"> </span><span class="s">"回答航班运营问题。"</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">      </span><span class="nt">tools</span><span class="p">:</span><span class="w"> </span><span class="s">"semantic_tools.describe_concept,semantic_tools.find_concept_paths,semantic_tools.select_records,semantic_tools.query_metrics"</span>
+</span></code></pre></div>
+<p>自定义代理会先查找自己的提示词模板（<code>flight_ops_system_1.0.j2</code>），找不到时回退到内置的 <code>ontology_analyst_system</code> 模板。</p>
+<h2 id="_8">限制<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>以下限制来自 Dosi 的 ontology 支持：</p>
+<ul>
+<li>路径搜索最多 3 跳。</li>
+<li>存放在其他概念表上的概念（例如存放在机场表上的州）不能作为查询根。</li>
+<li>值域只对 <code>=</code> 和 <code>IN</code> 字面量做检查，不检查范围。</li>
+<li>n 元关系和行级 <code>derived_by</code> 不会下沉到模型中。</li>
+<li>ontology 没有映射的模型字段（例如距离分段）无法通过概念路径访问，但仍可以使用 <code>dataset.field</code> 写法。</li>
+</ul>
+<h2 id="askmetrics-ontologyanalyst">AskMetrics 还是 OntologyAnalyst<a class="headerlink" href="#askmetrics-ontologyanalyst" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据源没有 ontology</td>
+<td><a href="../ask_metrics/">ask_metrics</a></td>
+</tr>
+<tr>
+<td>有 ontology 的数据源上的 KPI 和趋势</td>
+<td><code>ontology_analyst</code></td>
+</tr>
+<tr>
+<td>答案取决于关系角色（出发地还是目的地）</td>
+<td><code>ontology_analyst</code></td>
+</tr>
+<tr>
+<td>列出明细记录</td>
+<td><code>ontology_analyst</code></td>
+</tr>
+<tr>
+<td>在原始表上生成或修复 SQL</td>
+<td><a href="../builtin_subagents/#gen_sql">gen_sql</a></td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -5290,7 +5626,7 @@ MetricFlow 不再默认安装或选择，需要显式配置。</p>
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../semantic_adapters/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 概览">
+          <a href="../ask_metrics/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 指标问答">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -5300,20 +5636,20 @@ MetricFlow 不再默认安装或选择，需要显式配置。</p>
                 上一页
               </span>
               <div class="md-ellipsis">
-                概览
+                指标问答
               </div>
             </div>
           </a>
         
         
           
-          <a href="../osi_semantic_adapter/" class="md-footer__link md-footer__link--next" aria-label="下一页: OSI 语义适配器">
+          <a href="../gen_sql_summary/" class="md-footer__link md-footer__link--next" aria-label="下一页: Generate SQL Summary">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                OSI 语义适配器
+                Generate SQL Summary
               </div>
             </div>
             <div class="md-footer__button md-icon">
